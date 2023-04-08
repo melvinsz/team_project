@@ -13,6 +13,9 @@
 //
 
 // import axios from 'axios'; 
+
+"use strict";
+
 import localStore from './local_storage.js'; 
 
 const BASE_URL = 'https://api.themoviedb.org/3';

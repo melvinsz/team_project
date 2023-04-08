@@ -1,3 +1,5 @@
+"use strict";
+
 const save = (key, value) => {
     try {
       const serializedState = JSON.stringify(value);
