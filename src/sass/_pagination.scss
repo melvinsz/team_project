@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    list-style: none;
 }
 
 .btn-pagination-back,
@@ -12,7 +11,7 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    background: #F7F7F7;
+    background-color: #F7F7F7;
     border-radius: 5px;
     transform: matrix(-1, 0, 0, 1, 0, 0);
     cursor: pointer;
@@ -24,12 +23,10 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 133%;
-    color: #FFFFFF;
-    background-color: #B92F2C;
+    color: $white-color;
+    background-color: $red-color;
     border-radius: 5px;
 }
