@@ -1,5 +1,5 @@
 //
-//  getTrendMovies() - повертае масив 20 фільмів на сторінці погшуку № this.page, та зберігае (key = 'trendMovies') у local storage;
+//  getTrendMovies() - повертае масив 20 фільмів на сторінці пошуку № this.page, та зберігае (key = 'trendMovies') у local storage;
 //
 //  getSearchMovie(searchQuery) - повертае масив 20 фільмів по пошуку за назвою this.searchQuery, сторінка пошуку № this.page, та зберігае (key = 'searchMovies') у local storage **;
 //
@@ -24,7 +24,7 @@ const API_KEY = '4b14499a7a4d8e1fd5ccb6a9c42a98e1';
 
 export default class ApiServices {
   constructor() {
-    this.searchQuery = 'avatar';
+    this.searchQuery = '';
     this.page = 1;
     this.id = '';
   }
