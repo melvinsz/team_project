@@ -12,7 +12,7 @@
 //  *** не звертаємось до функції, використовуємо діні з local storage
 //
 
-// import axios from 'axios'; 
+import axios from 'axios'; 
 
 "use strict";
 
@@ -35,58 +35,51 @@ export default class ApiServices {
   async getTrendMovies() {
     const url = `${TREND_URL}?api_key=${API_KEY}&language=en-US&page=${this.page}`;
 
-    await fetch(url)
-      .then(response => response.json())
-      .then(({ results }) => {
-        console.log('getTrendMovies:', results);
-        localStore.save('trendMovies',results)
-        return results;
-      })
-      .catch(error => console.error('getTrendMovies says:', error));
+    try {
+      const { data } = await axios.get(url);
+      localStore.save('trendMovies',data.results)
+      return data;
+    } catch (error) {
+      console.error('getTrendMovies says:', error);
+    }
+
   }
 
   async getSearchMovie(searchQuery) {
     const url = `${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`;
 
-    await fetch(url)
-      .then(response => response.json())
-      .then(({ results }) => {
-        localStore.save('searchMovies',results)
-        console.log('getSearchMovie:', results);
-        return results;
-      })
-      .catch(error => console.error('getSearchMovie says:', error));
+    try {
+      const { data } = await axios.get(url);
+      localStore.save('searchMovies',data.results)
+      return data;
+    } catch (error) {
+      console.error('getSearchMovie says:', error);
+    }
   }
 
   async getSearchById(id) {
     const url = `${ID_URL}${this.id}?api_key=${API_KEY}`;
 
-    await fetch(url)
-      .then(response => response.json())
-      .then(results => {
-        console.log('getSearchById:', results);
-        return results;
-      })
-      .catch(error => console.error('getSearchById:', error));
+    try {
+      const { data } = await axios.get(url);
+      localStore.save('searchById',data)
+      return data;
+    } catch (error) {
+      console.error('getSearchById says:', error);
+    }
+
   }
 
   async getGenres(){
     const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
-    await fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.genres)
-        localStore.save('genres',data.genres)
+    try {
+      const { data } = await axios.get(url);
+      localStore.save('genres',data)
+      return data;
+    } catch (error) {
+      console.error('getGenres says:', error);
+    }
 
-      });
   }
 }
 
-
-// екземпляр класу для тестів
-// const apiServices = new ApiServices();
-
-// apiServices.getTrendMovies();
-// apiServices.getSearchMovie();
-// apiServices.getSearchById();
-// apiServices.getGenres();
