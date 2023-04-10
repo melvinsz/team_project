@@ -4,28 +4,26 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 
- 
-let id = 0;
-      const refs = {
-        openModal: document.querySelector("[data-modal-about-open]"),
-        closeModalBtn: document.querySelector("[data-modal-about-close]"),
-        modal: document.querySelector("[data-modal-about]"),
-      };
-    
-      refs.openModal.addEventListener("click", openModalHome);
-      refs.closeModalBtn.addEventListener("click", closeModal);
-    
-      function closeModal() {
-        refs.modal.classList.add("is-hidden");
-      }
-      
-      function openModalElem() {
-        refs.modal.classList.remove("is-hidden");
-      }
 
+let id = 0;
+const refs = {
+  openModal: document.querySelector('[data-modal-about-open]'),
+  closeModalBtn: document.querySelector('[data-modal-about-close]'),
+  modal: document.querySelector('[data-modal-about]'),
+};
+
+refs.openModal.addEventListener('click', openModalHome);
+refs.closeModalBtn.addEventListener('click', closeModal);
+
+function closeModal() {
+  refs.modal.classList.add('is-hidden');
+}
+
+function openModalElem() {
+  refs.modal.classList.remove('is-hidden');
+}
 
 const apiServices = new ApiServices();
-
 
 // на який елемент вішаємо слухача для kліку для відкриття модалки? - після рендеру головної сторінки.
 // яку властивість брати за ключову для пошуку
@@ -45,6 +43,8 @@ const apiServices = new ApiServices();
         
    }
   
+
+
 
       
    function onLoadMore() {
