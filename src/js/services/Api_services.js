@@ -36,10 +36,19 @@ export default class ApiServices {
   async getTrendMovies() {
     const url = `${TREND_URL}?api_key=${API_KEY}&language=en-US&page=${this.page}`;
 
+    // try {
+    //   const { data } = await axios.get(url);
+    //   localStore.save('trendMovies',data.results)
+    //   return data;
+    // } catch (error) {
+    //   console.error('getTrendMovies says:', error);
+    // }
+
     try {
-      const { data } = await axios.get(url);
+      const  response  = await axios.get(url);
+      const {data} = response;
       localStore.save('trendMovies',data.results)
-      return data;
+      return response;
     } catch (error) {
       console.error('getTrendMovies says:', error);
     }
