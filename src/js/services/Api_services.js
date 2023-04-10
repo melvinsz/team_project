@@ -58,10 +58,19 @@ export default class ApiServices {
   async getSearchMovie(searchQuery) {
     const url = `${SEARCH_URL}?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`;
 
+    // try {
+    //   const { data } = await axios.get(url);
+    //   localStore.save('searchMovies',data.results)
+    //   return data;
+    // } catch (error) {
+    //   console.error('getSearchMovie says:', error);
+    // }
+
     try {
-      const { data } = await axios.get(url);
+      const  response  = await axios.get(url);
+      const {data} = response;
       localStore.save('searchMovies',data.results)
-      return data;
+      return response;
     } catch (error) {
       console.error('getSearchMovie says:', error);
     }
