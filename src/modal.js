@@ -1,8 +1,11 @@
 
-// import ApiServices from './js/services/api_services';
-
+import ApiServices from './js/services/api_services';
+import save from './js/services/local_storage';
+import load from './js/services/local_storage';
+ 
+let id = 0;
       const refs = {
-        openModal: document.querySelector("button"),
+        openModal: document.querySelector("[data-modal-about-open]"),
         closeModalBtn: document.querySelector("[data-modal-about-close]"),
         modal: document.querySelector("[data-modal-about]"),
       };
@@ -27,16 +30,14 @@
   function openModalHome (e) {
     console.log(`да`);
     openModalElem();
-    e.preventDefault();
- 
-    apiServices.getTrendMovies().then(movie => {
-
-  //       let currentID = e.currentTarget.elements.searchQuery.value;
-  //  const movie =  trendMovies.find((trendMovie => trendMovie.id === currentID));
+    // e.preventDefault();
+    let currentID = e.currentTarget.elements.value;
+    load(trendMovies); 
+    const movie = trendMovies.find((trendMovie => trendMovie.id === currentID));
        refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
         
-   })
-  }
+   }
+  
 // модалка для пошуку за ключовим словом
   //  function openModalKey (e) {
   //   e.preventDefault();
