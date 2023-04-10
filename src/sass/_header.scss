@@ -1,87 +1,83 @@
-
 .container {
-    width: 1216px;
+  width: 1216px;
 }
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 .list {
-    list-style: none;
+  list-style: none;
 }
 .header {
-    background-image: url(../image/abstract-background-with-red-lines\ 1.png);
-    height: 316px;
+  // background-image: url(../image/abstract-background-with-red-lines\ 1.png);
+  height: 316px;
 }
 .logo-text {
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 64px;
-line-height: 1.17;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 1.17;
 
-
-/* display: flex;
+  /* display: flex;
 align-items: center;
 text-align: center; */
 
-color: #FFFFFF;
+  color: #ffffff;
 }
 
 .form {
-    width: 187px;
-    height: 42px;
-    background: #FFFFFF;
-border-radius: 100px;
+  width: 187px;
+  height: 42px;
+  background: #ffffff;
+  border-radius: 100px;
 }
 .nav {
-    /* display: flex;
+  /* display: flex;
 align-items: center;
 text-align: center;
 text-transform: uppercase; */
 
-color: #000000;
-    width: 99px;
-height: 42px;
+  color: #000000;
+  width: 99px;
+  height: 42px;
 
-background: #FFFFFF;
-border-radius: 100px;
+  background: #ffffff;
+  border-radius: 100px;
 }
 .nav-item.library {
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.17;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
 
-
-/* display: flex;
+  /* display: flex;
 align-items: center;
 text-align: center;
 text-transform: uppercase; */
 
-color: #FFFFFF;
-    width: 117px;
-height: 42px;
+  color: #ffffff;
+  width: 117px;
+  height: 42px;
 
-background: #000000;
-border-radius: 100px;
+  background: #000000;
+  border-radius: 100px;
 }
 
 .add-films {
-    
 }
 .add-films-watched {
-    width: 120px;
-height: 42px;
+  width: 120px;
+  height: 42px;
 
-background: #B92F2C;
-box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
-border-radius: 100px;
+  background: #b92f2c;
+  box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
+  border-radius: 100px;
 }
 .add-films-queue {
-    width: 86px;
-height: 42px;
+  width: 86px;
+  height: 42px;
 
-background: #FFFFFF;
-border-radius: 100px;
+  background: #ffffff;
+  border-radius: 100px;
 }
