@@ -1,9 +1,5 @@
-
-
-
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
-
 
 let id = 0;
 const refs = {
@@ -28,29 +24,25 @@ const apiServices = new ApiServices();
 // на який елемент вішаємо слухача для kліку для відкриття модалки? - після рендеру головної сторінки.
 // яку властивість брати за ключову для пошуку
 
-  // модалка для трендового фільма
+// модалка для трендового фільма
 
-  function openModalHome (e) {
-    console.log(`да`);
-    openModalElem();
-    // e.preventDefault();
+function openModalHome(e) {
+  console.log(`да`);
+  openModalElem();
+  // e.preventDefault();
   onLoadMore();
-    let currentID = 76600;
-    const massiveMovies = localStore.load('trendMovies');
-    const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
-    console.log(movie);
-    refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
-        
-   }
-  
+  let currentID = 76600;
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  console.log(movie);
+  refs.modal.insertAdjacentHTML('beforeend', movieCard(movie));
+}
 
-
-
-      
-   function onLoadMore() {
-    apiServices.getTrendMovies().then(data => console.log(data))
-    
-        };
+function onLoadMore() {
+  apiServices.getTrendMovies().then(data => console.log(data));
+}
 
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
@@ -62,7 +54,9 @@ const apiServices = new ApiServices();
 //  }
 
 function movieCard(movie) {
-  return movie.map(({
+  return movie
+    .map(
+      ({
         original_title,
         backdrop_path,
         vote_average,
@@ -113,7 +107,9 @@ function movieCard(movie) {
         </div> 
 </div>
 `;
-}).join('');
+      }
+    )
+    .join('');
 }
 
 // import Player  from '@vimeo/player';
@@ -133,18 +129,18 @@ function movieCard(movie) {
 //   let roundPopularity = Math.round(popularity);
 //   let roundVote_average = vote_average.toFixed(2);
 //   let imageMarkup = `
-//   <img 
+//   <img
 //     src="${BASE_IMG_URL}${poster_path}"
-//       alt="${title} movie poster}" 
-//       width="375" height="478" 
+//       alt="${title} movie poster}"
+//       width="375" height="478"
 //       class="image"
 //       />`;
 //   if (poster_path === null) {
 //     imageMarkup = `
-//   <img 
+//   <img
 //     src="https://dummyimage.com/395x574/000/fff.jpg&text=no+poster"
-//       alt="${title} movie poster}" 
-//       width="395" height="574" 
+//       alt="${title} movie poster}"
+//       width="395" height="574"
 //       class="image"
 //       />`;
 //   }
@@ -163,16 +159,16 @@ function movieCard(movie) {
 //           <p class="value">${roundPopularity}</p>
 //           <p class="value">${original_title}</p>
 //           <p class="value">${getGenresNames(genres)}</p>
-//           <p class="value"> 
+//           <p class="value">
 //            <button class="modal-film__play-btn" type="button" ></button>
 //           </p>
-          
+
 //       </div>
 //   </div>
 //   <div class="about">
 //       <p class="title">About</p>
 //       <div class="about-container">
-//           <p class="text">${overview}</p>          
+//           <p class="text">${overview}</p>
 //       </div>
 //   </div>
 //       `;
