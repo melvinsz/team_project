@@ -1,0 +1,78 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 32px;
+    padding-right: 32px;
+
+    @media screen and (min-width: $mob) {
+        padding-left: 20px;
+        padding-right: 20px;
+        }
+
+    // outline: 2px solid red;
+    // outline-offset: -2px;
+
+    // mobile screen
+
+    @media screen and (min-width: $mob) {
+        width: $mob;
+    }
+
+    // tablet screen
+    @media screen and (min-width: $tab) {
+        width: $tab;
+    }
+
+    // desktop screen
+    @media screen and (min-width: $desk) {
+        width: $desk;
+    }
+
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    @media screen and (min-width: $tab) and (max-width: ($desk - 0.02)) {
+        gap: 32px;
+    }
+    @media screen and (min-width: $desk) {
+        gap: 16px;
+    }
+    @media screen and (min-width: $mob) and (max-width: ($tab - 0.02)) {
+        display: block;
+    }
+}
+
+.info {
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    @media screen and (min-width: $mob) and (max-width: ($tab - 0.02)) {
+        line-height: 14px;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-width: $tab) and (max-width: ($desk - 0.02)) {
+        line-height: 16px;
+        margin-bottom: 32px;
+    }
+    @media screen and (min-width: $desk) {
+        font-size: 20px;
+        line-height: 24px;
+        /* or 120% */
+        margin-bottom: 32px;
+    }
+               
+    text-transform: uppercase;
+}
+
+.info__item {
+    color: $black-color;
+}
+
+.info__red {
+    color: $red-color;
+}
