@@ -1,9 +1,12 @@
-<button type="submit" class="film-modal">ТИМЧАСОВО для запуску модалки</button>
+
+
+  <button type="submit" data-modal-about-open>ТИМЧАСОВО для запуску модалки</button>
+
 <div class="container">
   <div class="movie__modal is-hidden" data-modal-about>
     <button class="movie__close" data-modal-about-close>
-      <svg class="icon-close" width="14" height="14">
-        <use href="./images/sprite.svg#icon-Vectorclose"></use>
+      <svg class="icon-close" width="30" height="30">
+        <use href="./images/sprite.svg#close"></use>
       </svg>
     </button>
     <div class="movie__card">
@@ -12,7 +15,7 @@
         href="http://image.tmdb.org/t/p/w300/${backdrop_path}"
       >
         <img
-          src="./images/Rectangle 18.png"
+          src="./images/Rectangle.png"
           alt="${original_title}"
           loading="lazy"
         />
