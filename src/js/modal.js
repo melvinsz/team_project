@@ -1,8 +1,9 @@
 
 
-import ApiServices from './js/services/api_services';
-import save from './js/services/local_storage';
-import load from './js/services/local_storage';
+
+import ApiServices from './services/Api_services';
+import localStore from './services/local_storage';
+
  
 let id = 0;
       const refs = {
@@ -23,36 +24,29 @@ let id = 0;
       }
 
 
-refs.openModal.addEventListener('click', openModalHome);
-refs.closeModalBtn.addEventListener('click', closeModal);
-
-function closeModal() {
-  refs.modal.classList.add('is-hidden');
-}
-
-function openModalElem() {
-  refs.modal.classList.remove('is-hidden');
-}
-
 const apiServices = new ApiServices();
 
 // на який елемент вішаємо слухача для kліку для відкриття модалки? - після рендеру головної сторінки.
 // яку властивість брати за ключову для пошуку?
 
-<<<<<<< HEAD:src/modal.js
   // модалка для трендового фільма
   function openModalHome (e) {
     console.log(`да`);
     openModalElem();
     // e.preventDefault();
-    let currentID = e.currentTarget.elements.value;
-    load(trendMovies); 
-    const movie = trendMovies.find((trendMovie => trendMovie.id === currentID));
-       refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
+  onLoadMore();
+    let currentID = 76600;
+    const massiveMovies = localStore.load('trendMovies');
+    const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
+    console.log(movie);
+    refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
         
    }
   
-
+   function onLoadMore() {
+    apiServices.getTrendMovies().then(data => console.log(data))
+    
+        };
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
 //   e.preventDefault();
@@ -74,12 +68,7 @@ function movieCard(movie) {
         genre_ids,
         overview,
       }) => {
-        return `<div class="movie__modal is-hidden" data-modal-about>
-       <button class="movie__close"  data-modal-about-close>
-          <svg class='icon-close' width="14" height="14" >
-                    <use href="./images/sprite.svg#icon-Vectorclose"></use>
-          </svg>
-     </button>
+        return `
    <div class="movie__card">
      <a class="movie__item" href="http://image.tmdb.org/t/p/w300/${backdrop_path}">
        <img src='./images/Rectangle 18.png' alt="${original_title}" loading="lazy"/>
