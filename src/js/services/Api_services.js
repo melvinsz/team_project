@@ -1,3 +1,4 @@
+"use strict";
 //
 //  getTrendMovies() - повертае масив 20 фільмів на сторінці пошуку № this.page, та зберігае (key = 'trendMovies') у local storage;
 //
@@ -14,7 +15,7 @@
 
 import axios from 'axios'; 
 
-"use strict";
+
 
 import localStore from './local_storage.js'; 
 
