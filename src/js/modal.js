@@ -1,7 +1,7 @@
 // import ApiServices from './js/services/api_services';
 
 const refs = {
-  openModal: document.querySelector('button'),
+  openModal: document.querySelector('.film-modal'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
 };
