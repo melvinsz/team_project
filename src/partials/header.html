@@ -1,11 +1,19 @@
 <header class="header">
-    <div class="container">
-      <a class="logo" href="./index.html">
-        <!-- <svg>
-          <use></use>
-        </svg> -->
-        <span class="logo-text">Filmoteka</span>
-      </a>
+  <div class="container">
+    <div class="container-nav">
+      <form class="form">
+        <input class="header_search-input" 
+               placeholder="Movie search"
+               name="search" 
+               autocomplete="off" 
+               type="text" />
+               <button class="header_search-btn" type="submit">
+                <svg class="header_search-btn_icon" width="16px" height="16px">
+                  <use href="/src/images/sprite.svg#search-lg"></use>
+                </svg>
+              </button>
+      </form>
+
       <nav>
         <ul class="nav">
           <li class="nav-item home">
@@ -16,19 +24,20 @@
           </li>
         </ul>
       </nav>
-
-      <form>
-        <div class="form">
-          <input type="text" name="search" placeholder="Movie search" />
-          <button type="submit">
-            <span class="search-icon"></span>
-          </button>
-        </div>
-      </form>
-
       <ul class="add-films">
-        <li><a href="" class="add-films-watched">Watched</a></li>
-        <li><a href="" class="add-films-queue">queue</a></li>
+        <li><a href="#" class="add-films-watched">Watched</a></li>
+        <li><a href="#" class="add-films-queue">queue</a></li>
       </ul>
     </div>
-  </header>
+    <div class="container-logo">
+      <a class="header-nav_logo" href="/src/index.html">
+        <svg class="header-nav_logo-icon" width="59" height="59">
+          <use href="/src/images/sprite.svg#film-lg"></use>
+        </svg>
+        <span class="header-nav_logo-text">Filmoteka</span>
+      </a>
+    </div>
+    <!-- <div class="add-films_btn">
+      </div> -->
+  </div>
+</header>
