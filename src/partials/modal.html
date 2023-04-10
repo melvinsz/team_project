@@ -1,0 +1,78 @@
+
+
+  <button type="submit" data-modal-about-open>ТИМЧАСОВО для запуску модалки</button>
+
+<div class="container">
+  <div class="movie__modal is-hidden" data-modal-about>
+    <button class="movie__close" data-modal-about-close>
+      <svg class="icon-close" width="14" height="14">
+        <use href="./images/sprite.svg#icon-Vectorclose"></use>
+      </svg>
+    </button>
+    <div class="movie__card">
+      <a
+        class="movie__item"
+        href="http://image.tmdb.org/t/p/w300/${backdrop_path}"
+      >
+        <img
+          src="./images/Rectangle.png"
+          alt="${original_title}"
+          loading="lazy"
+        />
+        <!-- '${backdrop_path}' -->
+      </a>
+      <div class="movie__info">
+        <h3 class="movie__modal--title">
+          <b><span>${original_title}</span></b>
+        </h3>
+        <div class="movie__detals">
+          <div class="movie__detals--key">
+            <p class="info-key"><span>Vote / Votes</span></p>
+            <p class="info-key"><span>Popularity</span></p>
+            <p class="info-key"><span>Original title</span></p>
+            <p class="info-key"><span>Genre</span></p>
+          </div>
+          <div class="movie__detals--value">
+            <p class="info-item">
+              <button class="vote-average"><span>${vote_average}</span></button>
+              / <span>${vote_count}</span>
+            </p>
+            <p class="info-item">
+              <span>${popularity}</span>
+            </p>
+            <p class="info-item--title"><span>${original_title}</span></p>
+            <p class="info-item">
+              <span> ${Object.values(genre_ids).join(", ")}</span>
+            </p>
+          </div>
+        </div>
+        <p class="movie__about--modal"><b>ABOUT</b></p>
+        <p><span class="overview">${overview}</span></p>
+        <button class="movie__add" data-modal-add data-modal-remove>
+          <span>add to watched</span>
+        </button>
+        <button class="movie__queue" data-modal-queue data-modal-delete>
+          <span>add to queue</span>
+        </button>
+        <!-- <button class="movie__video"  data-modal-video>
+            <svg class='icon-video' width="30" height="30" >
+                      <use href=""></use>
+            </svg>
+       </button> -->
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- <iframe
+id="vimeo-player"
+src="https://player.vimeo.com/video/${посилання на відео}"
+width="auto"
+height="auto"
+frameborder="0"
+allowfullscreen
+allow="autoplay; encrypted-media"
+></iframe> -->
+  </div>
+</div>
+
+<script defer type="module" src="./js/modal.js"></script>
