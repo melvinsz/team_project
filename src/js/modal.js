@@ -1,27 +1,24 @@
+import ApiServices from './services/Api_services';
+import save from './services/local_storage';
+import load from './services/local_storage';
 
-
-import ApiServices from './js/services/api_services';
-import save from './js/services/local_storage';
-import load from './js/services/local_storage';
- 
 let id = 0;
-      const refs = {
-        openModal: document.querySelector("[data-modal-about-open]"),
-        closeModalBtn: document.querySelector("[data-modal-about-close]"),
-        modal: document.querySelector("[data-modal-about]"),
-      };
-    
-      refs.openModal.addEventListener("click", openModalHome);
-      refs.closeModalBtn.addEventListener("click", closeModal);
-    
-      function closeModal() {
-        refs.modal.classList.add("is-hidden");
-      }
-      
-      function openModalElem() {
-        refs.modal.classList.remove("is-hidden");
-      }
+const refs = {
+  openModal: document.querySelector('[data-modal-about-open]'),
+  closeModalBtn: document.querySelector('[data-modal-about-close]'),
+  modal: document.querySelector('[data-modal-about]'),
+};
 
+refs.openModal.addEventListener('click', openModalHome);
+refs.closeModalBtn.addEventListener('click', closeModal);
+
+function closeModal() {
+  refs.modal.classList.add('is-hidden');
+}
+
+function openModalElem() {
+  refs.modal.classList.remove('is-hidden');
+}
 
 refs.openModal.addEventListener('click', openModalHome);
 refs.closeModalBtn.addEventListener('click', closeModal);
@@ -39,19 +36,16 @@ const apiServices = new ApiServices();
 // на який елемент вішаємо слухача для kліку для відкриття модалки? - після рендеру головної сторінки.
 // яку властивість брати за ключову для пошуку?
 
-<<<<<<< HEAD:src/modal.js
-  // модалка для трендового фільма
-  function openModalHome (e) {
-    console.log(`да`);
-    openModalElem();
-    // e.preventDefault();
-    let currentID = e.currentTarget.elements.value;
-    load(trendMovies); 
-    const movie = trendMovies.find((trendMovie => trendMovie.id === currentID));
-       refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
-        
-   }
-  
+// модалка для трендового фільма
+function openModalHome(e) {
+  console.log(`да`);
+  openModalElem();
+  // e.preventDefault();
+  let currentID = e.currentTarget.elements.value;
+  load(trendMovies);
+  const movie = trendMovies.find(trendMovie => trendMovie.id === currentID);
+  refs.modal.insertAdjacentHTML('beforeend', movieCard(movie));
+}
 
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
