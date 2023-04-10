@@ -1,4 +1,5 @@
 
+
 import ApiServices from './js/services/api_services';
 import save from './js/services/local_storage';
 import load from './js/services/local_storage';
@@ -21,11 +22,24 @@ let id = 0;
         refs.modal.classList.remove("is-hidden");
       }
 
-  const apiServices = new ApiServices();
+
+refs.openModal.addEventListener('click', openModalHome);
+refs.closeModalBtn.addEventListener('click', closeModal);
+
+function closeModal() {
+  refs.modal.classList.add('is-hidden');
+}
+
+function openModalElem() {
+  refs.modal.classList.remove('is-hidden');
+}
+
+const apiServices = new ApiServices();
 
 // на який елемент вішаємо слухача для kліку для відкриття модалки? - після рендеру головної сторінки.
-    // яку властивість брати за ключову для пошуку?
+// яку властивість брати за ключову для пошуку?
 
+<<<<<<< HEAD:src/modal.js
   // модалка для трендового фільма
   function openModalHome (e) {
     console.log(`да`);
@@ -38,20 +52,29 @@ let id = 0;
         
    }
   
+
 // модалка для пошуку за ключовим словом
-  //  function openModalKey (e) {
-  //   e.preventDefault();
-  //       let currentID = e.currentTarget.elements.searchQuery.value;
-  //  const movie =  searchMovies.find((searchMovie => searchMovie.id === currentID));
-  //      refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
-        
-  //  }
+//  function openModalKey (e) {
+//   e.preventDefault();
+//       let currentID = e.currentTarget.elements.searchQuery.value;
+//  const movie =  searchMovies.find((searchMovie => searchMovie.id === currentID));
+//      refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
 
+//  }
 
-  function movieCard (movie) {
-    return movie
-      .map(({original_title, backdrop_path, vote_average, vote_count, popularity, genre_ids, overview }) => {
-       return `<div class="movie__modal is-hidden" data-modal-about>
+function movieCard(movie) {
+  return movie
+    .map(
+      ({
+        original_title,
+        backdrop_path,
+        vote_average,
+        vote_count,
+        popularity,
+        genre_ids,
+        overview,
+      }) => {
+        return `<div class="movie__modal is-hidden" data-modal-about>
        <button class="movie__close"  data-modal-about-close>
           <svg class='icon-close' width="14" height="14" >
                     <use href="./images/sprite.svg#icon-Vectorclose"></use>
@@ -79,7 +102,7 @@ let id = 0;
             <span >${popularity}</span></p>
          <p class="info-item--title"><span >${original_title}</span></p>
          <p class="info-item">
-             <span > ${Object.values(genre_ids).join(", ")}</span></p>
+             <span > ${Object.values(genre_ids).join(', ')}</span></p>
       </div>
    </div>
          <p class="movie__about--modal"><b>ABOUT</b></p>
@@ -97,10 +120,9 @@ let id = 0;
           <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>  
         </div> 
 </div>`;
-}).join('');
+      }
+    )
+    .join('');
 }
 
-// import Player  from '@vimeo/player';     
-
-
-
+// import Player  from '@vimeo/player';

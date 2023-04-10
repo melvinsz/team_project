@@ -1,205 +1,197 @@
 .movie__modal.active,
-.backdrop-about.active{
-   opacity: 1;
-   visibility: visible;
+.backdrop-about.active {
+  opacity: 1;
+  visibility: visible;
 }
 
- /* Модалка оформлення */
-  
- .movie__modal {
-   min-width: 240px;
-   /* width: 100%; */
-   height: auto;
-   /* max-width: 280px; */
-   padding: 40px 20px 40px 20px;
+/* Модалка оформлення */
 
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   z-index: 30; 
-  
-   display: block; 
-   text-align: center;
-   color: #131313;  
-   background-color: #ffffff;
-   border-radius: 10px;
-       
-   /* transition: transform 250ms ease-in-out; */
-   
+.movie__modal {
+  min-width: 240px;
+  /* width: 100%; */
+  height: auto;
+  /* max-width: 280px; */
+  padding: 40px 20px 40px 20px;
 
-   @media screen and (min-width: 768px) {
-      min-width: 704px;
-      padding: 40px 72px auto 36px;
-   }
-   
-    @media screen and (min-width: 1280px) {
-       min-width: 808px;
-       padding: 40px 12px 40px 12px;
-       }
-       &.is-hidden {
-                opacity: 0;
-                pointer-events: none;
-        
-            }    
-   }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+
+  display: block;
+  text-align: center;
+  color: #131313;
+  background-color: #ffffff;
+  border-radius: 10px;
+
+  /* transition: transform 250ms ease-in-out; */
+
+  @media screen and (min-width: 768px) {
+    min-width: 704px;
+    padding: 40px 72px auto 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 808px;
+    padding: 40px 12px 40px 12px;
+  }
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
 
 img {
-    width: 240px;
-    margin-bottom: 20px;
-      @media screen and (min-width: 768px) {
-      width: 264px;
-      }
-      @media screen and (min-width: 1280px) {
-        width: 375px;
-    }
+  width: 240px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    width: 264px;
   }
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+  }
+}
 
 //   Кнопки
-  
-  button {
-    color: $red-color;
-    background-color: #ffffff;
-    // margin: auto;
-    border: 1px solid #000000;
-    border-radius: 100px;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14.06px;
-    padding: 10px 14px;
-    width: 113px;
-    height: 34px;
-    @media screen and (min-width: 768px){
-     height: 38px;
-     padding: 12px 18px;
-     width: 121px;
-    }
-    @media screen and (min-width: 768px){
-        height: 42px;
-      padding: 14px 24px;
-      width: 134px;
-    }
+
+button {
+  color: $red-color;
+  background-color: #ffffff;
+  // margin: auto;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.06px;
+  padding: 10px 14px;
+  width: 113px;
+  height: 34px;
+  @media screen and (min-width: 768px) {
+    height: 38px;
+    padding: 12px 18px;
+    width: 121px;
   }
-
-  .movie__add {
-    color: #ffffff;
-    background-color: $red-color;
-    padding: 10px 12px;
-    width: 127px;
-    margin-right: 10px;
-    @media screen and (min-width: 768px){
-      padding: 12px 18px;
-      width: 140px;
-    }
-    @media screen and (min-width: 768px){
-      padding: 14px 32px;
-      width: 167px;
-    }
+  @media screen and (min-width: 768px) {
+    height: 42px;
+    padding: 14px 24px;
+    width: 134px;
   }
+}
 
-
-  .movie__close {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-
-    width: 30px;
-    height: 30px;
-     padding: 0;
-     border: none;
-    background-color: transparent;
-   
-     }
-  
-    .icon-close {
-      fill: #131313;
+.movie__add {
+  color: #ffffff;
+  background-color: $red-color;
+  padding: 10px 12px;
+  width: 127px;
+  margin-right: 10px;
+  @media screen and (min-width: 768px) {
+    padding: 12px 18px;
+    width: 140px;
   }
-  
+  @media screen and (min-width: 768px) {
+    padding: 14px 32px;
+    width: 167px;
+  }
+}
 
-  /* оформлення шрифту */
-  
-  .movie__modal--title {
-    font-size: 20px;
+.movie__close {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.icon-close {
+  fill: #131313;
+}
+
+/* оформлення шрифту */
+
+.movie__modal--title {
+  font-size: 20px;
   line-height: 23.44px;
   margin-bottom: 20px;
   @media screen and (min-width: 1280px) {
-  font-size: 30px;
-  line-height: 35.16px;
+    font-size: 30px;
+    line-height: 35.16px;
   }
-  }
-  
-  .movie__modal--title,
-  .movie__add,
-  .movie__queue,
-  .info-item--title {
-    text-transform: uppercase;
-  }
+}
+
+.movie__modal--title,
+.movie__add,
+.movie__queue,
+.info-item--title {
+  text-transform: uppercase;
+}
 
 //   рейтинг оформлено як кнопку.
-  .vote-average {
-    width: 36px;
-    height: 16px;
-    color:  #ffffff;
-    background-color: $red-color;
-    border-radius: 5px;
-    padding: 1px 9px;
-  }
+.vote-average {
+  width: 36px;
+  height: 16px;
+  color: #ffffff;
+  background-color: $red-color;
+  border-radius: 5px;
+  padding: 1px 9px;
+}
 
-  .overview {
+.overview {
   line-height: 20px;
   margin-bottom: 20px;
-  } 
-  
-  .movie__detals--key {
-   color: #8c8c8c;
-     }
+}
 
-  .info-item,
-  .info-key,
-  .info-item--title {
-    margin-bottom: 8px;
-   }
+.movie__detals--key {
+  color: #8c8c8c;
+}
 
-  .movie__about--modal {
-    margin-bottom: 20px;
-  }
-  
-  
-     .movie__card {
-   text-align: start; 
-//    justify-content: center; 
-    //  display: block;
-      list-style: none;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 16px;
-@media screen and (min-width: 768px) {
+.info-item,
+.info-key,
+.info-item--title {
+  margin-bottom: 8px;
+}
+
+.movie__about--modal {
+  margin-bottom: 20px;
+}
+
+.movie__card {
+  text-align: start;
+  //    justify-content: center;
+  //  display: block;
+  list-style: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     gap: 60px;
-}
-      @media screen and (min-width: 1280px) {
-          gap: 16px;
-    }
   }
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+}
 
-    .movie__detals {
-      /* justify-content: center; */
-     display: flex;
-      flex-wrap: wrap;
-      gap: 39px;
-      list-style: none;
-      margin-bottom: 20px;
-      @media screen and (min-width: 768px) {
-        gap: 68px;
-      }
-      @media screen and (min-width: 1280px) {
-        gap: 83px;
-      }
-    }
-  
-   
-   
+.movie__detals {
+  /* justify-content: center; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 39px;
+  list-style: none;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    gap: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 83px;
+  }
+}
+
 // .video {
 //     width: 100%
 //     height: auto
@@ -219,7 +211,7 @@ img {
 //     background-color: rgba(0, 0, 0, .2);
 //     z-index: 20;
 //     transition: .3s all;
-     
+
 //     // transition: opacity 250ms linear,
 //     //     visibility 250ms linear;
 
@@ -227,7 +219,7 @@ img {
 //         opacity: 0;
 //         pointer-events: none;
 
-//     }    
+//     }
 // }
 
 // .movie__modal.is-open {
