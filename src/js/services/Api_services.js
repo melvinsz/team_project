@@ -93,12 +93,3 @@ export default class ApiServices {
   }
 }
 
-// екземпляр класу для тестів
-const apiServices = new ApiServices();
-
-// apiServices.getTrendMovies();
-console.log(apiServices.getTrendMovies());
-
-// apiServices.getSearchMovie();
-// apiServices.getSearchById();
-// apiServices.getGenres();
