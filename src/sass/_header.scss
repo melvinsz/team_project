@@ -89,7 +89,7 @@
   }
 }
 
-.header__search-input {
+.header_search-input {
   //width: 100%;
   //display: block;
   background-color: transparent;
@@ -114,7 +114,7 @@
     outline: none;
   }
 
-  &:hover .header__search-btn {
+  &:hover .header_search-btn {
     // color: $red-color;
     animation: wiggle 2s linear infinite;
   }
@@ -164,7 +164,7 @@
 //   }
 // }
 
-.header__search-btn {
+.header_search-btn {
   width: 12px;
   height: 12px;
   padding-right: 10px;
@@ -209,7 +209,7 @@
   }
 }
 
-.header__search-btn_icon {
+.header_search-btn_icon {
   position: absolute;
   top: 2px;
   left: -3px;
