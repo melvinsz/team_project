@@ -1,6 +1,6 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
-
+import onAddToWatched from './add_to_watched';
 
 let id = 0;
 let imageMarkup = "";
@@ -48,6 +48,7 @@ function openModalElem() {
     const massiveMovies = localStore.load('trendMovies');
     const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
      modalFilmCart(movie);
+  onAddToWatched(movie);
    }
   
 
