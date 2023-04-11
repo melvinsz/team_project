@@ -4,13 +4,15 @@ const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 // !!!!
 const STORAGE_KEY = 'watched-films';
+
 const linkWatched = document.querySelector('.add-films-watched');
-linkWatched.addEventListener('click', renderAddToWatched);
+console.log(linkWatched);
+// linkWatched.addEventListener('click', renderAddToWatched);
 
 function renderAddToWatched(event) {
   event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms); // Виклик функції filmWatched з даними фільмів
+  filmWatched(parsedWatchedFilms);
 }
 
 function filmWatched(data) {
@@ -19,7 +21,7 @@ function filmWatched(data) {
       ({ id, title, poster_path }) =>
         `  <li class="card">
           <a data-source=${id}>
-            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" />
+            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}' />
           </a>
 
           <div class="card__title">${title}</div>
@@ -28,7 +30,7 @@ function filmWatched(data) {
    `
     )
     .join('');
-  colectionUl.innerHTML = parsedWatchedFilms; // Оновлення HTML-розмітки сторінки зі списком фільмів
+  colectionUl.innerHTML = parsedWatchedFilms;
 }
 
 export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
