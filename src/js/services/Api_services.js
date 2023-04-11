@@ -14,8 +14,8 @@
 //
 
 import axios from 'axios';
-
 import localStore from './local_storage.js';
+import loader from '../loader'
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const TREND_URL = `${BASE_URL}/trending/movie/week`;
@@ -33,6 +33,7 @@ export default class ApiServices {
 
   async getTrendMovies() {
     const url = `${TREND_URL}?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+    loader.showLoader();
 
     // try {
     //   const { data } = await axios.get(url);
@@ -44,6 +45,7 @@ export default class ApiServices {
 
     try {
       const response = await axios.get(url);
+      loader.hideLoader();
       const { data } = response;
       localStore.save('trendMovies', data.results);
       return response;
