@@ -1,50 +1,47 @@
-
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-    margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .btn-left,
-.btn-right  {
-    display: flex;
-    padding-top: 12px;
-    padding-left: 12px;
-    width: 40px;
-    height: 40px;
-    background-color: #F7F7F7;
-    border-radius: 5px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-    cursor: pointer;
+.btn-right {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  cursor: pointer;
 }
 
 .pagination-number {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 133%;
-    width: 40px;
-    height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 133%;
+  width: 40px;
+  height: 40px;
 }
 
 .current {
-    color: $white-color;
-    background-color: $red-color;
-    border-radius: 5px;
+  color: $white-color;
+  background-color: $red-color;
+  border-radius: 5px;
 }
 
 .first-left,
 .first-right {
-    color: $black-color;
-    background-color: $white-color;
-    cursor: pointer;
+  color: $black-color;
+  background-color: $white-color;
+  cursor: pointer;
 }
 
 .icon-arrow {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
