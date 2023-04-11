@@ -1,11 +1,13 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
+import addToQueue from './addqueue.js';
 
 let id = 0;
 const refs = {
   openModal: document.querySelector('[data-modal-about-open]'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
+  addToQueueBtn: document.querySelector('.movie__queue'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -38,6 +40,7 @@ function openModalHome(e) {
   );
   console.log(movie);
   refs.modal.insertAdjacentHTML('beforeend', movieCard(movie));
+  refs.addToQueueBtn.addEventListener('click', addToQueue(movie));
 }
 
 function onLoadMore() {

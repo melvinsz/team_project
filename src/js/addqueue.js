@@ -1,4 +1,6 @@
-// import localStorage from './services/local_storage'; 
+// import localStorage from './services/local_storage';
+import getGenres from './services/connect_genres';
+
 const QUEUE_KEY = 'queue-movie';
 localStorage.setItem(QUEUE_KEY, '[]');
  
@@ -9,11 +11,11 @@ export default function addToQueue(data) {
     const refs = {
         queueBtn: document.querySelector('.add-films-queue'),
         container: document.querySelector('.container'),
-        addToQueueBtn: document.querySelector('movie__queue'),
+        addToQueueBtn: document.querySelector('.movie__queue'),
     };
 
     const parsedQueueMovies = JSON.parse(localStorage.getItem(QUEUE_KEY));
-    console.log(`parsedQueueFilms`, parsedQueueMovies);
+    console.log(`parsedQueueMovies`, parsedQueueMovies);
     if (parsedQueueMovies.some(element => element.id === movieToAdd.id)) {
         console.log(`You have this movie in the queue`);
     }
@@ -36,6 +38,8 @@ export default function addToQueue(data) {
 
 }
 
+// Думаю зробити рендер окремим файлом, чи не треба?
+
 function renderMovies(movies) {
     console.log(`movies`, movies);
     const markup = movies.map(
@@ -46,24 +50,27 @@ function renderMovies(movies) {
             backdrop_path,
             poster_path,
         }) => {
-            // const year = movies.release_date.slice(0, 3);
-            // console.log(`year`, year);
+            const genres = getGenres(genre_ids);
+            const year = release_date.slice(0, 3);
+            console.log(`year`, year);
             // const genre = Object.values(genre_ids).join(" | ");
-            return `<p class="gallery">
-            <img class="gallery__image"
-                src="${BASE_URL}${backdrop_path}" 
-                alt="Poster of movie ${title}" 
-                loading="lazy">
+            return `<div class="gallery">
+                <a class="movie__item" href="http://image.tmdb.org/t/p/w300/${poster_path}">
+                    <img src='./images/Rectangle 18.png'
+                    alt="Poster of movie ${title}" 
+                    loading="lazy"/>
+                    <!-- '${backdrop_path}' -->
+                </a>
                 <div class="info">
                     <p class="info__item">
                         <b>${title}</b>
                     </p>
                     <p class="info__red">
-                        <b>${genre_ids} | ${year}</b>
+                        <b>${genres} | ${year}</b>
                     </p>
                 </div>
-            </p>`;
+            </div>`;
     })
     .join('');
-    refs.container.innerHTML = markup;      
+    refs.container.insertAdjacentHTML('beforeend', markup);      
 }
