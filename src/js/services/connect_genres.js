@@ -3,7 +3,7 @@
 
 //   'genre_ids' - властивість об'екту фильма, містить індекси жанрів
 //
-//   Створити змінну moviesGenre - як значення тернарного оператора. 
+//   Створити змінну moviesGenre - як значення тернарного оператора.
 //   Перевіряєм наявність genre_ids, як що true - передаеться як параметр у функцію
 //   getGenres(genre_ids), повертаеться  строка с жанрами.
 //
@@ -12,8 +12,6 @@
 //   : 'Unknown';
 //
 //   '${moviesGenre}'  - додати у розмітку рендера.
-
-
 
 import localStore from './local_storage.js';
 import ApiServices from './Api_services';
@@ -38,5 +36,3 @@ export default function getGenres(genre_ids) {
 
   return arr.join(', ');
 }
-
-

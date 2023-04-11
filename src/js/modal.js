@@ -1,5 +1,3 @@
-
-
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 
@@ -8,8 +6,7 @@ const refs = {
   openModal: document.querySelector('[data-modal-about-open]'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
-  
-  };
+};
 
 refs.openModal.addEventListener('click', openModalHome);
 refs.closeModalBtn.addEventListener('click', closeModal);
@@ -28,20 +25,17 @@ const apiServices = new ApiServices();
 
 // модалка для трендового фільма
 
+function openModalHome(e) {
+  openModalElem();
+  // e.preventDefault();
 
-  function openModalHome (e) {
-      openModalElem();
-    // e.preventDefault();
-
-    let currentID = 76600;
-    const massiveMovies = localStore.load('trendMovies');
-    const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
-     modalFilmCart(movie);
-    
-   }
-  
-    
-
+  let currentID = 76600;
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
+}
 
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
@@ -57,7 +51,7 @@ const apiServices = new ApiServices();
 // const getGenresNames = genres => genres.map(genre => genre.name).join(', ');
 
 function modalFilmCart({
- title,
+  title,
   original_title,
   vote_average,
   vote_count,
@@ -69,7 +63,7 @@ function modalFilmCart({
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   if (poster_path === null) {
-   poster_path ="https://dummyimage.com/395x574/000/fff.jpg&text=no+poster"
+    poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
   let imageMarkup = `
   <div class="movie__card">
@@ -103,10 +97,12 @@ function modalFilmCart({
     </div>
 </div>
       `;
-      refs.modal.insertAdjacentHTML("beforeend", imageMarkup); 
+  refs.modal.insertAdjacentHTML('beforeend', imageMarkup);
 }
 
-{/* <button class="modal-film__play-btn" type="button" ></button> */}
+{
+  /* <button class="modal-film__play-btn" type="button" ></button> */
+}
 //  <iframe
 // id="vimeo-player"
 // src="https://player.vimeo.com/video/${'посилання на відео'}"
@@ -209,4 +205,3 @@ function modalFilmCart({
 // //     addToWatchedButton.textContent = 'Add to watched';
 // //   }
 // // }
-

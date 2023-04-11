@@ -36,6 +36,6 @@ function renderMarkur(data) {
     )
     .join('');
   return colectionUl.insertAdjacentHTML('beforeend', markup);
-};
+}
 
 export { BASE_URL_POSTER, colectionUl, renderMarkur };
