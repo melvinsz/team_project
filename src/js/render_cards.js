@@ -27,7 +27,7 @@ function renderMarkur(data) {
       ({ id, title, poster_path }) =>
         `  <li class="card">
           <a data-source=${id}>
-            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" />
+            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}'/>
           </a>
 
           <div class="card__title">${title}</div>
