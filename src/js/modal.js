@@ -16,7 +16,7 @@ const refs = {
 refs.openModal.addEventListener('click', openModalHome);
 // refs.openModalLib.addEventListener('click', openModalLibrary);
 refs.closeModalBtn.addEventListener('click', closeModal);
-refs.modal.addEventListener('click', closeModal);
+
 document.addEventListener('keydown', closeModalOnEsc);
 
 function closeModalOnEsc(event) {
@@ -24,6 +24,12 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
+
+// function closeModalOnEsc(event) {
+//   if (!e.target.classList.contains('[ata-modal-about]')) {
+//     closeModal();
+//   }
+// }
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -33,6 +39,20 @@ function openModalElem() {
   refs.modal.classList.remove('is-hidden');
 }
 
+function openModalHome(e) {
+  openModalElem();
+  e.preventDefault();
+  if (!e.target.classList.contains('card__img')) {
+    return;
+  }
+  let currentID = Number(e.target.dataset.source);
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+}
 function openModalHome(e) {
   openModalElem();
   e.preventDefault();
