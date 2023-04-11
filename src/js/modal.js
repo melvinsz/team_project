@@ -83,7 +83,8 @@ function modalFilmCart({
   }
   //  const moviesGenre = genre_ids ? getGenres(genre_ids) : 'Unknown';
 
-  ('${moviesGenre}');
+  //   '${moviesGenre}'
+
   imageMarkup = `
   <div class="movie__card">
    <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
@@ -105,13 +106,13 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>    
+          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
           <p><span class="overview">${overview}</span></p>
           <button class="movie__add"  data-modal-add data-modal-remove><span>add to watched</span></button>
-          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>  
+          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>
     </div>
 </div>
       `;
