@@ -11,8 +11,7 @@
   /* width: 100%; */
   height: auto;
   /* max-width: 280px; */
-  padding: 40px 20px 40px 20px;
-
+  padding: 40px 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -29,12 +28,12 @@
 
   @media screen and (min-width: 768px) {
     min-width: 704px;
-    padding: 40px 72px auto 36px;
+    padding: 40px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     min-width: 808px;
-    padding: 40px 12px 40px 12px;
+    padding: 40px 10px;
   }
   &.is-hidden {
     opacity: 0;
@@ -67,6 +66,7 @@ button {
   padding: 10px 14px;
   width: 113px;
   height: 34px;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
     height: 38px;
     padding: 12px 18px;
@@ -84,7 +84,8 @@ button {
   background-color: $red-color;
   padding: 10px 12px;
   width: 127px;
-  margin-right: 10px;
+  margin-right: 4px;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
     padding: 12px 18px;
     width: 140px;
@@ -92,6 +93,7 @@ button {
   @media screen and (min-width: 768px) {
     padding: 14px 32px;
     width: 167px;
+    margin-right: 10px;
   }
 }
 
@@ -138,6 +140,7 @@ button {
   background-color: $red-color;
   border-radius: 5px;
   padding: 1px 9px;
+  margin-top: 0px;
 }
 
 .overview {
@@ -162,7 +165,7 @@ button {
 .movie__card {
   text-align: start;
   //    justify-content: center;
-  //  display: block;
+   display: block;
   list-style: none;
   font-weight: 500;
   font-size: 12px;
@@ -181,7 +184,7 @@ button {
   /* justify-content: center; */
   display: flex;
   flex-wrap: wrap;
-  gap: 39px;
+  gap: 10px;
   list-style: none;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
@@ -190,6 +193,19 @@ button {
   @media screen and (min-width: 1280px) {
     gap: 83px;
   }
+}
+.movie__info {
+  @media screen and (min-width: 768px) {
+    // display: block;
+  max-width: 311px;
+  }
+  @media screen and (min-width: 1280px) {
+   max-width: 390px;
+  }
+}
+
+.id {
+  display: none;
 }
 
 // .video {
