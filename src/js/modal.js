@@ -18,7 +18,7 @@ const refs = {
 refs.openModal.addEventListener('click', openModalHome);
 // refs.openModalLib.addEventListener('click', openModalLibrary);
 refs.closeModalBtn.addEventListener('click', closeModal);
-refs.modal.addEventListener('click', closeModal);
+// refs.modal.addEventListener('click', closeModal);
  document.addEventListener('keydown', closeModalOnEsc);
 
 
@@ -28,6 +28,11 @@ function closeModalOnEsc(event) {
   }      
 }
 
+function closeModalOnEsc(event) {
+  if (!e.target.classList.contains('[ata-modal-about]')) {
+    closeModal();
+  }      
+}
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
