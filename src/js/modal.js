@@ -2,7 +2,7 @@ import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 
 // Цей import addToQueue from './addqueue' додала Асадова Т.
-import addToQueue from './addqueue';
+// import addToQueue from './addqueue';
 
 let id = 0;
 const refs = {
@@ -45,7 +45,7 @@ function openModalHome(e) {
   
   
   // Функцію addToQueue(movie) додала Асадова Т.
-  addToQueue(movie); 
+  // addToQueue(movie); 
 }
 
 function onLoadMore() {
