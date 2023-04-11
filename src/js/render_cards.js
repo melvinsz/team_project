@@ -1,4 +1,5 @@
 import ApiServices from './services/Api_services';
+import '../sass/index.scss';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const apiServices = new ApiServices();
@@ -25,7 +26,7 @@ function renderMarkur(data) {
     .map(
       ({ id, title, poster_path }) =>
         `  <li class="card">
-          <a>
+          <a data-source=${id}>
             <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" />
           </a>
 
