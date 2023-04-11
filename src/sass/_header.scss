@@ -9,7 +9,7 @@
     url('/src/images/background_phone.jpg');
   background-repeat: no-repeat;
   border-radius: 10px;
-  //transform: matrix(-1, 0, 0, 1, 0, 0);
+
   background-position: center;
   background-size: cover;
 
@@ -21,7 +21,7 @@
       ),
       url('/src/images/background_tablet.jpg');
     border-radius: 15px;
-    //transform: matrix(-1, 0, 0, 1, 0, 0);
+
     margin: 32px;
   }
 
@@ -33,7 +33,7 @@
       ),
       url('/src/images/background_desktop.jpg');
     border-radius: 15px;
-    //transform: matrix(-1, 0, 0, 1, 0, 0);
+
     margin: 12px 32px 52px 32px;
   }
 
@@ -89,14 +89,11 @@
   }
 }
 
-.header__search-input {
-  //width: 100%;
-  //display: block;
+.header_search-input {
   background-color: transparent;
   width: 252px;
   height: 100%;
   padding-left: 14px;
-  //top: 10px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -104,67 +101,29 @@
   font-size: 12px;
   line-height: 1.67;
 
-  //display: flex;
-
   color: $black-color;
   border: none;
-  // transition: border-bottom $transition-timing $transition-function;
 
   &:focus-visible {
     outline: none;
   }
 
-  &:hover .header__search-btn {
-    // color: $red-color;
+  &:hover .header_search-btn {
     animation: wiggle 2s linear infinite;
   }
 
   @media screen and (min-width: 768px) {
-    //width: 85px;
-    // height: 16px;
-    //left: 32px;
-    //top: 27px;
     font-size: 14px;
     line-height: 1.14;
   }
 
   @media screen and (min-width: 1280px) {
-    //width: 84px;
-    //height: 16px;
-    // left: 48px;
-    // top: 29px;
     font-size: 14px;
     line-height: 1.14;
   }
 }
 
-// .header__search-btn {
-//   position: absolute;
-//   content: '';
-//   //padding-right: 14px;
-//   //padding-bottom: 10px;
-//   width: 14px;
-//   height: 14px;
-//   right: 14px;
-//   bottom: 10px;
-
-//   //transition: border-bottom $transition-timing $transition-function;
-//   //display: inline-flex;
-//   background-color: transparent;
-//   border: none;
-
-//   @media screen and (min-width: 768px) {
-//     right: 16px;
-//     bottom: 11px;
-//   }
-
-//   @media screen and (min-width: 1280px) {
-//     right: 16px;
-//     bottom: 13px;
-//   }
-// }
-
-.header__search-btn {
+.header_search-btn {
   width: 12px;
   height: 12px;
   padding-right: 10px;
@@ -174,12 +133,10 @@
   right: 6px;
 
   background-color: transparent;
-  // transform-origin: 50% 8em;
-  // animation-delay: 1s;
+  cursor: pointer;
 
   &:hover svg,
   &:focus svg {
-    cursor: pointer;
     color: $red-color;
     animation: wiggle 2s linear infinite;
   }
@@ -209,7 +166,7 @@
   }
 }
 
-.header__search-btn_icon {
+.header_search-btn_icon {
   position: absolute;
   top: 2px;
   left: -3px;
@@ -217,8 +174,6 @@
   width: 14px;
   height: 14px;
   color: $black-color;
-  // fill: $black-color;
-  //transition: transform $transition-timing $transition-function;
 
   // &:hover {
   //   transform: scale(1.15);
@@ -237,26 +192,11 @@
   }
 }
 
-// .header__search-error {
-//   font-family: 'Roboto';
-//   font-style: normal;
-//   font-weight: 400;
-//   font-size: 14px;
-//   line-height: 1.14;
-//   color: $red-color;
-// }
-
 .nav {
   display: flex;
   flex-direction: row;
   margin-bottom: 8px;
   gap: 4px;
-
-  // position: absolute;
-  // width: 204px;
-  // height: 34px;
-  // left: 14px;
-  // top: 14px;
 
   @media screen and (min-width: 768px) {
     position: absolute;
@@ -356,10 +296,6 @@
   margin-top: 16px;
 
   @media screen and (min-width: 768px) {
-    //position: absolute;
-    //content: '';
-    // right: 32px;
-    //  top: 16px;
     margin: 0;
     justify-content: left;
     margin-left: 480px;
@@ -448,13 +384,15 @@
   }
 }
 
-//$transition-timing: 250ms;
-//$transition-function: cubic-bezier(0.4, 0, 0.2, 1);
+.active-btn > a {
+  color: $white-color;
+}
+.second-btn > a {
+  color: $red-color;
+}
 
 .header-logo {
   margin-top: 258px;
-  // position: relative;
-  //display: flex;
 
   @media screen and (min-width: 768px) {
     position: absolute;
@@ -471,41 +409,12 @@
 }
 
 .header_logo-link {
-  // display: flex;
   align-items: center;
-  // position: relative;
-  // content: "";
-  // left: 5px;
-  // top: 5px;
-  // display: inline-flex;
-  // align-items: center;
-  // margin: 0;
-  //color: $white-color;
-  //background-color: transparent;
-
-  // transition: color $transition-timing $transition-function;
-
-  // &:hover,
-  //   &:active {
-  //  color: rgb(202, 191, 191);
-  //  }
-
-  //&:hover .header_logo-icon {
-  //   transform: rotate(0.5turn);
-  // fill: #FF001B;
-  //}
 }
 
 .header_logo-icon {
   width: 32px;
   height: 32px;
-
-  // position: absolute;
-  //  content: "";
-  //  left: 5px;
-  //  top: 5px;
-  // fill: $white-color;
-  // transition: transform $transition-timing $transition-function;
 
   @media screen and (min-width: 768px) {
     width: 32px;

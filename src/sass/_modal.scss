@@ -9,9 +9,9 @@
 .movie__modal {
   min-width: 280px;
   /* width: 100%; */
-  height: auto;
+  height: 95%;
   /* max-width: 280px; */
-  padding: 40px 20px;
+  padding: 40px 15px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -27,6 +27,8 @@
   //  transition: transform 250ms ease-in-out; 
 
   @media screen and (min-width: 768px) {
+    height: auto;
+    position: fixed;
     width: 704px;
     padding: 40px 32px;
   }

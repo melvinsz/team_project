@@ -1,9 +1,6 @@
 const STORAGE_KEY = 'watched-films';
-// localStorage.setItem(STORAGE_KEY, '[]');
-
 export default function addToWatched(data) {
   const filmToAdd = data;
-
   const addToWatchedRef = document.querySelector('[data-modal-add]');
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   //   console.log(parsedWatchedFilms);
@@ -11,12 +8,9 @@ export default function addToWatched(data) {
   if (parsedWatchedFilms.some(element => element.id === filmToAdd.id)) {
     addToWatchedRef.textContent = `Remove from watched`;
   }
-
   addToWatchedRef.addEventListener('click', onAddToWatched);
-
   function onAddToWatched() {
     // const filmToAdd = data;
-
     if (!parsedWatchedFilms.some(element => element.id === filmToAdd.id)) {
       parsedWatchedFilms.push(filmToAdd);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedWatchedFilms));
