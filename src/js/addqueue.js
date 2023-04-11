@@ -20,7 +20,7 @@ export default function addToQueue(data) {
         console.log(`You have this movie in the queue`);
     }
 
-    refs.addToQueueBtn.addEventListener('click', onAddToQueue);
+    // refs.addToQueueBtn.addEventListener('click', onAddToQueue);
 
     renderMovies(movies);
 

@@ -1,6 +1,8 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
-import addToQueue from './addqueue.js';
+
+// Цей import addToQueue from './addqueue' додала Асадова Т.
+import addToQueue from './addqueue';
 
 let id = 0;
 const refs = {
@@ -40,7 +42,10 @@ function openModalHome(e) {
   );
   console.log(movie);
   refs.modal.insertAdjacentHTML('beforeend', movieCard(movie));
-  refs.addToQueueBtn.addEventListener('click', addToQueue(movie));
+  
+  
+  // Функцію addToQueue(movie) додала Асадова Т.
+  addToQueue(movie); 
 }
 
 function onLoadMore() {
