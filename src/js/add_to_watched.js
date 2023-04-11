@@ -1,10 +1,8 @@
 const STORAGE_KEY = 'watched-films';
 localStorage.setItem(STORAGE_KEY, '[]');
-const filmListFromStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 export default function addToWatched(data) {
   const filmToAdd = data;
-  console.log(filmToAdd);
 
   const addToWatchedRef = document.querySelector('[data-modal-add]');
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
@@ -24,7 +22,6 @@ export default function addToWatched(data) {
     // const filmToAdd = data;
 
     if (!parsedWatchedFilms.some(element => element.id === filmToAdd.id)) {
-      console.log(`Фільм додається до watched`);
       parsedWatchedFilms.push(filmToAdd);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(parsedWatchedFilms));
       //   console.log(localStorage.getItem(STORAGE_KEY));
@@ -46,7 +43,6 @@ export default function addToWatched(data) {
     if (index > -1) {
       array.splice(index, 1);
     }
-    console.log(`removing movie`);
     return array;
   }
 }
