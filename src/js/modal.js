@@ -1,13 +1,13 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
-
+import onAddToWatched from './add_to_watched';
 
 let id = 0;
 let imageMarkup = "";
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLibrary: document.querySelector('.collection'),
+  openModalLib: document.querySelector('.library__pagination'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
@@ -48,6 +48,7 @@ function openModalElem() {
     const massiveMovies = localStore.load('trendMovies');
     const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
      modalFilmCart(movie);
+     onAddToWatched(movie);
    }
   
 
@@ -61,12 +62,13 @@ function openModalElem() {
   const massiveMovies = localStore.load('searchMovies');
   const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
    modalFilmCart(movie);
+   onAddToWatched(movie);
  }
-  
+
+
 
 // import Player  from '@vimeo/player';
 
-// const getGenresNames = genres => genres.map(genre => genre.name).join(', ');
 
 function modalFilmCart({
   title,
@@ -85,8 +87,8 @@ function modalFilmCart({
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
 //  const moviesGenre = genre_ids ? getGenres(genre_ids) : 'Unknown';
-  //
-  //   '${moviesGenre}' 
+  
+    '${moviesGenre}' 
    imageMarkup = `
   <div class="movie__card">
    <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
