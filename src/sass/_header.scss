@@ -174,13 +174,13 @@
   right: 6px;
 
   background-color: transparent;
+  cursor: pointer;
   // transform-origin: 50% 8em;
   // animation-delay: 1s;
 
   &:hover svg,
   &:focus svg {
-    cursor: pointer;
-    color: $red-color;
+      color: $red-color;
     animation: wiggle 2s linear infinite;
   }
 }
