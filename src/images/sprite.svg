@@ -17,13 +17,15 @@
     </symbol>
     <symbol id="close" viewBox="0 0 32 32">
       <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" stroke="#000" d="M8.533 8.533l14.933 14.933"></path>
-<path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" stroke="#000" d="M8.533 23.467l14.933-14.933"></path>
+      <path fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" stroke="#000" d="M8.533 23.467l14.933-14.933"></path>
     </symbol>
-    <symbol id="arrow-left" viewBox="0 0 32 32">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M25.333 16H6.666M16 25.333 6.667 16 16 6.667"/>
+    <symbol id="arrow-left" viewBox="0 0 16 16" fill="none">
+      <path d="M3.33335 8H12.6667" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.00002 12.6666L12.6667 7.99998L8.00002 3.33331" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
-    <symbol id="arrow-rigth" viewBox="0 0 32 32">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.667" d="M6.667 16h18.667M16 25.333 25.333 16 16 6.667"/>
+    <symbol id="arrow-rigth" viewBox="0 0 16 16" fill="none">
+      <path d="M12.6666 8H3.33331" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7.99998 12.6666L3.33331 7.99998L7.99998 3.33331" stroke="black" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
     <symbol id="heart" viewBox="0 0 34 32">
       <path fill="#b92f2c" style="fill: var(--color1, #b92f2c)" d="M17.231 31.705l-2.412-2.412c-8.96-7.926-14.818-13.268-14.818-19.815 0-5.342 4.135-9.477 9.477-9.477 2.929 0 5.858 1.378 7.754 3.618 1.895-2.24 4.825-3.618 7.754-3.618 5.342 0 9.477 4.135 9.477 9.477 0 6.548-5.858 11.889-14.818 19.815l-2.412 2.412z"></path>
