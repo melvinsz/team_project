@@ -430,23 +430,25 @@ margin: 12px 32px 52px 32px;
 .header_logo-icon {
   width: 32px;
   height: 32px;
+  
+  
+  
 
   // position: absolute;
   //  content: "";
   //  left: 5px;
   //  top: 5px;
-  //fill: $white-color;
+  // fill: $white-color;
   // transition: transform $transition-timing $transition-function;
 
   @media screen and (min-width: 768px) {
     width: 32px;
-  height: 32px;
+    height: 32px;
   }
 
   @media screen and (min-width: 1280px) {
     width: 59px;
-  height: 59px;
-  
+    height: 59px;
   }
 
 }
@@ -468,5 +470,44 @@ margin: 12px 32px 52px 32px;
   @media screen and (min-width: 1280px) {
     
     font-size: 64px;
+  }
+}
+
+
+
+
+
+
+
+
+.logo {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header_logo-icon {
+  animation: animatear 5000ms linear infinite;
+}
+
+@keyframes animatear {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  25% {
+    transform: rotateY(90deg);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(270deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
   }
 }
