@@ -5,7 +5,7 @@
   margin-top: auto;
 }
 
-.footer-copy {
+.footer__copy {
   display: block;
 
   @media screen and (max-width: 767px) {
@@ -17,7 +17,7 @@
   }
 }
 
-.footer-text {
+.footer__text {
   color: $footer-font;
   font-size: 14px;
   line-height: calc(16.41 / 14);
@@ -28,7 +28,7 @@
   }
 }
 
-.footer-heart {
+.footer__icon {
   animation: beat 340ms infinite alternate;
   margin-left: 10px;
   margin-right: 10px;
@@ -40,16 +40,16 @@
   }
 }
 
-.footer-link {
+.footer__link {
   color: $footer-font;
   transition: $footer-transition;
+
+  &:hover,
+  &:focus {
+    color: $red-color;
+  }
 }
 
-.footer-link:hover,
-.footer-link:focus {
-  color: $red-color;
-}
-
-.link-underline {
+.footer__link--underline {
   text-decoration: underline;
 }
