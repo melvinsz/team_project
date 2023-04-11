@@ -1,7 +1,7 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
-// import onAddToWatched from './add_to_watched';
+
 
 let id = 0;
 let imageMarkup = "";
@@ -11,6 +11,8 @@ const refs = {
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
   };
+
+
 
 refs.openModal.addEventListener('click', openModalHome);
 refs.closeModalBtn.addEventListener('click', closeModal);
@@ -47,8 +49,7 @@ const apiServices = new ApiServices();
    }
   
   
-    
-
+  
 
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
@@ -64,7 +65,7 @@ const apiServices = new ApiServices();
 // const getGenresNames = genres => genres.map(genre => genre.name).join(', ');
 
 function modalFilmCart({
- title,
+  title,
   original_title,
   vote_average,
   vote_count,
@@ -77,7 +78,7 @@ function modalFilmCart({
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   if (poster_path === null) {
-   poster_path ="https://dummyimage.com/395x574/000/fff.jpg&text=no+poster"
+    poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
 //  const moviesGenre = genre_ids ? getGenres(genre_ids) : 'Unknown';
   //
@@ -116,7 +117,9 @@ function modalFilmCart({
       refs.modalRender.innerHTML = imageMarkup;
     }
 
-{/* <button class="modal-film__play-btn" type="button" ></button> */}
+{
+  /* <button class="modal-film__play-btn" type="button" ></button> */
+}
 //  <iframe
 // id="vimeo-player"
 // src="https://player.vimeo.com/video/${'посилання на відео'}"
@@ -219,4 +222,3 @@ function modalFilmCart({
 // //     addToWatchedButton.textContent = 'Add to watched';
 // //   }
 // // }
-

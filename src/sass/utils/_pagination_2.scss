@@ -1,45 +1,38 @@
-.pagination-wrap {
-    user-select: none;
+ul.library__pagination {
     display: flex;
-}
-    .pagination-layout {
-        display: flex;
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-       
-        a.page {
-            height: 24px;
-            width: 24px;
-            display: block;
-            border: none;
-            line-height: 24px;
-            padding: 0;
-            text-align: center;
-            border-radius: 5px;
-            font-weight: 700;
-            color: #000000;
-            background-color: transparent;
-      
-            &:hover {
-              background-color: #B92F2C;
-              color: #fff;
-            }
-          }
-          &.active {
-            a.page {
-              background-color: #B92F2C;
-              color: #fff;
-            }
-          }
-        
-        }
-        .pagination-next, .pagination-prev {
-            color: #000000;
-            background-color: #F7F7F7;
-          
-            &:hover {
-                background-color: #B92F2C;
-                color: #fff;
-            }
-        }
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  ul.library__pagination > li:not(:last-child) {
+    margin-right: 15px;
+  }
+  
+  ul.library__pagination button {
+    min-width: 40px;
+    height: 40px;
+  
+    background: #F0F0F0;
+    border-radius: 5px;
+    border: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  ul.library__pagination button.button-number,
+  ul.library__pagination button.more-pages {
+    min-width: 5px;
+  
+    background: #F7F7F7;
+  }
+  
+  ul.library__pagination button.active-pagination {
+    min-width: 40px;
+  
+    background: #B92F2C;
+    border-radius: 5px;
+    color: #ffffff;
+  }
