@@ -1,5 +1,6 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
+import onAddToWatched from './add_to_watched';
 
 let id = 0;
 const refs = {
@@ -35,6 +36,7 @@ function openModalHome(e) {
     massiveMovie => massiveMovie.id === currentID
   );
   modalFilmCart(movie);
+onAddToWatched(movie);
 }
 
 // модалка для пошуку за ключовим словом
