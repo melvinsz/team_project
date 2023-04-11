@@ -17,9 +17,7 @@ refs.openModal.addEventListener('click', openModalHome);
 // refs.openModalLib.addEventListener('click', openModalLibrary);
 refs.closeModalBtn.addEventListener('click', closeModal);
 
-
- document.addEventListener('keydown', closeModalOnEsc);
-
+document.addEventListener('keydown', closeModalOnEsc);
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
@@ -27,13 +25,11 @@ function closeModalOnEsc(event) {
   }
 }
 
-
 // function closeModalOnEsc(event) {
 //   if (!e.target.classList.contains('[ata-modal-about]')) {
 //     closeModal();
-//   }      
+//   }
 // }
-
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -57,26 +53,27 @@ function openModalHome(e) {
   modalFilmCart(movie);
   onAddToWatched(movie);
 }
-  function openModalHome (e) {
-      openModalElem();
-      e.preventDefault();
-      if(!e.target.classList.contains('card__img')) {
-      return
-      }
-    let currentID = Number(e.target.dataset.source);
-    const massiveMovies = localStore.load('trendMovies');
-    const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
-     modalFilmCart(movie);
+function openModalHome(e) {
+  openModalElem();
+  e.preventDefault();
+  if (!e.target.classList.contains('card__img')) {
+    return;
+  }
+  let currentID = Number(e.target.dataset.source);
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
   onAddToWatched(movie);
-   }
-  
+}
 
-   function openModalLibrary (e) {
-    openModalElem();
-    e.preventDefault();
-    if(!e.target.classList.contains('card__img')) {
-    return
-    }
+function openModalLibrary(e) {
+  openModalElem();
+  e.preventDefault();
+  if (!e.target.classList.contains('card__img')) {
+    return;
+  }
   let currentID = Number(e.target.dataset.source);
   const massiveMovies = localStore.load('searchMovies');
   const movie = massiveMovies.find(
