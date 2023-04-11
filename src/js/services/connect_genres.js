@@ -38,3 +38,5 @@ export default function getGenres(genre_ids) {
 
   return arr.join(', ');
 }
+
+
