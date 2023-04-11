@@ -1,8 +1,12 @@
 import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
+<<<<<<< Updated upstream
 import getGenres from './services/connect_genres';
 
 
+=======
+import onAddToWatched from './add_to_watched';
+>>>>>>> Stashed changes
 let id = 0;
 let imageMarkup = "";
 const refs = {
@@ -36,6 +40,7 @@ function openModalElem() {
 const apiServices = new ApiServices();
 
 
+<<<<<<< Updated upstream
   function openModalHome (e) {
       openModalElem();
       e.preventDefault();
@@ -50,6 +55,22 @@ const apiServices = new ApiServices();
   
   
   
+=======
+// модалка для трендового фільма
+
+function openModalHome(e) {
+  openModalElem();
+  // e.preventDefault();
+
+  let currentID = 76600;
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+}
+>>>>>>> Stashed changes
 
 // модалка для пошуку за ключовим словом
 //  function openModalKey (e) {
@@ -104,13 +125,13 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>    
+          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
           <p><span class="overview">${overview}</span></p>
           <button class="movie__add"  data-modal-add data-modal-remove><span>add to watched</span></button>
-          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>  
+          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>
     </div>
 </div>
       `;
