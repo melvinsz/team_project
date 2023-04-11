@@ -1,6 +1,6 @@
-// const STORAGE_KEY = 'watched-films';
-// localStorage.setItem(STORAGE_KEY, '[]');
-// // const filmListFromStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
+ const STORAGE_KEY = 'watched-films';
+ localStorage.setItem(STORAGE_KEY, '[]');
+ const filmListFromStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
 // export function addToWatched(data) {
 //   const filmToAdd = data;
