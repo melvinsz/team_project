@@ -1,28 +1,38 @@
-import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
-
+import onAddToWatched from './add_to_watched';
 
 let id = 0;
-let imageMarkup = "";
+let imageMarkup = '';
+
 const refs = {
   openModal: document.querySelector('.collection'),
+  openModalLib: document.querySelector('.library__pagination'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
-  };
-
-
+};
 
 refs.openModal.addEventListener('click', openModalHome);
+// refs.openModalLib.addEventListener('click', openModalLibrary);
 refs.closeModalBtn.addEventListener('click', closeModal);
-refs.modal.addEventListener('click', closeModal);
+
+
  document.addEventListener('keydown', closeModalOnEsc);
+
+
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
-  }      
+  }
 }
+
+
+// function closeModalOnEsc(event) {
+//   if (!e.target.classList.contains('[ata-modal-about]')) {
+//     closeModal();
+//   }      
+// }
 
 
 function closeModal() {
@@ -33,9 +43,20 @@ function openModalElem() {
   refs.modal.classList.remove('is-hidden');
 }
 
-const apiServices = new ApiServices();
-
-
+function openModalHome(e) {
+  openModalElem();
+  e.preventDefault();
+  if (!e.target.classList.contains('card__img')) {
+    return;
+  }
+  let currentID = Number(e.target.dataset.source);
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+}
   function openModalHome (e) {
       openModalElem();
       e.preventDefault();
@@ -46,23 +67,26 @@ const apiServices = new ApiServices();
     const massiveMovies = localStore.load('trendMovies');
     const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
      modalFilmCart(movie);
+  onAddToWatched(movie);
    }
   
-  
-  
 
-// модалка для пошуку за ключовим словом
-//  function openModalKey (e) {
-//   e.preventDefault();
-//       let currentID = e.currentTarget.elements.searchQuery.value;
-//  const movie =  searchMovies.find((searchMovie => searchMovie.id === currentID));
-//      refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
-
-//  }
+   function openModalLibrary (e) {
+    openModalElem();
+    e.preventDefault();
+    if(!e.target.classList.contains('card__img')) {
+    return
+    }
+  let currentID = Number(e.target.dataset.source);
+  const massiveMovies = localStore.load('searchMovies');
+  const movie = massiveMovies.find(
+    massiveMovie => massiveMovie.id === currentID
+  );
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+}
 
 // import Player  from '@vimeo/player';
-
-// const getGenresNames = genres => genres.map(genre => genre.name).join(', ');
 
 function modalFilmCart({
   title,
@@ -73,20 +97,21 @@ function modalFilmCart({
   genre_ids,
   overview,
   poster_path,
-  id
+  id,
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   if (poster_path === null) {
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
-//  const moviesGenre = genre_ids ? getGenres(genre_ids) : 'Unknown';
-  //
-  //   '${moviesGenre}' 
-   imageMarkup = `
+  //  const moviesGenre = genre_ids ? getGenres(genre_ids) : 'Unknown';
+
+  //   '${moviesGenre}'
+
+  imageMarkup = `
   <div class="movie__card">
-   <a class="movie__item" href="http://image.tmdb.org/t/p/w300/${poster_path}">
-       <img src="http://image.tmdb.org/t/p/w300/${poster_path}" alt="${title}" data-source='${id}' loading="lazy"/>
+   <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
+       <img src="http://image.tmdb.org/t/p/w342/${poster_path}" alt="${title}" data-source='${id}' loading="lazy"/>
      </a>
      <div class ="movie__info">
      <h3 class ="movie__modal--title"><b><span>${original_title}</span></b>
@@ -104,18 +129,18 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>    
+          <p class ="info-item">${Object.values(genre_ids).join(', ')}</p>
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
           <p><span class="overview">${overview}</span></p>
           <button class="movie__add"  data-modal-add data-modal-remove><span>add to watched</span></button>
-          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>  
+          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>
     </div>
 </div>
       `;
-      refs.modalRender.innerHTML = imageMarkup;
-    }
+  refs.modalRender.innerHTML = imageMarkup;
+}
 
 {
   /* <button class="modal-film__play-btn" type="button" ></button> */

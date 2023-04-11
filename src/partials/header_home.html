@@ -3,10 +3,10 @@
     <nav>
       <ul class="nav">
         <li class="nav-item home">
-          <a href="./index.html">Home</a>
+          <a href="./index.html" style="color: currentColor">Home</a>
         </li>
         <li class="nav-item library">
-          <a href="./library.html">My Library</a>
+          <a href="./library.html" style="color: currentColor">My Library</a>
         </li>
       </ul>
     </nav>
@@ -21,15 +21,24 @@
       />
       <button class="header_search-btn" type="submit">
         <svg class="header_search-btn_icon">
-          <use href="/src/images/sprite.svg#search-lg"></use>
+          <use href="/src/images/sprite.svg#icon-search"></use>
         </svg>
       </button>
+      <!-- <span class="header__search-error is-hidden"
+        >Search result not successful. Enter the correct movie name</span
+      > -->
     </form>
 
+    <!-- <button class="search-btn" type="submit">
+        <svg class="icon" width="12" height="12">
+          <use href="./images/symbol-defs.svg#icon-input"></use>
+        </svg>
+      </button>  -->
+
     <div class="header-logo">
-      <a class="header_logo-link" href="/src/index.html">
+      <a class="header_logo-link logo" href="/src/index.html">
         <svg class="header_logo-icon">
-          <use href="/src/images/sprite.svg#film-lg"></use>
+          <use href="/src/images/sprite.svg#icon-film"></use>
         </svg>
         <span class="header-nav_logo-text">Filmoteka</span>
       </a>
