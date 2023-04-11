@@ -3,22 +3,22 @@ const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const apiServices = new ApiServices();
 
-searchStart();
+// searchStart();
 
-async function searchStart() {
-  // btnPagination.style.display = 'none';
+// async function searchStart() {
+//   // btnPagination.style.display = 'none';
 
-  try {
-    const { data } = await apiServices.getTrendMovies();
-    console.log(data);
-    renderMarkur(data.results);
-  } catch (error) {
-    console.log(error.message);
-    return;
-  }
-  btnPagination.style.display = 'flex';
-  btnPaginationBack.style.display = 'none';
-}
+//   try {
+//     const { data } = await apiServices.getTrendMovies();
+//     console.log(data);
+//     renderMarkur(data.results);
+//   } catch (error) {
+//     console.log(error.message);
+//     return;
+//   }
+//   btnPagination.style.display = 'flex';
+//   btnPaginationBack.style.display = 'none';
+// }
 
 function renderMarkur(data) {
   const markup = data
@@ -35,5 +35,7 @@ function renderMarkur(data) {
    `
     )
     .join('');
-  colectionUl.insertAdjacentHTML('beforeend', markup);
-}
+  return colectionUl.insertAdjacentHTML('beforeend', markup);
+};
+
+export { BASE_URL_POSTER, colectionUl, renderMarkur };
