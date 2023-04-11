@@ -44,6 +44,7 @@ function openModalHome(e) {
     massiveMovie => massiveMovie.id === currentID
   );
   modalFilmCart(movie);
+  onAddToWatched(movie);
 }
 
 // модалка для пошуку за ключовим словом
