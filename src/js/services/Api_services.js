@@ -93,7 +93,7 @@ export default class ApiServices {
     const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
     try {
       const { data } = await axios.get(url);
-      localStore.save('genres',data)
+      localStore.save('genres',data.genres)
       return data;
     } catch (error) {
       console.error('getGenres says:', error);
