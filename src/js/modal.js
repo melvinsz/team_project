@@ -1,12 +1,13 @@
-import ApiServices from './services/Api_services';
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 
 
 let id = 0;
 let imageMarkup = "";
+
 const refs = {
   openModal: document.querySelector('.collection'),
+  openModalLibrary: document.querySelector('.collection'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
@@ -15,9 +16,12 @@ const refs = {
 
 
 refs.openModal.addEventListener('click', openModalHome);
+// refs.openModalLib.addEventListener('click', openModalLibrary);
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.modal.addEventListener('click', closeModal);
  document.addEventListener('keydown', closeModalOnEsc);
+
+
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
@@ -33,8 +37,6 @@ function openModalElem() {
   refs.modal.classList.remove('is-hidden');
 }
 
-const apiServices = new ApiServices();
-
 
   function openModalHome (e) {
       openModalElem();
@@ -48,17 +50,19 @@ const apiServices = new ApiServices();
      modalFilmCart(movie);
    }
   
-  
-  
 
-// модалка для пошуку за ключовим словом
-//  function openModalKey (e) {
-//   e.preventDefault();
-//       let currentID = e.currentTarget.elements.searchQuery.value;
-//  const movie =  searchMovies.find((searchMovie => searchMovie.id === currentID));
-//      refs.modal.insertAdjacentHTML("beforeend", movieCard(movie));
-
-//  }
+   function openModalLibrary (e) {
+    openModalElem();
+    e.preventDefault();
+    if(!e.target.classList.contains('card__img')) {
+    return
+    }
+  let currentID = Number(e.target.dataset.source);
+  const massiveMovies = localStore.load('searchMovies');
+  const movie = massiveMovies.find((massiveMovie => massiveMovie.id === currentID));
+   modalFilmCart(movie);
+ }
+  
 
 // import Player  from '@vimeo/player';
 
@@ -85,8 +89,8 @@ function modalFilmCart({
   //   '${moviesGenre}' 
    imageMarkup = `
   <div class="movie__card">
-   <a class="movie__item" href="http://image.tmdb.org/t/p/w300/${poster_path}">
-       <img src="http://image.tmdb.org/t/p/w300/${poster_path}" alt="${title}" data-source='${id}' loading="lazy"/>
+   <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
+       <img src="http://image.tmdb.org/t/p/w342/${poster_path}" alt="${title}" data-source='${id}' loading="lazy"/>
      </a>
      <div class ="movie__info">
      <h3 class ="movie__modal--title"><b><span>${original_title}</span></b>
