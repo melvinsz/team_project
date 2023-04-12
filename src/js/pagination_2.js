@@ -3,7 +3,7 @@ import {showLoader} from "./loader.js";
 const paginationEl = document.querySelector('.library__pagination');
 const container = document.querySelector('.library__container');
 const renderAddToWatched = document.querySelector('.watched_button');
-const modalButtonQueue = document.querySelector('.queue');
+const queueBtn = document.querySelector('.addqueue');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const modal = document.querySelector('.modal');
 
@@ -17,7 +17,7 @@ let page = '';
 const FILMS_ON_PAGE = 20;
 const BTNS_ON_PAGE = 5;
 const STORAGE_KEY = 'watched-films';
-const QUEUEKEY = 'queuedMovieIDs';
+const QUEUE_KEY = 'queue-movies';
 
 createPagination();
 
@@ -33,7 +33,7 @@ renderAddToWatched.addEventListener('click', () => {
   clearPaginationMarkup();
   createPagination();
 });
-modalButtonQueue.addEventListener('click', () => {
+queueBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
   watchedLibreryArray = [];
@@ -44,7 +44,7 @@ modalButtonQueue.addEventListener('click', () => {
 function choseLibrary(chosedBtn) {
   if (
     chosedBtn === '' ||
-    (localStorage.getItem(QUEUEKEY) === null &&
+    (localStorage.getItem(QUEUE_KEY) === null &&
       localStorage.getItem(STORAGE_KEY) === null)
   ) {
     return;
@@ -54,10 +54,10 @@ function choseLibrary(chosedBtn) {
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(STORAGE_KEY));
   } else {
-    if (localStorage.getItem(QUEUEKEY) === null) {
+    if (localStorage.getItem(QUEUE_KEY) === null) {
       return;
     }
-    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
+    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUE_KEY));
   }
 }
 
@@ -70,8 +70,8 @@ function calculateQuntityOfPages(filmsPerPage) {
 function findActiveBtn() {
   if (renderAddToWatched.classList.contains('activBtn')) {
     page = STORAGE_KEY;
-  } else if (modalButtonQueue.classList.contains('activBtn')) {
-    page = QUEUEKEY;
+  } else if (queueBtn.classList.contains('activBtn')) {
+    page = QUEUE_KEY;
   }
 }
 
