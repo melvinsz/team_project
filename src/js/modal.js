@@ -4,7 +4,6 @@ import onAddToWatched from './add_to_watched';
 // Цей import addToQueue from './addqueue' додала Асадова Т.
 import addToQueue from './addqueue';
 
-
 let id = 0;
 let imageMarkup = '';
 
@@ -27,7 +26,6 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
-
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -55,34 +53,28 @@ function openModalHome(e) {
   addToQueue(movie);
 }
 
+// if (movie = undefined ) {
+//    massiveMovies = localStore.load('searchMoviess');
+//   movie = massiveMovies.find(
+//     massiveMovie => massiveMovie.id === currentID
+//   );
+// }
 
-   // if (movie = undefined ) {
-  //    massiveMovies = localStore.load('searchMoviess');
-  //   movie = massiveMovies.find(
-  //     massiveMovie => massiveMovie.id === currentID
-  //   );
-  // }
- 
-
-
-
-
-
- function getGenres(genre_ids) {
+function getGenres(genre_ids) {
   const massiveGenres = localStore.load('genres');
-   const arr = [];
+  const arr = [];
 
   for (const value of genre_ids) {
-   let genresMovie = massiveGenres.find(massiveGenre => massiveGenre.id === Number(value));
-    
-      arr.push(genresMovie.name);
-      console.log(arr.push(genresMovie.name))
-    }
-  
+    let genresMovie = massiveGenres.find(
+      massiveGenre => massiveGenre.id === Number(value)
+    );
+
+    arr.push(genresMovie.name);
+    console.log(arr.push(genresMovie.name));
+  }
 
   return arr.join(', ');
 }
-
 
 function modalFilmCart({
   title,
@@ -136,4 +128,3 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
-
