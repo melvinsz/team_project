@@ -1,8 +1,12 @@
 const STORAGE_KEY = 'watched-films';
+
 export default function addToWatched(data) {
   const filmToAdd = data;
   const addToWatchedRef = document.querySelector('[data-modal-add]');
-  const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  let parsedWatchedFilms;
+  const parsedList = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  parsedWatchedFilms = parsedList || [];
+
   //   console.log(parsedWatchedFilms);
 
   if (parsedWatchedFilms.some(element => element.id === filmToAdd.id)) {
