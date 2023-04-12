@@ -139,9 +139,9 @@ function modalFilmCart({
   refs.modalRender.innerHTML = imageMarkup;
 }
 
-{
-  /* <button class="modal-film__play-btn" type="button" ></button> */
-}
+// {
+/* <button class="modal-film__play-btn" type="button" ></button> */
+// }
 //  <iframe
 // id="vimeo-player"
 // src="https://player.vimeo.com/video/${'посилання на відео'}"
