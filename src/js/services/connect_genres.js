@@ -26,7 +26,7 @@ export default function getGenres(genre_ids) {
 
   const arr = [];
 
-  for (const value of massiveGenres) {
+  for (const value of genre_ids) {
     if (genre_ids === 'N/A' || genre_ids.length === 0) {
       arr.push('Other');
       break;
