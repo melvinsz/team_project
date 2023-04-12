@@ -19,6 +19,7 @@ const apiServices = new ApiServices();
 
 export default function getGenres(genre_ids) {
   const massiveGenres = localStore.load('genres');
+  
   if (!massiveGenres) {
     apiServices.getGenres();
   }

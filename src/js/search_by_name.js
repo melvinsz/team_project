@@ -2,6 +2,7 @@
 import Notiflix from 'notiflix';
 
 import localStore from './services/local_storage.js';
+import getGenres from './services/connect_genres.js';
 import loader from './loader';
 
 import Api_Services from './services/Api_services';
@@ -35,7 +36,7 @@ searchFormRef.addEventListener('submit', e => {
 
       const massiveMovies = localStore.load('searchMovies');
 
-      console.log('local storage:', massiveMovies);
+      // console.log('local storage:', massiveMovies);
 
       renderMarkur(massiveMovies);
     } else {
@@ -48,19 +49,24 @@ searchFormRef.addEventListener('submit', e => {
 });
 
 function renderMarkur(massiveMovies) {
-  const markup = data
+  colectionUl.innerHTML = '';
+  inputRef.value = '';
+
+  const markup = massiveMovies
     .map(
-      ({ id, title, poster_path }) =>
+      ({ id, title, poster_path, genre_ids, release_date }) =>
         `  <li class="card">
             <a data-source=${id}>
               <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}'/>
             </a>
-  
             <div class="card__title">${title}</div>
-            <div class="card__info">жанри та рік</div>
+            <div class="card__info">${getGenres(
+              genre_ids
+            )}, ${release_date.slice(0, 4)}</div>
           </li>
      `
     )
     .join('');
+
   return colectionUl.insertAdjacentHTML('beforeend', markup);
 }
