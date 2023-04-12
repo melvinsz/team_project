@@ -1,4 +1,4 @@
-//import { renderMovieItem, fetchMovie } from './render_cards.js';
+import { renderMovieItem, fetchMovie } from './services/render_library.js';
 import {showLoader} from "./loader.js";
 const paginationEl = document.querySelector('.library__pagination');
 const container = document.querySelector('.library__container');
@@ -303,7 +303,7 @@ function onBtnsClick(event) {
     })
     .then(renderPaginationMarkup(quntityOfPages))
     .then(setActiveBtn(event))
-    .then(loaderToggle)
+    .then(showLoader)
     .then(goToTop);
 }
 
