@@ -4,7 +4,7 @@ import '../sass/index.scss';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const QueueList = document.querySelector('.library__pagination');
 
-const STORAGE_KEY = 'queue-movie';
+const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
 queueRef.addEventListener('click', renderAddToQueue);
@@ -13,7 +13,7 @@ function renderAddToQueue(event) {
   event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmAddedToQueue(parsQueue);
-  //   localStorageCheck();
+  localStorageCheck();
 }
 
 function filmAddedToQueue(data) {
@@ -34,11 +34,11 @@ function filmAddedToQueue(data) {
   QueueList.innerHTML = parsQueue;
 }
 
-// function localStorageCheck() {
-//   if (QueueList.innerHTML === '') {
-//     const emptyList = `<li class="card">Your movie queue is empty.</li>`;
-//     QueueList.innerHTML = emptyList;
-//   }
-// }
+function localStorageCheck() {
+  if (QueueList.innerHTML === '') {
+    const emptyList = `<li class="card">Your movie queue is empty.</li>`;
+    QueueList.innerHTML = emptyList;
+  }
+}
 
 export { BASE_URL_POSTER, QueueList, renderAddToQueue };
