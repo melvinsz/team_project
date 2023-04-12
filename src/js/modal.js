@@ -23,12 +23,33 @@ refs.openModal.addEventListener('click', openModalHome);
 refs.closeModalBtn.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', closeModalOnEsc);
+document.body.addEventListener('click', closeModalOn);
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
+
+
+function closeModalOn(e) {
+  if (!e.target.closest('.modal__content')) {
+    return;
+  }closeModal();
+
+
+}
+const modalContainer = document.querySelector( 'container.modal');
+ 
+// document.addEventListener( 'click', (e) => {
+// 	const closeModClick = e.composedPath().includes(modalContainer);
+ 
+// 	if ( ! closeModClick ) {
+// 		closeModal()
+// 	}
+// })
+
+
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -45,6 +66,11 @@ function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
+ 
+  window.addEventListener('scroll', function(e) {
+    e.preventDefault();
+    });
+    
   openModalElem();
   e.preventDefault();
 
@@ -101,7 +127,7 @@ function modalFilmCart({
                </div>
       <div class = "movie__detals--value">
           <p class="info-item">
-          <button class="vote-average">${roundVote_average}</button>&nbsp;/&nbsp;
+          <button class="vote-average">${roundVote_average}</button>&nbsp;<span class="slash">/</span>&nbsp;
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
@@ -119,3 +145,4 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
+
