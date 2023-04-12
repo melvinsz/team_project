@@ -124,7 +124,7 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">'{genresMovie}'</p>    
+          <p class ="info-item">${getGenres(genre_ids)}</p>    
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
