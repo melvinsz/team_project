@@ -9,11 +9,14 @@ const QUEUE_KEY = 'queue-movies';
 
 export default function addToQueue(data) {
   const movieToAdd = data;
-  console.log(`data`, movieToAdd);
 
   const addToQueueRef = document.querySelector('[data-modal-queue]');
 
-  const parsedQueueMovies = JSON.parse(localStorage.getItem(QUEUE_KEY));
+  let parsedQueueMovies;
+
+  const parsedList = JSON.parse(localStorage.getItem(QUEUE_KEY));
+
+  parsedQueueMovies = parsedList || [];
   //   console.log(`parsedQueueMovies`, parsedQueueMovies);
   if (parsedQueueMovies.some(element => element.id === movieToAdd.id)) {
     addToQueueRef.textContent = `Remove from queue`;
