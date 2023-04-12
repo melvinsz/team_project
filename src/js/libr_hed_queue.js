@@ -2,9 +2,9 @@ import '../sass/index.scss';
 import getGenres from './services/connect_genres';
 
 const URL_POSTER = 'http://image.tmdb.org/t/p/w342/';
-const collectionRef = document.querySelector('.library__pagination');
+const collectionRef = document.querySelector('.library__container');
 const addqueueRef = document.querySelector('.add-films-queue');
-
+                                        
 const QUEUE_KEY = 'queue-movies';
 
 addqueueRef.addEventListener('click', renderMovies);
