@@ -31,51 +31,66 @@
 
 // }
 
-.gallery {
+.library__container {
     @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
-        display: block;
-    }
-    @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 32px;
-    }
-    @media screen and (min-width: 1280px) {    
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-    }
+            display: block;
+        }
     
+        @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+    
+        @media screen and (min-width: 1280px) {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
 }
+
+// .gallery {
+    
+    
+// }
 
 .info {
     display: block;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
-        line-height: 14px;
-        margin-bottom: 20px;
-    }
-    @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
-        line-height: 16px;
-        margin-bottom: 32px;
-    }
-    @media screen and (min-width: 1280px) {
-        font-size: 20px;
-        line-height: 24px;
-        /* or 120% */
-        margin-bottom: 32px;
-    }
                
     text-transform: uppercase;
 }
 
 .info__item {
+    
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+    
+        @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
+            line-height: 1.33;
+            margin-bottom: 20px;
+        }
+    
+        @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
+            line-height: 1.33;
+            margin-bottom: 32px;
+        }
+    
+        @media screen and (min-width: 1280px) {
+            font-size: 20px;
+            line-height: 24px;
+            /* or 120% */
+            margin-bottom: 32px;
+        }
     color: #000000;
 }
 
 .info__red {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
     color: #b92f2c;
 }

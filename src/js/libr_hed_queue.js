@@ -1,7 +1,7 @@
 import '../sass/index.scss';
 import getGenres from './services/connect_genres';
 
-const URL_POSTER = 'http://image.tmdb.org/t/p/w342/';
+const URL_POSTER = 'http://image.tmdb.org/t/p/w500/';
 const collectionRef = document.querySelector('.library__container');
 const addqueueRef = document.querySelector('.add-films-queue');
                                         
@@ -30,10 +30,10 @@ function queueMovies(movies) {
         }) => {
             const genres = getGenres(genre_ids);
             console.log(`genres`, genres);
-            const year = release_date.slice(0, 3);
+            const year = release_date.slice(0, 4);
             console.log(`year`, year);
             // const genre = Object.values(genre_ids).join(" | ");
-            return `<li class="gallery">
+            return `<div class="gallery">
                 <a class="movie__item" href="${URL_POSTER}${poster_path}">
                     <img src="${URL_POSTER}${poster_path}"
                     alt="Poster of movie ${title}" 
@@ -48,7 +48,7 @@ function queueMovies(movies) {
                         <b>${genres} | ${year}</b>
                     </p>
                 </div>
-            </li>`;
+            </div>`;
     })
     .join('');
     collectionRef.innerHTML = markup;      
