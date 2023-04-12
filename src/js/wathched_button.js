@@ -7,7 +7,7 @@ const STORAGE_KEY = 'watched-films';
 
 const linkWatched = document.querySelector('.add-films-watched');
 console.log(linkWatched);
-// linkWatched.addEventListener('click', renderAddToWatched);
+linkWatched.addEventListener('click', renderAddToWatched);
 
 function renderAddToWatched(event) {
   event.preventDefault();
