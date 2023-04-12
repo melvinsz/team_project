@@ -1,6 +1,6 @@
 import {showLoader} from "../loader";
 const libraryContainer = document.querySelector(".library__container");
-const renderAddToWatched = document.querySelector('.watched_button');
+const renderAddToWatched = document.querySelector('.wathched_button');
 const queueBtn = document.querySelector('.addqueue');
 const contentRef = document.querySelector(".modal");
 const galleryContainer = document.querySelector(".library__container");
