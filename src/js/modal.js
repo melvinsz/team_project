@@ -5,7 +5,6 @@ import addToWatched from './add_to_watched';
 
 import addToQueue from './addqueue';
 
-
 let id = 0;
 let imageMarkup = '';
 
@@ -30,17 +29,10 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
-// document.body.addEventListener('click', closeModalOn);
-
-// function closeModalOn(e) {
-//   if (e.target.closest('.container.modal')) {
-//     closeModal();
-//   }
-// }
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
-  refs.modalBD.classList.add('is-hidden');
+
   // addToWatched();
 }
 
@@ -67,20 +59,27 @@ function openModalHome(e) {
 
 }
 
+// if (movie = undefined ) {
+//    massiveMovies = localStore.load('searchMoviess');
+//   movie = massiveMovies.find(
+//     massiveMovie => massiveMovie.id === currentID
+//   );
+// }
 
-   // if (movie = undefined ) {
-  //    massiveMovies = localStore.load('searchMoviess');
-  //   movie = massiveMovies.find(
-  //     massiveMovie => massiveMovie.id === currentID
-  //   );
-  // }
- 
+// function getGenres(genre_ids) {
+//   const massiveGenres = localStore.load('genres');
+//   const arr = [];
+
+//   for (const value of genre_ids) {
+//     let genresMovie = massiveGenres.find(
+//       massiveGenre => massiveGenre.id === Number(value)
+//     );
+
+//     arr.push(genresMovie.name);
+//     console.log(arr.push(genresMovie.name));
+//   }
 
 
-
-
-
- 
 function modalFilmCart({
   title,
   original_title,
@@ -133,4 +132,3 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
-
