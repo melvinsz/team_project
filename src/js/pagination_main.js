@@ -1,5 +1,5 @@
 import renderMarkur from './render_cards_two';
-import {query} from './search_by_name';
+import { query } from './search_by_name';
 import ApiServices from './services/Api_services';
 
 const apiServices = new ApiServices();

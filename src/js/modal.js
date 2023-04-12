@@ -15,7 +15,6 @@ const refs = {
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
   closeModalField: document.querySelector('.container.modal'),
-  
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -31,25 +30,21 @@ function closeModalOnEsc(event) {
   }
 }
 
-
 function closeModalOn(e) {
   if (!e.target.closest('.modal__content')) {
     return;
-  }closeModal();
-
-
+  }
+  closeModal();
 }
-const modalContainer = document.querySelector( 'container.modal');
- 
+const modalContainer = document.querySelector('container.modal');
+
 // document.addEventListener( 'click', (e) => {
 // 	const closeModClick = e.composedPath().includes(modalContainer);
- 
+
 // 	if ( ! closeModClick ) {
 // 		closeModal()
 // 	}
 // })
-
-
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -66,11 +61,11 @@ function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
- 
-  window.addEventListener('scroll', function(e) {
+
+  window.addEventListener('scroll', function (e) {
     e.preventDefault();
-    });
-    
+  });
+
   openModalElem();
   e.preventDefault();
 
@@ -82,7 +77,6 @@ function openModalHome(e) {
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
-
 }
 
 // if (movie = undefined ) {
@@ -91,7 +85,6 @@ function openModalHome(e) {
 //     massiveMovie => massiveMovie.id === currentID
 //   );
 // }
-
 
 function modalFilmCart({
   title,
@@ -145,4 +138,3 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
-
