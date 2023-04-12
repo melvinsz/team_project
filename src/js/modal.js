@@ -1,7 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
-// Цей import addToQueue from './addqueue' додала Асадова Т.
+import addToWatched from './add_to_watched';
+
 import addToQueue from './addqueue';
 
 
@@ -14,6 +15,8 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
+  closeModalField: document.querySelector('.container.modal'),
+  
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -27,10 +30,18 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
+// document.body.addEventListener('click', closeModalOn);
 
+// function closeModalOn(e) {
+//   if (e.target.closest('.container.modal')) {
+//     closeModal();
+//   }
+// }
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
+  refs.modalBD.classList.add('is-hidden');
+  // addToWatched();
 }
 
 function openModalElem() {
@@ -53,6 +64,7 @@ function openModalHome(e) {
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
+
 }
 
 
@@ -68,22 +80,7 @@ function openModalHome(e) {
 
 
 
- function getGenres(genre_ids) {
-  const massiveGenres = localStore.load('genres');
-   const arr = [];
-
-  for (const value of genre_ids) {
-   let genresMovie = massiveGenres.find(massiveGenre => massiveGenre.id === Number(value));
-    
-      arr.push(genresMovie.name);
-      console.log(arr.push(genresMovie.name))
-    }
-  
-
-  return arr.join(', ');
-}
-
-
+ 
 function modalFilmCart({
   title,
   original_title,
@@ -97,7 +94,7 @@ function modalFilmCart({
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
-  let genresMovie = getGenres(genre_ids);
+  // let genresMovie =  genre_ids ? getGenres(genre_ids) : 'Unknown';
   if (poster_path === null) {
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
@@ -122,7 +119,7 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">${genresMovie}</p>    
+          <p class ="info-item">'{genresMovie}'</p>    
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
