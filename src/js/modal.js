@@ -1,6 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
+// Цей import addToQueue from './addqueue' додала Асадова Т.
+// import addToQueue from './addqueue';
 
 let id = 0;
 let imageMarkup = '';
@@ -52,6 +54,7 @@ function openModalHome(e) {
   );
   modalFilmCart(movie);
   onAddToWatched(movie);
+  addToQueue(movie);
 }
 
 function openModalLibrary(e) {

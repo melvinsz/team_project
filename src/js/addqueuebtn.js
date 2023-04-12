@@ -57,7 +57,7 @@ function queueMovies(movies) {
 function localStorageCheck() {
   if (collectionRef.innerHTML === '') {
     const emptyList = `<li class="gallery">Your library of watched movies is empty.</li>`;
-    refs.collection.innerHTML = emptyList;
+    collectionRef.innerHTML = emptyList;
   }
 }
 
