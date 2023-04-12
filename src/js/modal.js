@@ -66,19 +66,6 @@ function openModalHome(e) {
 //   );
 // }
 
-// function getGenres(genre_ids) {
-//   const massiveGenres = localStore.load('genres');
-//   const arr = [];
-
-//   for (const value of genre_ids) {
-//     let genresMovie = massiveGenres.find(
-//       massiveGenre => massiveGenre.id === Number(value)
-//     );
-
-//     arr.push(genresMovie.name);
-//     console.log(arr.push(genresMovie.name));
-//   }
-
 
 function modalFilmCart({
   title,
