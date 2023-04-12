@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 //
 //  getTrendMovies() - повертае масив 20 фільмів на сторінці пошуку № this.page, та зберігае (key = 'trendMovies') у local storage;
 //
@@ -13,11 +13,9 @@
 //  *** не звертаємось до функції, використовуємо діні з local storage
 //
 
-import axios from 'axios'; 
-
-
-
-import localStore from './local_storage.js'; 
+import axios from 'axios';
+import localStore from './local_storage.js';
+import loader from '../loader'
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const TREND_URL = `${BASE_URL}/trending/movie/week`;
@@ -35,6 +33,7 @@ export default class ApiServices {
 
   async getTrendMovies() {
     const url = `${TREND_URL}?api_key=${API_KEY}&language=en-US&page=${this.page}`;
+    loader.showLoader();
 
     // try {
     //   const { data } = await axios.get(url);
@@ -45,14 +44,14 @@ export default class ApiServices {
     // }
 
     try {
-      const  response  = await axios.get(url);
-      const {data} = response;
-      localStore.save('trendMovies',data.results)
+      const response = await axios.get(url);
+      loader.hideLoader();
+      const { data } = response;
+      localStore.save('trendMovies', data.results);
       return response;
     } catch (error) {
       console.error('getTrendMovies says:', error);
     }
-
   }
 
   async getSearchMovie(searchQuery) {
@@ -67,9 +66,9 @@ export default class ApiServices {
     // }
 
     try {
-      const  response  = await axios.get(url);
-      const {data} = response;
-      localStore.save('searchMovies',data.results)
+      const response = await axios.get(url);
+      const { data } = response;
+      localStore.save('searchMovies', data.results);
       return response;
     } catch (error) {
       console.error('getSearchMovie says:', error);
@@ -81,24 +80,21 @@ export default class ApiServices {
 
     try {
       const { data } = await axios.get(url);
-      localStore.save('searchById',data)
+      localStore.save('searchById', data);
       return data;
     } catch (error) {
       console.error('getSearchById says:', error);
     }
-
   }
 
-  async getGenres(){
+  async getGenres() {
     const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
     try {
       const { data } = await axios.get(url);
-      localStore.save('genres',data)
+      localStore.save('genres', data.genres);
       return data;
     } catch (error) {
       console.error('getGenres says:', error);
     }
-
   }
 }
-

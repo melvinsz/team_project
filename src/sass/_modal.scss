@@ -7,13 +7,12 @@
 /* Модалка оформлення */
 
 .movie__modal {
-  min-width: 240px;
+  min-width: 280px;
   /* width: 100%; */
-  height: auto;
+  height: 95%;
   /* max-width: 280px; */
-  padding: 40px 20px 40px 20px;
-
-  position: absolute;
+  padding: 40px 15px;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -25,16 +24,18 @@
   background-color: #ffffff;
   border-radius: 10px;
 
-  /* transition: transform 250ms ease-in-out; */
+  //  transition: transform 250ms ease-in-out; 
 
   @media screen and (min-width: 768px) {
-    min-width: 704px;
-    padding: 40px 72px auto 36px;
+    height: auto;
+    position: fixed;
+    width: 704px;
+    padding: 40px 32px;
   }
 
   @media screen and (min-width: 1280px) {
     min-width: 808px;
-    padding: 40px 12px 40px 12px;
+    padding: 40px 10px;
   }
   &.is-hidden {
     opacity: 0;
@@ -58,21 +59,21 @@ img {
 button {
   color: $red-color;
   background-color: #ffffff;
-  // margin: auto;
   border: 1px solid #000000;
   border-radius: 100px;
   font-weight: 500;
   font-size: 12px;
   line-height: 14.06px;
-  padding: 10px 14px;
-  width: 113px;
+  padding: 10px 10px;
+  width: 111px;
   height: 34px;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
     height: 38px;
-    padding: 12px 18px;
-    width: 121px;
+    padding: 12px 16px;
+    width: 119px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     height: 42px;
     padding: 14px 24px;
     width: 134px;
@@ -82,16 +83,18 @@ button {
 .movie__add {
   color: #ffffff;
   background-color: $red-color;
-  padding: 10px 12px;
-  width: 127px;
-  margin-right: 10px;
+  padding: 10px 8px;
+  width: 125px;
+  margin-right: 2px;
+  margin-top: 20px;
   @media screen and (min-width: 768px) {
-    padding: 12px 18px;
-    width: 140px;
+    padding: 12px 16px;
+    width: 137px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     padding: 14px 32px;
     width: 167px;
+    margin-right: 10px;
   }
 }
 
@@ -99,7 +102,7 @@ button {
   position: absolute;
   top: 7px;
   right: 7px;
-
+  margin: 0;
   width: 30px;
   height: 30px;
   padding: 0;
@@ -138,6 +141,7 @@ button {
   background-color: $red-color;
   border-radius: 5px;
   padding: 1px 9px;
+  margin-top: 0px;
 }
 
 .overview {
@@ -162,7 +166,7 @@ button {
 .movie__card {
   text-align: start;
   //    justify-content: center;
-  //  display: block;
+   display: block;
   list-style: none;
   font-weight: 500;
   font-size: 12px;
@@ -173,7 +177,7 @@ button {
     gap: 60px;
   }
   @media screen and (min-width: 1280px) {
-    gap: 16px;
+    gap: 20px;
   }
 }
 
@@ -181,7 +185,7 @@ button {
   /* justify-content: center; */
   display: flex;
   flex-wrap: wrap;
-  gap: 39px;
+  gap: 10px;
   list-style: none;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
@@ -191,6 +195,16 @@ button {
     gap: 83px;
   }
 }
+.movie__info {
+  @media screen and (min-width: 768px) {
+    // display: block;
+  max-width: 300px;
+  }
+  @media screen and (min-width: 1280px) {
+   max-width: 375px;
+  }
+}
+
 
 // .video {
 //     width: 100%
@@ -202,25 +216,25 @@ button {
 // }
 // }
 
-// .backdrop-about {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background-color: rgba(0, 0, 0, .2);
-//     z-index: 20;
-//     transition: .3s all;
+.backdrop-about {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 20;
+    transition: .3s all;
 
-//     // transition: opacity 250ms linear,
-//     //     visibility 250ms linear;
+    // transition: opacity 250ms linear,
+    //     visibility 250ms linear;
 
-//   &.is-hidden {
-//         opacity: 0;
-//         pointer-events: none;
+  &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
 
-//     }
-// }
+    }
+}
 
 // .movie__modal.is-open {
 //     opacity: 1;
