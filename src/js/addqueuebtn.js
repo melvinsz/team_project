@@ -3,13 +3,13 @@ import getGenres from './services/connect_genres';
 
 const URL_POSTER = 'http://image.tmdb.org/t/p/w342/';
 const collectionRef = document.querySelector('.library__pagination');
-const addqueueRef = document.querySelector('.movie__queue');
+// const addqueueRef = document.querySelector('.movie__queue');
 
 const QUEUE_KEY = 'queue-movies';
 
-addqueueRef.addEventListener('click', renderMovies);
+// addqueueRef.addEventListener('click', renderMovies);
 
-function renderMovies(e) {
+export default function renderMovies(e) {
     e.preventDefault();
     const parsedQueueMovies = JSON.parse(localStorage.getItem(QUEUE_KEY));
     console.log(`parsedQueueMovies`, parsedQueueMovies);
@@ -56,9 +56,9 @@ function queueMovies(movies) {
 
 function localStorageCheck() {
   if (collectionRef.innerHTML === '') {
-    const emptyList = `<li class="card">Your library of watched movies is empty.</li>`;
+    const emptyList = `<li class="gallery">Your library of watched movies is empty.</li>`;
     refs.collection.innerHTML = emptyList;
   }
 }
 
-export { URL_POSTER, collectionRef, renderMovies };
+// export { URL_POSTER, collectionRef, renderMovies };
