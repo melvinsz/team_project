@@ -13,6 +13,7 @@ function renderAddToWatched(event) {
   event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms);
+  localStorageCheck();
 }
 
 function filmWatched(data) {
@@ -31,6 +32,13 @@ function filmWatched(data) {
     )
     .join('');
   colectionUl.innerHTML = parsedWatchedFilms;
+}
+
+function localStorageCheck() {
+  if (colectionUl.innerHTML === '') {
+    const emptyList = `<li class="card">Your library of watched movies is empty.</li>`;
+    colectionUl.innerHTML = emptyList;
+  }
 }
 
 export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
