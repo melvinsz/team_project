@@ -2,13 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
 }
 
 .btn-left,
 .btn-right {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   background-color: #f7f7f7;
@@ -35,13 +42,10 @@
 }
 
 .first-left,
-.first-right {
+.first-right,
+.second-left,
+.second-right {
   color: $black-color;
   background-color: $white-color;
   cursor: pointer;
-}
-
-.icon-arrow {
-  width: 16px;
-  height: 16px;
 }

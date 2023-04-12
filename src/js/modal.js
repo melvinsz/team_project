@@ -1,6 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
+// Цей import addToQueue from './addqueue' додала Асадова Т.
+import addToQueue from './addqueue';
 
 
 let id = 0;
@@ -18,26 +20,13 @@ refs.openModal.addEventListener('click', openModalHome);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 
-
- document.addEventListener('keydown', closeModalOnEsc);
-
+document.addEventListener('keydown', closeModalOnEsc);
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
-
-
-// document.body.addEventListener('click', (event) => {
-//   if (event.currentTarget('.is-active')) {
-//     console.log(noclose)
-//     return;
-//       // closeModal();
-//   }
-//     closeModal();
-//  })
-
 
 
 function closeModal() {
@@ -57,22 +46,26 @@ function openModalHome(e) {
   e.preventDefault();
 
   let currentID = Number(e.target.dataset.source);
-  let massiveMovies = localStore.load('trendMovies');
-  let movie = massiveMovies.find(
+  const massiveMovies = localStore.load('trendMovies');
+  const movie = massiveMovies.find(
     massiveMovie => massiveMovie.id === currentID
   );
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+  addToQueue(movie);
+}
+
+
    // if (movie = undefined ) {
   //    massiveMovies = localStore.load('searchMoviess');
   //   movie = massiveMovies.find(
   //     massiveMovie => massiveMovie.id === currentID
   //   );
   // }
-  modalFilmCart(movie);
-  // if (e.target.classList.contains('card__img')) {
-  //   return;
-  // }
-  onAddToWatched(movie);
-}
+ 
+
+
+
 
 
  function getGenres(genre_ids) {
@@ -106,8 +99,8 @@ function modalFilmCart({
   let roundVote_average = vote_average.toFixed(1);
   let genresMovie = getGenres(genre_ids);
   if (poster_path === null) {
-    poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster'
-  };
+    poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
+  }
   imageMarkup = `
   <div class="movie__card">
    <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
@@ -136,7 +129,7 @@ function modalFilmCart({
           <p><span class="overview">${overview}</span></p>
           <div class="btn">
           <button class="movie__add"  data-modal-add data-modal-remove><span>add to watched</span></button>
-          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>  
+          <button class="movie__queue"  data-modal-queue data-modal-delete><span>add to queue</span></button>
     </div>
     </div>
 </div>

@@ -37,24 +37,23 @@ img {
   height: auto;
 }
 
- .container {
-   margin: 0 auto;
-   padding-left: 20px;
-   padding-right: 20px;
-   @media screen and (min-width: 480px) {
-     width: 480px;
-   }
+.container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media screen and (min-width: $mob) {
+    width: $mob;
+  }
 
-   @media screen and (min-width: 768px) {
-     width: 768px;
-     padding-left: 32px;
-     padding-right: 32px;
-   }
+  @media screen and (min-width: $tab) {
+    width: $tab;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-   @media screen and (min-width: 1200px) {
-     width: 1200px;
-     padding-left: 32px;
-     padding-right: 32px;
-   }
- }
-
+  @media screen and (min-width: $desk) {
+    width: $desk;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
