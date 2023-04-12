@@ -28,7 +28,7 @@ async function searchStart() {
 
   try {
     const { data } = await apiServices.getTrendMovies();
-    console.log(data);
+    // console.log(data);
     renderMarkur(data.results);
   } catch (error) {
     console.log(error.message);
@@ -81,11 +81,9 @@ async function onSearchLeft(event) {
     ref.btnLeft.style.display = 'none';
     ref.secondLeft.style.display = 'none';
     ref.firstLeft.style.display = 'none';
-  }
-  else if (apiServices.page === 2) {
+  } else if (apiServices.page === 2) {
     ref.secondLeft.style.display = 'none';
-  }
-  else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === apiServices.total_pages - 1) {
     ref.secondRight.style.display = 'none';
   }
 }
@@ -133,11 +131,9 @@ async function onSearchRight(event) {
     ref.btnRight.style.display = 'none';
     ref.secondRight.style.display = 'none';
     ref.firstRight.style.display = 'none';
-  }
-  else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === apiServices.total_pages - 1) {
     ref.secondRight.style.display = 'none';
-  }
-  else if (apiServices.page === 2) {
+  } else if (apiServices.page === 2) {
     ref.secondLeft.style.display = 'none';
   }
 }
@@ -185,16 +181,13 @@ async function onSearchNumber(event) {
     ref.firstLeft.style.display = 'none';
     ref.secondLeft.style.display = 'none';
     ref.btnLeft.style.display = 'none';
-  }
-  else if (apiServices.page === 2) {
-    ref.secondLeft.style.display = 'none';   
-  } 
-  else if (apiServices.page === apiServices.total_pages) {
+  } else if (apiServices.page === 2) {
+    ref.secondLeft.style.display = 'none';
+  } else if (apiServices.page === apiServices.total_pages) {
     ref.firstRight.style.display = 'none';
     ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-  }
-  else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === apiServices.total_pages - 1) {
     ref.secondRight.style.display = 'none';
   }
 }

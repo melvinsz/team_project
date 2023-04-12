@@ -55,21 +55,7 @@ function openModalHome(e) {
   );
   modalFilmCart(movie);
   onAddToWatched(movie);
-}
-function openModalHome(e) {
-  openModalElem();
-  e.preventDefault();
-  if (!e.target.classList.contains('card__img')) {
-    return;
-  }
-  let currentID = Number(e.target.dataset.source);
-  const massiveMovies = localStore.load('trendMovies');
-  const movie = massiveMovies.find(
-    massiveMovie => massiveMovie.id === currentID
-  );
-  modalFilmCart(movie);
-  onAddToWatched(movie);
-  addToQueue(movie);
+   addToQueue(movie);
 }
 
 function openModalLibrary(e) {
@@ -143,9 +129,9 @@ function modalFilmCart({
   refs.modalRender.innerHTML = imageMarkup;
 }
 
-{
-  /* <button class="modal-film__play-btn" type="button" ></button> */
-}
+// {
+/* <button class="modal-film__play-btn" type="button" ></button> */
+// }
 //  <iframe
 // id="vimeo-player"
 // src="https://player.vimeo.com/video/${'посилання на відео'}"
