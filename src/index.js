@@ -8,6 +8,5 @@ import './js/wathchedbutton';
 
 
 // Footer
-import './js/modal_students';
-
+import './js/footer_modal';
 

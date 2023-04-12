@@ -18,8 +18,6 @@ p,
 ul {
   margin: 0;
   padding: 0;
-
-
 }
 
 ul {
@@ -37,24 +35,29 @@ img {
   height: auto;
 }
 
- .container {
-   margin: 0 auto;
-   padding-left: 20px;
-   padding-right: 20px;
-   @media screen and (min-width: 320px) {
-     width: 320px;
-   }
+.container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
 
-   @media screen and (min-width: 768px) {
-     width: 768px;
-     padding-left: 32px;
-     padding-right: 32px;
-   }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 
-   @media screen and (min-width: 1280px) {
-     width: 1280px;
-     padding-left: 32px;
-     padding-right: 32px;
-   }
- }
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
 
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

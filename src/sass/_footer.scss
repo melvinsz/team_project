@@ -41,6 +41,7 @@
 }
 
 .footer__link {
+  text-decoration: underline;
   color: $footer-font;
   transition: $footer-transition;
 
@@ -50,6 +51,16 @@
   }
 }
 
-.footer__link--underline {
-  text-decoration: underline;
-}
+// .footer__link--underline {
+//   text-decoration: underline;
+// }
+
+
+
+// body .show-modal {
+//   overflow: hidden;
+// }
+
+// body .modal-open {
+//   overflow: hidden;
+// }
