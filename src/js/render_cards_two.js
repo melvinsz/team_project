@@ -9,6 +9,7 @@
 
 import getGenres from './services/connect_genres.js';
 
+const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const inputRef = document.querySelector('.header_search-input');
 

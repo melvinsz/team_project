@@ -43,4 +43,4 @@ function renderMarkur(data) {
   return colectionUl.insertAdjacentHTML('beforeend', markup);
 }
 
-export { BASE_URL_POSTER, colectionUl, renderMarkur };
+export { renderMarkur };
