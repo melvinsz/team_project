@@ -1,3 +1,36 @@
+// .container {
+//     margin-left: auto;
+//     margin-right: auto;
+
+//     padding-left: 32px;
+//     padding-right: 32px;
+
+//     @media screen and (min-width: $mob) {
+//         padding-left: 20px;
+//         padding-right: 20px;
+//         }
+
+//     // outline: 2px solid red;
+//     // outline-offset: -2px;
+
+//     // mobile screen
+
+//     @media screen and (min-width: $mob) {
+//         width: $mob;
+//     }
+
+//     // tablet screen
+//     @media screen and (min-width: $tab) {
+//         width: $tab;
+//     }
+
+//     // desktop screen
+//     @media screen and (min-width: $desk) {
+//         width: $desk;
+//     }
+
+// }
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
