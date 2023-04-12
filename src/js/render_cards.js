@@ -25,13 +25,13 @@ function renderMarkur(data) {
   const markup = data
     .map(
       ({ id, title, poster_path }) =>
-        `  <li class="card">
-          <a data-source=${id}>
+            `  <li class="card">
+          <a>
             <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}'/>
           </a>
 
           <div class="card__title">${title}</div>
-          <div class="card__info">жанри та рік</div>
+          <div class="card__info"></div>
         </li>
    `
     )

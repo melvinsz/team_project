@@ -343,3 +343,6 @@ function createPagination() {
     setActiveBtn();
   }, 0);
 }
+
+
+export { renderPaginationMarkup }
