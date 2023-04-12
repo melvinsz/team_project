@@ -1,8 +1,11 @@
 // import localStorage from './services/local_storage';
 import getGenres from './services/connect_genres';
 
-const QUEUE_KEY = 'queue-movie';
+const QUEUE_KEY = 'queue-movies';
 localStorage.setItem(QUEUE_KEY, '[]');
+
+// Цю функцію я імпортувала до модалки,
+//     але закоментувала, розкоментуйте, щоб працювало
  
 export default function addToQueue(data) {
     const movieToAdd = data;
@@ -47,7 +50,6 @@ function renderMovies(movies) {
             title,
             genre_ids,
             release_date,
-            backdrop_path,
             poster_path,
         }) => {
             const genres = getGenres(genre_ids);
@@ -59,7 +61,6 @@ function renderMovies(movies) {
                     <img src='./images/Rectangle 18.png'
                     alt="Poster of movie ${title}" 
                     loading="lazy"/>
-                    <!-- '${backdrop_path}' -->
                 </a>
                 <div class="info">
                     <p class="info__item">
