@@ -1,9 +1,10 @@
-import { renderMovieItem, fetchMovie } from './render_cards.js';
+//import { renderMovieItem, fetchMovie } from './render_cards.js';
+import {showLoader} from "./loader.js";
 const paginationEl = document.querySelector('.library__pagination');
 const container = document.querySelector('.library__container');
-const modalButtonWatched = document.querySelector('.add_to_watched');
+const renderAddToWatched = document.querySelector('.watched_button');
 const modalButtonQueue = document.querySelector('.queue');
-const closeBtn = document.querySelector('[data-modal-close]');
+const closeModalBtn = document.querySelector('[data-modal-close]');
 const modal = document.querySelector('.modal');
 
 const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -15,7 +16,7 @@ let quntityOfPages = 1;
 let page = '';
 const FILMS_ON_PAGE = 20;
 const BTNS_ON_PAGE = 5;
-const WATCHEDKEY = 'watched-films';
+const STORAGE_KEY = 'watched-films';
 const QUEUEKEY = 'queuedMovieIDs';
 
 createPagination();
@@ -25,7 +26,7 @@ paginationEl.addEventListener('click', event => {
     onBtnsClick(event);
   }
 });
-modalButtonWatched.addEventListener('click', () => {
+renderAddToWatched.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
   watchedLibreryArray = [];
@@ -67,7 +68,7 @@ function calculateQuntityOfPages(filmsPerPage) {
 }
 
 function findActiveBtn() {
-  if (modalButtonWatched.classList.contains('activBtn')) {
+  if (renderAddToWatched.classList.contains('activBtn')) {
     page = STORAGE_KEY;
   } else if (modalButtonQueue.classList.contains('activBtn')) {
     page = QUEUEKEY;
@@ -262,7 +263,7 @@ function onBtnsClick(event) {
     paginationBtnsList[paginationBtnsList.length - 1].textContent
   );
 
-  loaderToggle();
+  showLoader();
 
   if (Number(event.target.textContent)) {
     onNumberBtnClick(event);
