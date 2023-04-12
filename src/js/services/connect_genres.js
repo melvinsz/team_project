@@ -19,13 +19,14 @@ const apiServices = new ApiServices();
 
 export default function getGenres(genre_ids) {
   const massiveGenres = localStore.load('genres');
+  
   if (!massiveGenres) {
     apiServices.getGenres();
   }
 
   const arr = [];
 
-  for (const value of massiveGenres) {
+  for (const value of genre_ids) {
     if (genre_ids === 'N/A' || genre_ids.length === 0) {
       arr.push('Other');
       break;

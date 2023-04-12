@@ -1,9 +1,10 @@
-import { renderMovieItem, fetchMovie } from './render_cards.js';
+import { renderMovieItem, fetchMovie } from './services/render_library.js';
+import {showLoader} from "./loader.js";
 const paginationEl = document.querySelector('.library__pagination');
 const container = document.querySelector('.library__container');
-const modalButtonWatched = document.querySelector('.add_to_watched');
-const modalButtonQueue = document.querySelector('.queue');
-const closeBtn = document.querySelector('[data-modal-close]');
+const renderAddToWatched = document.querySelector('.wathched_button');
+const queueBtn = document.querySelector('.addqueue');
+const closeModalBtn = document.querySelector('[data-modal-close]');
 const modal = document.querySelector('.modal');
 
 const mediaQuery = window.matchMedia('(max-width: 767px)');
@@ -15,8 +16,8 @@ let quntityOfPages = 1;
 let page = '';
 const FILMS_ON_PAGE = 20;
 const BTNS_ON_PAGE = 5;
-const WATCHEDKEY = 'watched-films';
-const QUEUEKEY = 'queuedMovieIDs';
+const STORAGE_KEY = 'watched-films';
+const QUEUE_KEY = 'queue-movies';
 
 createPagination();
 
@@ -25,14 +26,14 @@ paginationEl.addEventListener('click', event => {
     onBtnsClick(event);
   }
 });
-modalButtonWatched.addEventListener('click', () => {
+renderAddToWatched.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
   watchedLibreryArray = [];
   clearPaginationMarkup();
   createPagination();
 });
-modalButtonQueue.addEventListener('click', () => {
+queueBtn.addEventListener('click', () => {
   currentPage = 0;
   quntityOfPages = 1;
   watchedLibreryArray = [];
@@ -43,7 +44,7 @@ modalButtonQueue.addEventListener('click', () => {
 function choseLibrary(chosedBtn) {
   if (
     chosedBtn === '' ||
-    (localStorage.getItem(QUEUEKEY) === null &&
+    (localStorage.getItem(QUEUE_KEY) === null &&
       localStorage.getItem(STORAGE_KEY) === null)
   ) {
     return;
@@ -53,10 +54,10 @@ function choseLibrary(chosedBtn) {
     }
     watchedLibreryArray = JSON.parse(localStorage.getItem(STORAGE_KEY));
   } else {
-    if (localStorage.getItem(QUEUEKEY) === null) {
+    if (localStorage.getItem(QUEUE_KEY) === null) {
       return;
     }
-    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUEKEY));
+    watchedLibreryArray = JSON.parse(localStorage.getItem(QUEUE_KEY));
   }
 }
 
@@ -67,10 +68,10 @@ function calculateQuntityOfPages(filmsPerPage) {
 }
 
 function findActiveBtn() {
-  if (modalButtonWatched.classList.contains('activBtn')) {
+  if (renderAddToWatched.classList.contains('activBtn')) {
     page = STORAGE_KEY;
-  } else if (modalButtonQueue.classList.contains('activBtn')) {
-    page = QUEUEKEY;
+  } else if (queueBtn.classList.contains('activBtn')) {
+    page = QUEUE_KEY;
   }
 }
 
@@ -262,7 +263,7 @@ function onBtnsClick(event) {
     paginationBtnsList[paginationBtnsList.length - 1].textContent
   );
 
-  loaderToggle();
+  showLoader();
 
   if (Number(event.target.textContent)) {
     onNumberBtnClick(event);
@@ -302,7 +303,7 @@ function onBtnsClick(event) {
     })
     .then(renderPaginationMarkup(quntityOfPages))
     .then(setActiveBtn(event))
-    .then(loaderToggle)
+    .then(showLoader)
     .then(goToTop);
 }
 
@@ -343,3 +344,4 @@ function createPagination() {
     setActiveBtn();
   }, 0);
 }
+console.log(hi);
