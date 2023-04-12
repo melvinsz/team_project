@@ -218,7 +218,7 @@
   }
 }
 
-.nav-item.home {
+.nav-item {
   display: flex;
   flex-direction: row;
   padding: 10px 26px;
@@ -237,9 +237,6 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: $black-color;
-
-  background: $white-color;
   border-radius: 100px;
 
   @media screen and (min-width: 768px) {
@@ -256,13 +253,12 @@
   }
 }
 
-.nav-item.library {
+.nav-item-long {
   padding: 10px 22px;
 
   width: 113px;
   height: 34px;
 
-  background: $black-color;
   border-radius: 100px;
 
   font-family: 'Roboto';
@@ -275,8 +271,6 @@
   align-items: center;
   text-align: center;
   text-transform: uppercase;
-
-  color: $white-color;
 
   @media screen and (min-width: 768px) {
     padding: 12px 20px;
@@ -291,6 +285,18 @@
     width: 117px;
     height: 42px;
   }
+}
+.nav-current > a {
+  color: $white-color;
+}
+.nav-current {
+  background-color: $black-color;
+}
+.nav-second > a {
+  color: $black-color;
+}
+.nav-second {
+  background-color: $white-color;
 }
 
 .add-films {
