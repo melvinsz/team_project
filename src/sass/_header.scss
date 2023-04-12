@@ -333,7 +333,7 @@
   color: $white-color;
 
   &:hover,
-  &:focus {
+  &:active {
     background-color: $white-color;
     color: $red-color;
   }
@@ -372,7 +372,7 @@
   color: $red-color;
 
   &:hover,
-  &:focus {
+  &:active {
     background-color: $red-color;
     color: $white-color;
   }
@@ -388,11 +388,9 @@
   }
 }
 
-.active-btn > a {
+.active-btn {
+  background-color: $red-color;
   color: $white-color;
-}
-.second-btn > a {
-  color: $red-color;
 }
 
 .header-logo {
