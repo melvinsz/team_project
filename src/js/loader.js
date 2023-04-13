@@ -29,3 +29,4 @@ export default {
 
 // showLoader();
 // hideLoader();
+export { showLoader };

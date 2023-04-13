@@ -1,7 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
-// Цей import addToQueue from './addqueue' додала Асадова Т.
+import addToWatched from './add_to_watched';
+
 import addToQueue from './addqueue';
 
 let id = 0;
@@ -13,6 +14,7 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
+  closeModalField: document.querySelector('.container.modal'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -20,12 +22,21 @@ refs.openModal.addEventListener('click', openModalHome);
 refs.closeModalBtn.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', closeModalOnEsc);
+document.body.addEventListener('click', closeModalOn);
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
+
+function closeModalOn(e) {
+  if (!e.target.closest('.modal__content')) {
+    return;
+  }
+  closeModal();
+}
+const modalContainer = document.querySelector('.container.modal');
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
@@ -40,6 +51,11 @@ function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
+
+  window.addEventListener('scroll', function (e) {
+    e.preventDefault();
+  });
+
   openModalElem();
   e.preventDefault();
 
@@ -52,29 +68,6 @@ function openModalHome(e) {
   onAddToWatched(movie);
   addToQueue(movie);
 }
-
-// if (movie = undefined ) {
-//    massiveMovies = localStore.load('searchMoviess');
-//   movie = massiveMovies.find(
-//     massiveMovie => massiveMovie.id === currentID
-//   );
-// }
-
-// function getGenres(genre_ids) {
-//   const massiveGenres = localStore.load('genres');
-//   const arr = [];
-
-//   for (const value of genre_ids) {
-//     let genresMovie = massiveGenres.find(
-//       massiveGenre => massiveGenre.id === Number(value)
-//     );
-
-//     arr.push(genresMovie.name);
-//     console.log(arr.push(genresMovie.name));
-//   }
-
-//   return arr.join(', ');
-// }
 
 function modalFilmCart({
   title,
@@ -89,7 +82,6 @@ function modalFilmCart({
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
-  let genresMovie = getGenres(genre_ids);
   if (poster_path === null) {
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
@@ -110,11 +102,11 @@ function modalFilmCart({
                </div>
       <div class = "movie__detals--value">
           <p class="info-item">
-          <button class="vote-average">${roundVote_average}</button>&nbsp;/&nbsp;
+          <button class="vote-average">${roundVote_average}</button>&nbsp;<span class="slash">/</span>&nbsp;
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">${genresMovie}</p>    
+          <p class ="info-item">${getGenres(genre_ids)}</p>    
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>

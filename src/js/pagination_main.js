@@ -1,4 +1,5 @@
-import { BASE_URL_POSTER, colectionUl, renderMarkur } from './render_cards';
+import renderMarkur from './render_cards_two';
+import { query } from './search_by_name';
 import ApiServices from './services/Api_services';
 
 const apiServices = new ApiServices();
@@ -28,7 +29,7 @@ async function searchStart() {
 
   try {
     const { data } = await apiServices.getTrendMovies();
-    // console.log(data);
+    console.log(data);
     renderMarkur(data.results);
   } catch (error) {
     console.log(error.message);
@@ -39,10 +40,9 @@ async function searchStart() {
 }
 
 async function onSearchLeft(event) {
-  colectionUl.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) - 1;
-  const query = apiServices.searchQuery;
+  apiServices.searchQuery = query;
 
   if (!query) {
     try {
@@ -89,10 +89,9 @@ async function onSearchLeft(event) {
 }
 
 async function onSearchRight(event) {
-  colectionUl.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) + 1;
-  const query = apiServices.searchQuery;
+  apiServices.searchQuery = query;
 
   if (!query) {
     try {
@@ -139,10 +138,9 @@ async function onSearchRight(event) {
 }
 
 async function onSearchNumber(event) {
-  colectionUl.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(event.currentTarget.textContent);
-  const query = apiServices.searchQuery;
+  apiServices.searchQuery = query;
 
   if (!query) {
     try {

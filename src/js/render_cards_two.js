@@ -4,13 +4,12 @@
 // Змінна markup містить масив елементів, які будуть відображені на сторінці, створюються з допомогою методу масиву map, де перебирається massiveMovies та створюється HTML-розмітка для кожного елементу масиву.
 // Після цього змінна markup додається до colectionUl з допомогою методу insertAdjacentHTML, і розмітка відображається на сторінці.
 
-
-
 //   створити імпорт для підключення:
 //   import getGenres from './render_cards.js';
 
 import getGenres from './services/connect_genres.js';
 
+const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const inputRef = document.querySelector('.header_search-input');
 
