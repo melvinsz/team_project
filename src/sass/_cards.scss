@@ -3,18 +3,21 @@
     // width: 768px;
     display: flex;
     flex-wrap: wrap;
+   
+   
     gap: 32px;
   }
 
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-wrap: wrap;
-    width: 1280px;
+    // width: 1216px;
     gap: 16px;
   }
 }
 .library__container {
   list-style-type: none;
+
   @media screen and (min-width: 768px) {
     // width: 768px;
     display: flex;
@@ -25,12 +28,12 @@
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-wrap: wrap;
-    width: 1280px;
+    // width: 1216px;
     gap: 16px;
   }
 }
 .card {
-  margin: 0 auto;
+  margin: 0;
   width: auto;
 
   @media screen and (max-width: 767px) {
