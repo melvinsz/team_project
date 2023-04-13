@@ -177,11 +177,11 @@ function getwatchedMovies() {
   </div>`;
   } else {
     libraryContainer.innerHTML = "";
-    watchedMovies.forEach(renderMovieID);
+    filmWatched.forEach(renderMovieID);
   }
 }
 
-renderAddToWatched.addEventListener("click", getwatchedMovies);
+renderAddToWatched.addEventListener("click", getFilmWatched);
 
 const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
@@ -193,7 +193,7 @@ function getQueuedMovies() {
   </div>`;
   } else {
     libraryContainer.innerHTML = "";
-    queuedMovies.forEach(renderMovieID);
+    QueueList.forEach(renderMovieID);
   }
 }
 
