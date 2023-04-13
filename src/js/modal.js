@@ -1,7 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
-import addToWatched from './add_to_watched';
+import renderAddToWatched from './wathched_button';
+import renderAddToQueue from './queue_button';
 
 import addToQueue from './addqueue';
 
@@ -13,12 +14,11 @@ let movie = {};
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.collec'),
+  openModalLib: document.querySelector('.collection'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
  
-
   backdropOpCl:  document.querySelector('.backdrop-about'),
 
   btnQueued: document.querySelector('#btnQueued'),
@@ -35,6 +35,16 @@ refs.backdropOpCl.addEventListener('click', closeModal)
 document.addEventListener('keydown', closeModalOnEsc);
 
 
+// перемальовка W Q при закритті модалки
+refs.closeModalBtn.addEventListener('click', renderAddToWatched);
+refs.backdropOpCl.addEventListener('click', renderAddToWatched)
+document.addEventListener('keydown', renderAddToWatched);
+
+refs.closeModalBtn.addEventListener('click', renderAddToQueue);
+refs.backdropOpCl.addEventListener('click', renderAddToQueue)
+document.addEventListener('keydown', renderAddToQueue);
+
+
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
@@ -46,8 +56,8 @@ function closeModalOnEsc(event) {
 function closeModal() {
   refs.modal.classList.add('is-hidden');
   refs.backdropOpCl.classList.add("is-hidden")
-
-  // addToWatched();
+  renderAddToQueue();
+  renderAddToWatched();
   }
 
 function openModalElem() {
