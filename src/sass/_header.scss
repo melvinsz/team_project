@@ -41,7 +41,9 @@
     text-decoration: none;
   }
 }
-
+.header_search-input::placeholder {
+  color: #000000;
+}
 .header-container {
   margin: 0 auto;
   padding: 14px 14px 24px 14px;
