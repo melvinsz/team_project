@@ -1,7 +1,9 @@
 import {showLoader} from "../loader";
 const libraryContainer = document.querySelector(".library__container");
-const renderAddToWatched = document.querySelector('.wathched_button');
-const queueBtn = document.querySelector('.addqueue');
+// const renderAddToWatched = document.querySelector('.wathched_button');
+const renderAddToWatched = document.querySelector('#btnWatched');
+// const queueBtn = document.querySelector('.addqueue');
+const queueBtn = document.querySelector('#btnQueued');
 const contentRef = document.querySelector(".modal");
 const galleryContainer = document.querySelector(".library__container");
 const modal = document.querySelector('.modal');
@@ -181,7 +183,7 @@ function getwatchedMovies() {
   }
 }
 
-renderAddToWatched.addEventListener("click", getFilmWatched);
+// renderAddToWatched.addEventListener("click", getFilmWatched); !!! вертае помилку !!!
 
 const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
