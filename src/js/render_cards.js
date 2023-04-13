@@ -36,10 +36,9 @@ function renderMarkur(data) {
 
           <div class="card__title">${title}</div>
 
-          <div class="card__info">${getGenres(genre_ids)}, ${release_date.slice(
-          0,
-          4
-        )}</div>
+          <div class="card__info">
+          <span class="card__genres">${getGenres(genre_ids)}
+          </span>${release_date.slice(0, 4)}</div>
 
         </li>
    `
