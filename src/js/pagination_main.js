@@ -30,8 +30,8 @@ async function searchStart() {
 
   try {
     const { data } = await apiServices.getTrendMovies();
-    console.log(data);
-    total_pages = data.total_pages
+    // console.log(data);
+    total_pages = data.total_pages;
     renderMarkur(data.results);
   } catch (error) {
     console.log(error.message);
@@ -52,8 +52,8 @@ async function onSearchLeft(event) {
   if (!query) {
     try {
       const { data } = await apiServices.getTrendMovies();
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -62,8 +62,8 @@ async function onSearchLeft(event) {
   } else {
     try {
       const { data } = await apiServices.getSearchMovie(query);
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -104,8 +104,8 @@ async function onSearchRight(event) {
   if (!query) {
     try {
       const { data } = await apiServices.getTrendMovies();
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -114,8 +114,8 @@ async function onSearchRight(event) {
   } else {
     try {
       const { data } = await apiServices.getSearchMovie(query);
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -156,8 +156,8 @@ async function onSearchNumber(event) {
   if (!query) {
     try {
       const { data } = await apiServices.getTrendMovies();
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -166,8 +166,8 @@ async function onSearchNumber(event) {
   } else {
     try {
       const { data } = await apiServices.getSearchMovie(query);
-      console.log(data);
-      total_pages = data.total_pages
+      // console.log(data);
+      total_pages = data.total_pages;
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
