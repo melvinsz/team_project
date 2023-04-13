@@ -3,7 +3,7 @@ import {v, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
-const colectionUl = document.querySelector('.collection');
+const colectionUl = document.querySelector('.collection__library');
 const queueListRef = document.querySelector('.library__container');
 const btnWatched = document.querySelector('.add-films-watched#btnWatched');
 const btnQueued = document.querySelector('.add-films-queue#btnQueued');
