@@ -24,8 +24,6 @@ import tetianaUrl from '../images/team/no-poster-available.jpg';
 import tetianaPhoto from '../images/team/no-poster-available.jpg';
 import oleksiiUrl from '../images/team/no-poster-available.jpg';
 import oleksiiPhoto from '../images/team/no-poster-available.jpg';
-import olenaUrl from '../images/team/no-poster-available.jpg';
-import olenaPhoto from '../images/team/no-poster-available.jpg';
 
 export const galleryTeam = [
   {
@@ -117,13 +115,6 @@ export const galleryTeam = [
     name: 'Oleksii Mikhieiev',
     photoPreview: `${oleksiiUrl}`,
     photo: `${oleksiiPhoto}`,
-    position: 'Developer',
-  },
-  {
-    id: 14,
-    name: 'Olena Kosmina',
-    photoPreview: `${olenaUrl}`,
-    photo: `${olenaPhoto}`,
     position: 'Developer',
   },
 ];

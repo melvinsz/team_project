@@ -13,7 +13,6 @@ const inputRef = document.querySelector('.header_search-input');
 export default function renderMarkur(massiveMovies) {
   colectionUl.innerHTML = '';
   inputRef.value = '';
-
   const markup = massiveMovies
     .map(
       ({ id, title, poster_path, genre_ids, release_date }) =>
