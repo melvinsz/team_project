@@ -14,7 +14,7 @@ let movie = {};
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.collection'),
+  openModalLib: document.querySelector('.library__pagination'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
@@ -27,7 +27,10 @@ const refs = {
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-// refs.openModalLib.addEventListener('click', openModalWQ);
+refs.openModalLib.addEventListener('click', openModalWQ);
+
+
+
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
