@@ -29,6 +29,8 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
+refs.backdropOpCl.addEventListener('click', closeModal)
+
 
 function closeModalOn(e) {
   if (!e.target.closest('.modal__content')) {
@@ -45,6 +47,7 @@ function closeModal() {
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
+  refs.backdropOpCl.classList.remove("is-hidden")
 }
 
 function openModalHome(e) {
