@@ -15,7 +15,11 @@ const refs = {
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
   closeModalField: document.querySelector('.container.modal'),
+<<<<<<< Updated upstream
   
+=======
+  backdropOpCl:  document.querySelector('.backdrop-about'),
+>>>>>>> Stashed changes
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -30,6 +34,8 @@ function closeModalOnEsc(event) {
     closeModal();
   }
 }
+refs.backdropOpCl.addEventListener('click', closeModal)
+
 
 
 function closeModalOn(e) {
@@ -53,13 +59,18 @@ const modalContainer = document.querySelector( 'container.modal');
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
+<<<<<<< Updated upstream
 
   // addToWatched();
+=======
+  refs.backdropOpCl.classList.add("is-hidden")
+>>>>>>> Stashed changes
 }
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
+  refs.backdropOpCl.classList.remove("is-hidden")
 }
 
 function openModalHome(e) {

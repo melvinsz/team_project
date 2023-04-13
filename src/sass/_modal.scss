@@ -3,16 +3,37 @@
   opacity: 1;
   visibility: visible;
 }
+.backdrop-about {
+ 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    z-index: 20;
+     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    
+  &.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+transform: scale(0.2);
+    }
+}
 
 /* Модалка оформлення */
 
 .movie__modal {
+  // opacity: 0;
+  // visibility: hidden;
+  // overflow-y: scroll;
   min-width: 280px;
   /* width: 100%; */
   height: 95%;
   //  max-width: 280px;
   padding: 40px 15px;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -227,6 +248,7 @@ button {
 }
 
 
+<<<<<<< Updated upstream
 // .backdrop-about {
 //     position: absolute;
 //     top: 0;
@@ -253,3 +275,5 @@ button {
 // }
 //     // transform: translateX(0);
 // // }
+=======
+>>>>>>> Stashed changes
