@@ -1,5 +1,5 @@
 // import зробив в library.js
-import {v, b, enablePagination} from './pagination_library';
+import { v, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
@@ -18,9 +18,9 @@ export default function renderAddToQueue(event) {
   // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  filmAddedToQueue(parsQueue.slice(0,v));
+  filmAddedToQueue(parsQueue.slice(0, v));
   btnWatched.classList.remove('active-btn');
-  btnQueued.classList.add('active-btn'); 
+  btnQueued.classList.add('active-btn');
   localStorageCheck();
 
   watchedList.innerHTML = '';
@@ -47,7 +47,7 @@ function filmAddedToQueue(data) {
    `
     )
     .join('');
-  QueueList.innerHTML = parsQueue; 
+  QueueList.innerHTML = parsQueue;
 }
 
 function localStorageCheck() {
