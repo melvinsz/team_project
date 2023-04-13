@@ -27,7 +27,9 @@ function filmWatched(data) {
           </a>
 
           <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(genre_ids)}, ${release_date.slice(
+          <div class="card__info">${getGenres(
+            genre_ids
+          )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
