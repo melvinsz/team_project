@@ -3,6 +3,7 @@ import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
+const queueListRef = document.querySelector('.library__pagination');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
@@ -11,10 +12,11 @@ const linkWatched = document.querySelector('.add-films-watched');
 linkWatched.addEventListener('click', renderAddToWatched);
 
 function renderAddToWatched(event) {
-  event.preventDefault();
+  // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms);
   localStorageCheck();
+  queueListRef.innerHTML = '';
 }
 
 function filmWatched(data) {
@@ -27,7 +29,9 @@ function filmWatched(data) {
           </a>
 
           <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(genre_ids)}, ${release_date.slice(
+          <div class="card__info">${getGenres(
+            genre_ids
+          )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
