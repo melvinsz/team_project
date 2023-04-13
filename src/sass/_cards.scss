@@ -1,4 +1,5 @@
-.collection {
+.collection,
+.collection__library  {
   @media screen and (min-width: 768px) {
     // width: 768px;
     display: flex;
@@ -64,6 +65,9 @@
   @media screen and (min-width: 768px) {
     // width: 336px;
     height: 455px;
+    &:hover {
+      transform:scale(102%);
+    }
   }
 
   @media screen and (min-width: 1280px) {
