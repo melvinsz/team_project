@@ -3,7 +3,7 @@ import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
-const queueListRef = document.querySelector('.library__pagination');
+const queueListRef = document.querySelector('.library__container');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
