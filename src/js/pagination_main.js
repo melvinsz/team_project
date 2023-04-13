@@ -5,6 +5,7 @@ import ApiServices from './services/Api_services';
 const apiServices = new ApiServices();
 let total_pages;
 const ref = {
+  collection: document.querySelector('.collection'),
   pagination: document.querySelector('.pagination'),
   btnLeft: document.querySelector('.btn-left'),
   secondLeft: document.querySelector('.second-left'),
@@ -43,6 +44,7 @@ async function searchStart() {
 }
 
 async function onSearchLeft(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) - 1;
   apiServices.searchQuery = query;
@@ -94,6 +96,7 @@ async function onSearchLeft(event) {
 }
 
 async function onSearchRight(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) + 1;
   apiServices.searchQuery = query;
@@ -145,6 +148,7 @@ async function onSearchRight(event) {
 }
 
 async function onSearchNumber(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(event.currentTarget.textContent);
   apiServices.searchQuery = query;

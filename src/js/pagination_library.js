@@ -1,31 +1,32 @@
 
 import localStore from './services/local_storage';
+import renderMarkur from './render_cards_two';
 
-const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
-const collectionLib = document.querySelector('.collection');
+// const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
+// const collectionLib = document.querySelector('.collection');
 
-function renderMarkur(data) {
-  const markup = data
-    .map(
-      ({ id, title, poster_path }) =>
-        `  <li class="card">
-          <a data-source=${id}>
-            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}'/>
-          </a>
+// function renderMarkur(data) {
+//   const markup = data
+//     .map(
+//       ({ id, title, poster_path }) =>
+//         `  <li class="card">
+//           <a data-source=${id}>
+//             <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}'/>
+//           </a>
 
-          <div class="card__title">${title}</div>
-          <div class="card__info">жанри та рік</div>
-        </li>
-   `
-    )
-    .join('');
-  return collectionLib.insertAdjacentHTML('beforeend', markup);
-};
-
+//           <div class="card__title">${title}</div>
+//           <div class="card__info">жанри та рік</div>
+//         </li>
+//    `
+//     )
+//     .join('');
+//   return collectionLib.insertAdjacentHTML('beforeend', markup);
+// };
+const v = 6;
 let query;
 let total_pages;
-paginationRef = document.querySelector('.pagination-l');
 const ref = {
+    collection: document.querySelector('.collection'),
     pagination: document.querySelector('.pagination-l'),
     btnLeft: document.querySelector('.btn-left-l'),
     secondLeft: document.querySelector('.second-left-l'),
@@ -46,30 +47,31 @@ const ref = {
   ref.btnLeft.style.display = 'none';
 
 function enablePagination(d) {
-  if (Math.ceil(d/6) > 2) {
+  if (Math.ceil(d/v) > 2) {
     ref.secondRight.textContent = '3';
     ref.firstRight.textContent = '2';
     ref.current.style.display = 'flex';
     ref.firstRight.style.display = 'flex';
     ref.secondRight.style.display = 'flex';
     ref.btnRight.style.display = 'flex';
-  } else if (Math.ceil(d/6) > 1) {
+  } else if (Math.ceil(d/v) > 1) {
     ref.firstRight.textContent = '2';
     ref.current.style.display = 'flex';
     ref.firstRight.style.display = 'flex';
     ref.btnRight.style.display = 'flex';
-  } else if (Math.ceil(d/6) === 1) {
+  } else if (Math.ceil(d/v) === 1) {
     ref.current.style.display = 'flex';
   }
 };
 
-export {enablePagination};
-//   ref.btnLeft.addEventListener('click', onSearchLeft);
-//   ref.btnRight.addEventListener('click', onSearchRight);
-//   ref.firstLeft.addEventListener('click', onSearchNumber);
-//   ref.firstRight.addEventListener('click', onSearchNumber);
-//   ref.secondLeft.addEventListener('click', onSearchNumber);
-//   ref.secondRight.addEventListener('click', onSearchNumber);
+export {v, enablePagination};
+
+  // ref.btnLeft.addEventListener('click', onSearchLeft);
+  // ref.btnRight.addEventListener('click', onSearchRight);
+  // ref.firstLeft.addEventListener('click', onSearchNumber);
+  // ref.firstRight.addEventListener('click', onSearchNumber);
+  // ref.secondLeft.addEventListener('click', onSearchNumber);
+  // ref.secondRight.addEventListener('click', onSearchNumber);
   
 // searchStartLib();
 
@@ -147,7 +149,7 @@ export {enablePagination};
 // }
 
 // async function onSearchRight(event) {
-//   colectionUl.innerHTML = '';
+//   ref.collection.innerHTML = '';
 //   ref.pagination.style.display = 'none';
 //   apiServices.page = Number(ref.current.textContent) + 1;
 

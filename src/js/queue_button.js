@@ -1,5 +1,5 @@
 // import зробив в library.js
-import {enablePagination} from './pagination_library';
+import {v, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
@@ -16,7 +16,7 @@ function renderAddToQueue(event) {
   // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  filmAddedToQueue(parsQueue);
+  filmAddedToQueue(parsQueue.slice(0,v)); 
   localStorageCheck();
 
   watchedList.innerHTML = '';
