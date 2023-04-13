@@ -7,65 +7,78 @@ import addToQueue from './addqueue';
 
 let id = 0;
 let imageMarkup = '';
+let LOCAL_StORAGE_KEY = [];
+let massiveMovies;
+let movie = {};
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.library__pagination'),
+  openModalLib: document.querySelector('.collec'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
-  closeModalField: document.querySelector('.container.modal'),
+ 
+
+  backdropOpCl:  document.querySelector('.backdrop-about'),
+
+  btnQueued: document.querySelector('#btnQueued'),
+   btnWatched: document.querySelector('#btnWatched'),
+
 };
 
 refs.openModal.addEventListener('click', openModalHome);
+// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
+refs.backdropOpCl.addEventListener('click', closeModal)
 
 document.addEventListener('keydown', closeModalOnEsc);
-document.body.addEventListener('click', closeModalOn);
+
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
-// refs.backdropOpCl.addEventListener('click', closeModal)
 
-function closeModalOn(e) {
-  if (!e.target.closest('.modal__content')) {
-    return;
-  }
-  closeModal();
-}
-const modalContainer = document.querySelector('.container.modal');
+
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
-}
+  refs.backdropOpCl.classList.add("is-hidden")
+
+  // addToWatched();
+  }
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
-  // refs.backdropOpCl.classList.remove('is-hidden');
+  refs.backdropOpCl.classList.remove('is-hidden');
 }
+
 
 function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
 
-  window.addEventListener('scroll', function (e) {
-    e.preventDefault();
-  });
-
   openModalElem();
   e.preventDefault();
 
   let currentID = Number(e.target.dataset.source);
-  const massiveMovies = localStore.load('trendMovies');
-  const movie = massiveMovies.find(
-    massiveMovie => massiveMovie.id === currentID
-  );
+
+
+
+   massiveMovies = localStore.load('trendMovies');
+   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+
+  if (movie === undefined ) { 
+        massiveMovies = localStore.load('searchMoviess'); 
+       movie = massiveMovies.find( 
+         massiveMovie => massiveMovie.id === currentID 
+      ); 
+     } 
+
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
@@ -122,3 +135,33 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
+
+
+
+
+//  ДЛЯ Бібліотеки W та Q
+
+
+function openModalWQ(e) {
+  if (!e.target.classList.contains('card__img')) {
+    return;
+  }
+   openModalElem();
+  e.preventDefault();
+
+  if (refs.btnWatched.classList.contains('active-btn')) {
+    LOCAL_StORAGE_KEY = 'watched-films'
+  } else if (refs.btnQueued.classList.contains('active-btn')) {
+    LOCAL_StORAGE_KEY ='queue-movies'
+  }
+
+
+  let currentID = Number(e.target.dataset.source);
+ massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
+   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+  modalFilmCart(movie);
+  onAddToWatched(movie);
+  addToQueue(movie);
+
+}
+
