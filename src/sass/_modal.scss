@@ -142,9 +142,10 @@ button {
   height: 16px;
   color: #ffffff;
   background-color: $red-color;
-  border-radius: 5px solid #ffffff;
+  border-radius: 5px;
   padding: 1px 9px;
   margin-top: 0px;
+  border: none;
 }
 
 .overview {
