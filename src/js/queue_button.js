@@ -10,7 +10,7 @@ const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
 
-queueRef.addEventListener('click', renderAddToQueue);
+// queueRef.addEventListener('click', renderAddToQueue);
 
 export default function renderAddToQueue(event) {
   // event.preventDefault();
