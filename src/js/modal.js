@@ -36,20 +36,10 @@ function closeModalOn(e) {
   }
   closeModal();
 }
-const modalContainer = document.querySelector('container.modal');
-
-// document.addEventListener( 'click', (e) => {
-// 	const closeModClick = e.composedPath().includes(modalContainer);
-
-// 	if ( ! closeModClick ) {
-// 		closeModal()
-// 	}
-// })
+const modalContainer = document.querySelector('.container.modal');
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
-
-  // addToWatched();
 }
 
 function openModalElem() {
@@ -79,13 +69,6 @@ function openModalHome(e) {
   addToQueue(movie);
 }
 
-// if (movie = undefined ) {
-//    massiveMovies = localStore.load('searchMoviess');
-//   movie = massiveMovies.find(
-//     massiveMovie => massiveMovie.id === currentID
-//   );
-// }
-
 function modalFilmCart({
   title,
   original_title,
@@ -99,7 +82,6 @@ function modalFilmCart({
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
-  // let genresMovie =  genre_ids ? getGenres(genre_ids) : 'Unknown';
   if (poster_path === null) {
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
