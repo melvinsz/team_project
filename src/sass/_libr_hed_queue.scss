@@ -34,56 +34,79 @@
 .library__container {
     @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
             display: block;
+            width: 320px;
         }
     
         @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
             display: flex;
             flex-wrap: wrap;
+            width: 768px;
             gap: 32px;
         }
     
         @media screen and (min-width: 1280px) {
             display: flex;
             flex-wrap: wrap;
+            width: 1280px;
             gap: 16px;
         }
 }
+.gallery {
+   width: 280px; 
+    @media screen and (max-width: 767px) {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
 
-// .gallery {
-    
-    
-// }
+    @media screen and (min-width: 768px) {
+        width: calc((100% - 32px) / 2);
+    }
 
-.info {
+    @media screen and (min-width: 1280px) {
+        width: calc((100% - 32px * 3) / 3);
+    }
+}
+
+.movie__img {
     display: block;
-               
-    text-transform: uppercase;
+    width: 100%;
+    height: 402px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 0px;
+
+    @media screen and (min-width: 768px) {
+        height: 455px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        object-fit: cover;
+        width: 100%;
+        height: 574px;
+    }
 }
 
 .info__item {
-    
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-    
-        @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
-            line-height: 1.33;
-            margin-bottom: 20px;
-        }
-    
-        @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
-            line-height: 1.33;
-            margin-bottom: 32px;
-        }
-    
-        @media screen and (min-width: 1280px) {
-            font-size: 20px;
-            line-height: 24px;
-            /* or 120% */
-            margin-bottom: 32px;
-        }
+    padding-top: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+    text-transform: uppercase;
     color: #000000;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 8px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding-top: 12px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+    }
 }
 
 .info__red {
@@ -92,5 +115,13 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
-    color: #b92f2c;
+    color: #B92F2C;
+
+    @media screen and (min-width: 1280px) {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        color: blue($color: #000000);
+        padding-bottom: 16px;
+    }
 }

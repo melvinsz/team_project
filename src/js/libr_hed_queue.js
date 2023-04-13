@@ -36,6 +36,7 @@ function queueMovies(movies) {
             return `<div class="gallery">
                 <a class="movie__item" href="${URL_POSTER}${poster_path}">
                     <img src="${URL_POSTER}${poster_path}"
+                    class="movie__img"
                     alt="Poster of movie ${title}" 
                     data-source='${id}' 
                     loading="lazy"/>
