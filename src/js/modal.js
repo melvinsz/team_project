@@ -90,8 +90,10 @@ function openModalHome(e) {
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
 
   if (movie === undefined) {
-    massiveMovies = localStore.load('searchMoviess');
+    massiveMovies = localStore.load('searchMovies');
+    console.log(massiveMovies)
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+    console.log(movie)
   }
 
   modalFilmCart(movie);
