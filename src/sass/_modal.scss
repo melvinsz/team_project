@@ -14,7 +14,7 @@
     z-index: 20;
      transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-     overflow:  hidden;
+    
   &.is-hidden {
         opacity: 0;
         pointer-events: none;
@@ -32,7 +32,6 @@ transform: scale(0.2);
   height: 95%;
   padding: 40px 15px;
   position: absolute;
-  overflow: scroll;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -237,5 +236,3 @@ button {
     max-width: 375px;
   }
 }
-
-
