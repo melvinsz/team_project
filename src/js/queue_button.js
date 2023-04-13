@@ -12,9 +12,9 @@ const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
 
-queueRef.addEventListener('click', renderAddToQueue);
+// queueRef.addEventListener('click', renderAddToQueue);
 
-function renderAddToQueue(event) {
+export default function renderAddToQueue(event) {
   // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
@@ -52,9 +52,14 @@ function filmAddedToQueue(data) {
 
 function localStorageCheck() {
   if (QueueList.innerHTML === '') {
-    const emptyList = `<li class="card">Your movie queue is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     QueueList.innerHTML = emptyList;
   }
 }
 
-export { BASE_URL_POSTER, QueueList, renderAddToQueue };
+// export { BASE_URL_POSTER, QueueList, renderAddToQueue };

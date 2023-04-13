@@ -12,9 +12,9 @@ const STORAGE_KEY = 'watched-films';
 
 const linkWatched = document.querySelector('.add-films-watched');
 
-linkWatched.addEventListener('click', renderAddToWatched);
+// linkWatched.addEventListener('click', renderAddToWatched);
 
-function renderAddToWatched(event) {
+export default  function renderAddToWatched(event) {
   // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms.slice(0,v));
@@ -50,9 +50,14 @@ function filmWatched(data) {
 
 function localStorageCheck() {
   if (colectionUl.innerHTML === '') {
-    const emptyList = `<li class="card">Your library of watched movies is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     colectionUl.innerHTML = emptyList;
   }
 }
 
-export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
+// export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
