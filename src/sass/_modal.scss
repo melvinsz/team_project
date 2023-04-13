@@ -27,7 +27,7 @@ transform: scale(0.2);
 .movie__modal {
   // opacity: 0;
   // visibility: hidden;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   min-width: 280px;
   height: 95%;
   padding: 40px 15px;
@@ -44,6 +44,7 @@ transform: scale(0.2);
   border-radius: 10px;
 
   @media screen and (min-width: 768px) {
+    overflow: visible;
     height: auto;
     position: fixed;
     width: 704px;

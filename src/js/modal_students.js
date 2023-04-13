@@ -45,7 +45,7 @@ function makeGalleryStudents(students) {
       return (
         acc +
         ` <li class="dev__item">
-               <a class="dev__link" href="${photo}">
+               <a class="dev__link" >
                 <img src="${photoPreview}" alt="${name}" class="dev__img"/>
                   <div class="dev__info">
                     <div class="dev__content">
