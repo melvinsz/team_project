@@ -13,7 +13,7 @@ let movie = {};
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.collecnion'),
+  openModalLib: document.querySelector('.collec'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
