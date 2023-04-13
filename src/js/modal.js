@@ -1,7 +1,8 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
-import addToWatched from './add_to_watched';
+import renderAddToWatched from './wathched_button';
+import renderAddToQueue from './queue_button';
 
 import addToQueue from './addqueue';
 
@@ -13,26 +14,40 @@ let movie = {};
 
 const refs = {
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.collec'),
+  openModalLib: document.querySelector('.library__pagination'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
  
-
   backdropOpCl:  document.querySelector('.backdrop-about'),
 
-  btnQueued: document.querySelector('#btnQueued'),
-   btnWatched: document.querySelector('#btnWatched'),
 
+  btnQueued: document.querySelector('#btnQueued'),
+  btnWatched: document.querySelector('#btnWatched'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-// refs.openModalLib.addEventListener('click', openModalWQ);
+refs.openModalLib.addEventListener('click', openModalWQ);
+
+
+
 
 refs.closeModalBtn.addEventListener('click', closeModal);
-refs.backdropOpCl.addEventListener('click', closeModal)
+refs.backdropOpCl.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', closeModalOnEsc);
+
+
+
+// перемальовка W Q при закритті модалки
+refs.closeModalBtn.addEventListener('click', renderAddToWatched);
+refs.backdropOpCl.addEventListener('click', renderAddToWatched)
+document.addEventListener('keydown', renderAddToWatched);
+
+refs.closeModalBtn.addEventListener('click', renderAddToQueue);
+refs.backdropOpCl.addEventListener('click', renderAddToQueue)
+document.addEventListener('keydown', renderAddToQueue);
+
 
 
 function closeModalOnEsc(event) {
@@ -41,21 +56,22 @@ function closeModalOnEsc(event) {
   }
 }
 
-
-
 function closeModal() {
   refs.modal.classList.add('is-hidden');
-  refs.backdropOpCl.classList.add("is-hidden")
 
-  // addToWatched();
+  refs.backdropOpCl.classList.add("is-hidden")
+  renderAddToQueue();
+  renderAddToWatched();
   }
+
+  
+
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
   refs.backdropOpCl.classList.remove('is-hidden');
 }
-
 
 function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
@@ -64,20 +80,17 @@ function openModalHome(e) {
 
   openModalElem();
   e.preventDefault();
+  document.body.classList.add('active');
 
   let currentID = Number(e.target.dataset.source);
 
+  massiveMovies = localStore.load('trendMovies');
+  movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
 
-
-   massiveMovies = localStore.load('trendMovies');
-   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-
-  if (movie === undefined ) { 
-        massiveMovies = localStore.load('searchMoviess'); 
-       movie = massiveMovies.find( 
-         massiveMovie => massiveMovie.id === currentID 
-      ); 
-     } 
+  if (movie === undefined) {
+    massiveMovies = localStore.load('searchMoviess');
+    movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+  }
 
   modalFilmCart(movie);
   onAddToWatched(movie);
@@ -136,32 +149,25 @@ function modalFilmCart({
   refs.modalRender.innerHTML = imageMarkup;
 }
 
-
-
-
 //  ДЛЯ Бібліотеки W та Q
-
 
 function openModalWQ(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
-   openModalElem();
+  openModalElem();
   e.preventDefault();
 
   if (refs.btnWatched.classList.contains('active-btn')) {
-    LOCAL_StORAGE_KEY = 'watched-films'
+    LOCAL_StORAGE_KEY = 'watched-films';
   } else if (refs.btnQueued.classList.contains('active-btn')) {
-    LOCAL_StORAGE_KEY ='queue-movies'
+    LOCAL_StORAGE_KEY = 'queue-movies';
   }
 
-
   let currentID = Number(e.target.dataset.source);
- massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
-   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+  massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
+  movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
-
 }
-

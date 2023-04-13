@@ -1,12 +1,26 @@
+// <<<<<<< HEAD
+// import {showLoader} from "../loader";
+// const libraryContainer = document.querySelector(".library__container");
+// const renderAddToWatched = document.querySelector('.wathched_button');
+// const queueBtn = document.querySelector('.addqueue');
+// const contentRef = document.querySelector(".modal");
+// const galleryContainer = document.querySelector(".library__container");
+// const modal = document.querySelector('.modal');
+// const closeModalBtn = document.querySelector('[data-modal-close]');
+// const section = document.querySelector(".library__gallery")
+=======
 import {showLoader} from "../loader";
 const libraryContainer = document.querySelector(".library__container");
-const renderAddToWatched = document.querySelector('.wathched_button');
-const queueBtn = document.querySelector('.addqueue');
+// // const renderAddToWatched = document.querySelector('.wathched_button');
+const renderAddToWatched = document.querySelector('#btnWatched');
+// // const queueBtn = document.querySelector('.addqueue');
+const queueBtn = document.querySelector('#btnQueued');
 const contentRef = document.querySelector(".modal");
 const galleryContainer = document.querySelector(".library__container");
 const modal = document.querySelector('.modal');
 const closeModalBtn = document.querySelector('[data-modal-close]');
 const section = document.querySelector(".library__gallery")
+>>>>>>> main
 
 async function fetchMovie(id) {
   const response = await fetch(
@@ -109,12 +123,12 @@ function renderMovieCartinLibrary(movie) {
         .slice(0, 3)
         .join(", ");
 }
- // let poster = "";
- // if (poster_path) {
- //   poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
-  //} else {
- //   poster = "./images/placeholder/poster-placeholder.png";
- // }
+//  // let poster = "";
+//  // if (poster_path) {
+//  //   poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+//   //} else {
+//  //   poster = "./images/placeholder/poster-placeholder.png";
+//  // }
   /*contentRef.innerHTML = `<div class="modal__cartContainer">
   <div class="modal__movie-content">
   <div class="modal__poster">
@@ -181,7 +195,11 @@ function getwatchedMovies() {
   }
 }
 
-renderAddToWatched.addEventListener("click", getFilmWatched);
+<<<<<<< HEAD
+// renderAddToWatched.addEventListener("click", getFilmWatched);
+=======
+// renderAddToWatched.addEventListener("click", getFilmWatched); !!! вертае помилку !!!
+>>>>>>> main
 
 const savedQueuedMovies = localStorage.getItem("queuedMovieIDs");
 function getQueuedMovies() {
