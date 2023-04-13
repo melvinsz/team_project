@@ -3,6 +3,10 @@
   opacity: 1;
   visibility: visible;
 }
+body.active {
+  overflow: hidden;
+}
+
 .backdrop-about {
  
     position: fixed;
@@ -16,10 +20,10 @@
 
     
   &.is-hidden {
-        opacity: 0;
-        pointer-events: none;
-transform: scale(0.2);
-    }
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.2);
+  }
 }
 
 /* Модалка оформлення */
@@ -27,11 +31,11 @@ transform: scale(0.2);
 .movie__modal {
   // opacity: 0;
   // visibility: hidden;
-  // overflow-y: scroll;
+  overflow-y: scroll;
   min-width: 280px;
   height: 95%;
   padding: 40px 15px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -44,6 +48,7 @@ transform: scale(0.2);
   border-radius: 10px;
 
   @media screen and (min-width: 768px) {
+    overflow: visible;
     height: auto;
     position: fixed;
     width: 704px;
@@ -221,7 +226,7 @@ button {
   list-style: none;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    justify-content: space-around;
+    justify-content: start;
     gap: 68px;
   }
   @media screen and (min-width: 1280px) {
