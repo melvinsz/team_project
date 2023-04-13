@@ -15,11 +15,6 @@ const refs = {
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
   closeModalField: document.querySelector('.container.modal'),
-<<<<<<< Updated upstream
-  
-=======
-  backdropOpCl:  document.querySelector('.backdrop-about'),
->>>>>>> Stashed changes
 };
 
 refs.openModal.addEventListener('click', openModalHome);
@@ -37,34 +32,16 @@ function closeModalOnEsc(event) {
 refs.backdropOpCl.addEventListener('click', closeModal)
 
 
-
 function closeModalOn(e) {
   if (!e.target.closest('.modal__content')) {
     return;
-  }closeModal();
-
-
+  }
+  closeModal();
 }
-const modalContainer = document.querySelector( 'container.modal');
- 
-// document.addEventListener( 'click', (e) => {
-// 	const closeModClick = e.composedPath().includes(modalContainer);
- 
-// 	if ( ! closeModClick ) {
-// 		closeModal()
-// 	}
-// })
-
-
+const modalContainer = document.querySelector('.container.modal');
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
-<<<<<<< Updated upstream
-
-  // addToWatched();
-=======
-  refs.backdropOpCl.classList.add("is-hidden")
->>>>>>> Stashed changes
 }
 
 function openModalElem() {
@@ -77,11 +54,11 @@ function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
- 
-  window.addEventListener('scroll', function(e) {
+
+  window.addEventListener('scroll', function (e) {
     e.preventDefault();
-    });
-    
+  });
+
   openModalElem();
   e.preventDefault();
 
@@ -93,16 +70,7 @@ function openModalHome(e) {
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
-
 }
-
-// if (movie = undefined ) {
-//    massiveMovies = localStore.load('searchMoviess');
-//   movie = massiveMovies.find(
-//     massiveMovie => massiveMovie.id === currentID
-//   );
-// }
-
 
 function modalFilmCart({
   title,
@@ -117,7 +85,6 @@ function modalFilmCart({
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
-  // let genresMovie =  genre_ids ? getGenres(genre_ids) : 'Unknown';
   if (poster_path === null) {
     poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
   }
@@ -142,7 +109,7 @@ function modalFilmCart({
           ${vote_count}</p>
           <p class ="info-item">${roundPopularity}</p>
           <p class ="info-item--title">${original_title}</p>
-          <p class ="info-item">'{genresMovie}'</p>    
+          <p class ="info-item">${getGenres(genre_ids)}</p>    
       </div>
   </div>
   <p class="movie__about--modal"><b>ABOUT</b></p>
@@ -156,4 +123,3 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
-
