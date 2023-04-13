@@ -1,9 +1,12 @@
 // !!!!
+import {v, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const queueListRef = document.querySelector('.library__container');
+const btnWatched = document.querySelector('.add-films-watched#btnWatched');
+const btnQueued = document.querySelector('.add-films-queue#btnQueued');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
@@ -14,9 +17,12 @@ const linkWatched = document.querySelector('.add-films-watched');
 export default  function renderAddToWatched(event) {
   // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms);
+  filmWatched(parsedWatchedFilms.slice(0,v));
+  btnWatched.classList.add('active-btn');
+  btnQueued.classList.remove('active-btn'); 
   localStorageCheck();
   queueListRef.innerHTML = '';
+  enablePagination(parsedWatchedFilms.length);
 }
 
 function filmWatched(data) {
@@ -39,7 +45,7 @@ function filmWatched(data) {
    `
     )
     .join('');
-  colectionUl.innerHTML = parsedWatchedFilms;
+  colectionUl.innerHTML = parsedWatchedFilms; 
 }
 
 function localStorageCheck() {

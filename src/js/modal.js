@@ -13,42 +13,26 @@ let massiveMovies;
 let movie = {};
 
 const refs = {
+  bodyScroll: document.querySelector('body.active'),
   openModal: document.querySelector('.collection'),
-  openModalLib: document.querySelector('.library__pagination'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
   modal: document.querySelector('[data-modal-about]'),
   modalRender: document.querySelector('.movie__modal--render'),
- 
-  backdropOpCl:  document.querySelector('.backdrop-about'),
 
+  backdropOpCl: document.querySelector('.backdrop-about'),
 
+  openModalLib: document.querySelector('.library__pagination'),
   btnQueued: document.querySelector('#btnQueued'),
   btnWatched: document.querySelector('#btnWatched'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-refs.openModalLib.addEventListener('click', openModalWQ);
-
-
-
+// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', closeModalOnEsc);
-
-
-
-// перемальовка W Q при закритті модалки
-refs.closeModalBtn.addEventListener('click', renderAddToWatched);
-refs.backdropOpCl.addEventListener('click', renderAddToWatched)
-document.addEventListener('keydown', renderAddToWatched);
-
-refs.closeModalBtn.addEventListener('click', renderAddToQueue);
-refs.backdropOpCl.addEventListener('click', renderAddToQueue)
-document.addEventListener('keydown', renderAddToQueue);
-
-
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
@@ -58,14 +42,26 @@ function closeModalOnEsc(event) {
 
 function closeModal() {
   refs.modal.classList.add('is-hidden');
+  document.body.classList.remove('active');
 
-  refs.backdropOpCl.classList.add("is-hidden")
-  renderAddToQueue();
-  renderAddToWatched();
+  refs.backdropOpCl.classList.add('is-hidden');
+  // refs.backdropOpCl.removeEventListener('click', closeModal);
+
+  if (
+    refs.btnWatched.classList.contains('active-btn') ||
+    refs.btnQueued.classList.contains('active-btn')
+  ) {
+    renderAddToQueue();
+    renderAddToWatched();
+    refs.closeModalBtn.addEventListener('click', renderAddToWatched);
+    refs.backdropOpCl.addEventListener('click', renderAddToWatched);
+    document.addEventListener('keydown', renderAddToWatched);
+
+    refs.closeModalBtn.addEventListener('click', renderAddToQueue);
+    refs.backdropOpCl.addEventListener('click', renderAddToQueue);
+    document.addEventListener('keydown', renderAddToQueue);
   }
-
-  
-
+}
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
@@ -88,8 +84,10 @@ function openModalHome(e) {
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
 
   if (movie === undefined) {
-    massiveMovies = localStore.load('searchMoviess');
+    massiveMovies = localStore.load('searchMovies');
+    console.log(massiveMovies);
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+    console.log(movie);
   }
 
   modalFilmCart(movie);

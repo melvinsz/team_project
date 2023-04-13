@@ -3,8 +3,9 @@ import { query } from './search_by_name';
 import ApiServices from './services/Api_services';
 
 const apiServices = new ApiServices();
-
+let total_pages;
 const ref = {
+  collection: document.querySelector('.collection'),
   pagination: document.querySelector('.pagination'),
   btnLeft: document.querySelector('.btn-left'),
   secondLeft: document.querySelector('.second-left'),
@@ -30,6 +31,7 @@ async function searchStart() {
   try {
     const { data } = await apiServices.getTrendMovies();
     console.log(data);
+    total_pages = data.total_pages
     renderMarkur(data.results);
   } catch (error) {
     console.log(error.message);
@@ -37,9 +39,12 @@ async function searchStart() {
   }
   ref.pagination.style.display = 'flex';
   ref.btnLeft.style.display = 'none';
+  ref.secondLeft.style.display = 'none';
+  ref.firstLeft.style.display = 'none';
 }
 
 async function onSearchLeft(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) - 1;
   apiServices.searchQuery = query;
@@ -48,6 +53,7 @@ async function onSearchLeft(event) {
     try {
       const { data } = await apiServices.getTrendMovies();
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -57,6 +63,7 @@ async function onSearchLeft(event) {
     try {
       const { data } = await apiServices.getSearchMovie(query);
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -83,12 +90,13 @@ async function onSearchLeft(event) {
     ref.firstLeft.style.display = 'none';
   } else if (apiServices.page === 2) {
     ref.secondLeft.style.display = 'none';
-  } else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === total_pages - 1) {
     ref.secondRight.style.display = 'none';
   }
 }
 
 async function onSearchRight(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(ref.current.textContent) + 1;
   apiServices.searchQuery = query;
@@ -97,6 +105,7 @@ async function onSearchRight(event) {
     try {
       const { data } = await apiServices.getTrendMovies();
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -106,6 +115,7 @@ async function onSearchRight(event) {
     try {
       const { data } = await apiServices.getSearchMovie(query);
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -130,7 +140,7 @@ async function onSearchRight(event) {
     ref.btnRight.style.display = 'none';
     ref.secondRight.style.display = 'none';
     ref.firstRight.style.display = 'none';
-  } else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === total_pages - 1) {
     ref.secondRight.style.display = 'none';
   } else if (apiServices.page === 2) {
     ref.secondLeft.style.display = 'none';
@@ -138,6 +148,7 @@ async function onSearchRight(event) {
 }
 
 async function onSearchNumber(event) {
+  ref.collection.innerHTML = '';
   ref.pagination.style.display = 'none';
   apiServices.page = Number(event.currentTarget.textContent);
   apiServices.searchQuery = query;
@@ -146,6 +157,7 @@ async function onSearchNumber(event) {
     try {
       const { data } = await apiServices.getTrendMovies();
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -155,6 +167,7 @@ async function onSearchNumber(event) {
     try {
       const { data } = await apiServices.getSearchMovie(query);
       console.log(data);
+      total_pages = data.total_pages
       renderMarkur(data.results);
     } catch (error) {
       console.log(error.message);
@@ -181,11 +194,11 @@ async function onSearchNumber(event) {
     ref.btnLeft.style.display = 'none';
   } else if (apiServices.page === 2) {
     ref.secondLeft.style.display = 'none';
-  } else if (apiServices.page === apiServices.total_pages) {
+  } else if (apiServices.page === total_pages) {
     ref.firstRight.style.display = 'none';
     ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-  } else if (apiServices.page === apiServices.total_pages - 1) {
+  } else if (apiServices.page === total_pages - 1) {
     ref.secondRight.style.display = 'none';
   }
 }

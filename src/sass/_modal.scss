@@ -226,7 +226,7 @@ button {
   list-style: none;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
-    justify-content: space-around;
+    justify-content: start;
     gap: 68px;
   }
   @media screen and (min-width: 1280px) {
