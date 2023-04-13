@@ -47,7 +47,12 @@ function filmAddedToQueue(data) {
 
 function localStorageCheck() {
   if (QueueList.innerHTML === '') {
-    const emptyList = `<li class="card">Your movie queue is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     QueueList.innerHTML = emptyList;
   }
 }

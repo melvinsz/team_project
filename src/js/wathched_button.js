@@ -44,7 +44,12 @@ function filmWatched(data) {
 
 function localStorageCheck() {
   if (colectionUl.innerHTML === '') {
-    const emptyList = `<li class="card">Your library of watched movies is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     colectionUl.innerHTML = emptyList;
   }
 }
