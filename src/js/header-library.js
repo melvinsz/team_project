@@ -16,7 +16,7 @@ const colectionUl = document.querySelector('.collection');
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 
-renderMarkur(queueMovies);
+// renderMarkur(queueMovies);
 
 function clickOnBtnQueuedHandler() {
   refs.btnWatched.classList.remove('active-btn');
