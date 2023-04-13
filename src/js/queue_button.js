@@ -1,20 +1,30 @@
 // import зробив в library.js
-
+import {v, b, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
-const QueueList = document.querySelector('.library__pagination');
+const QueueList = document.querySelector('.library__container');
+const watchedList = document.querySelector('.collection');
+const btnWatched = document.querySelector('.add-films-watched#btnWatched');
+const btnQueued = document.querySelector('.add-films-queue#btnQueued');
 
 const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
-queueRef.addEventListener('click', renderAddToQueue);
 
-function renderAddToQueue(event) {
+// queueRef.addEventListener('click', renderAddToQueue);
+
+export default function renderAddToQueue(event) {
   // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmAddedToQueue(parsQueue);
+
+  filmAddedToQueue(parsQueue.slice(0,v));
+  btnWatched.classList.remove('active-btn');
+  btnQueued.classList.add('active-btn'); 
   localStorageCheck();
+
+  watchedList.innerHTML = '';
+  enablePagination(parsQueue.length);
 }
 
 function filmAddedToQueue(data) {
@@ -27,7 +37,9 @@ function filmAddedToQueue(data) {
           </a>
 
           <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(genre_ids)}, ${release_date.slice(
+          <div class="card__info">${getGenres(
+            genre_ids
+          )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
@@ -35,14 +47,19 @@ function filmAddedToQueue(data) {
    `
     )
     .join('');
-  QueueList.innerHTML = parsQueue;
+  QueueList.innerHTML = parsQueue; 
 }
 
 function localStorageCheck() {
   if (QueueList.innerHTML === '') {
-    const emptyList = `<li class="card">Your movie queue is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     QueueList.innerHTML = emptyList;
   }
 }
 
-export { BASE_URL_POSTER, QueueList, renderAddToQueue };
+// export { BASE_URL_POSTER, QueueList, renderAddToQueue };

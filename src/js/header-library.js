@@ -2,6 +2,7 @@ import renderMarkur from './render_cards_two';
 import Notiflix from 'notiflix';
 
 import localStore from './services/local_storage.js';
+
 import getGenres from './services/connect_genres.js';
 import loader from './loader';
 
@@ -11,6 +12,7 @@ export const refs = {
 };
 
 const colectionUl = document.querySelector('.collection');
+
 
 
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
@@ -33,6 +35,7 @@ function clickOnBtnQueuedHandler() {
   Notiflix.Notify.success(`Hooray! There are something interesting for you :)`);
 
   renderMarkur(watchedMovies);
+
 }
 
 function clickOnBtnWatchedHandler() {
@@ -51,4 +54,5 @@ function clickOnBtnWatchedHandler() {
   Notiflix.Notify.success(`You already watched it :)`);
 
   renderMarkur(queueMovies);
+
 }

@@ -1,31 +1,29 @@
-import stanislavUrl from '../images/team/no-poster-available.jpg';
+import stanislavUrl from '../images/team/no-poster-available1.jpg';
 import stanislavPhoto from '../images/team/no-poster-available.jpg';
 import nastyaUrl from '../images/team/Nastya Ovcharenko.jpg';
 import nastyaPhoto from '../images/team/no-poster-available.jpg';
-import serhiiUrl from '../images/team/no-poster-available.jpg';
+import serhiiUrl from '../images/team/no-poster-available1.jpg';
 import serhiiPhoto from '../images/team/no-poster-available.jpg';
-import irynaUrl from '../images/team/no-poster-available.jpg';
+import irynaUrl from '../images/team/Iryna.jpg';
 import irynaPhoto from '../images/team/no-poster-available.jpg';
-import mykolaUrl from '../images/team/Kuts Mykola.jpg';
+import mykolaUrl from '../images/team/Kuts Mykola1.jpg';
 import mykolaPhoto from '../images/team/no-poster-available.jpg';
-import nataliiaUrl from '../images/team/Nataliia Matsko.jpg';
+import nataliiaUrl from '../images/team/Nataliia Matsko2.jpg';
 import nataliiaPhoto from '../images/team/no-poster-available.jpg';
-import ruslanUrl from '../images/team/no-poster-available.jpg';
+import ruslanUrl from '../images/team/Ruslan.jpg';
 import ruslanPhoto from '../images/team/no-poster-available.jpg';
-import alonaUrl from '../images/team/no-poster-available.jpg';
+import alonaUrl from '../images/team/no-poster-available1.jpg';
 import alonaPhoto from '../images/team/no-poster-available.jpg';
-import vadymUrl from '../images/team/no-poster-available.jpg';
+import vadymUrl from '../images/team/Vadym.jpg';
 import vadymPhoto from '../images/team/no-poster-available.jpg';
-import anastasiiaUrl from '../images/team/no-poster-available.jpg';
+import anastasiiaUrl from '../images/team/Anastasiia.jpg';
 import anastasiiaPhoto from '../images/team/no-poster-available.jpg';
-import tarasUrl from '../images/team/no-poster-available.jpg';
+import tarasUrl from '../images/team/no-poster-available1.jpg';
 import tarasPhoto from '../images/team/no-poster-available.jpg';
-import tetianaUrl from '../images/team/no-poster-available.jpg';
+import tetianaUrl from '../images/team/no-poster-available1.jpg';
 import tetianaPhoto from '../images/team/no-poster-available.jpg';
-import oleksiiUrl from '../images/team/no-poster-available.jpg';
+import oleksiiUrl from '../images/team/no-poster-available1.jpg';
 import oleksiiPhoto from '../images/team/no-poster-available.jpg';
-import olenaUrl from '../images/team/no-poster-available.jpg';
-import olenaPhoto from '../images/team/no-poster-available.jpg';
 
 export const galleryTeam = [
   {
@@ -117,13 +115,6 @@ export const galleryTeam = [
     name: 'Oleksii Mikhieiev',
     photoPreview: `${oleksiiUrl}`,
     photo: `${oleksiiPhoto}`,
-    position: 'Developer',
-  },
-  {
-    id: 14,
-    name: 'Olena Kosmina',
-    photoPreview: `${olenaUrl}`,
-    photo: `${olenaPhoto}`,
     position: 'Developer',
   },
 ];

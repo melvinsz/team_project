@@ -1,20 +1,28 @@
 // !!!!
+import {v, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
+const queueListRef = document.querySelector('.library__container');
+const btnWatched = document.querySelector('.add-films-watched#btnWatched');
+const btnQueued = document.querySelector('.add-films-queue#btnQueued');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
 const linkWatched = document.querySelector('.add-films-watched');
 
-linkWatched.addEventListener('click', renderAddToWatched);
+// linkWatched.addEventListener('click', renderAddToWatched);
 
-function renderAddToWatched(event) {
+export default  function renderAddToWatched(event) {
   // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms);
+  filmWatched(parsedWatchedFilms.slice(0,v));
+  btnWatched.classList.add('active-btn');
+  btnQueued.classList.remove('active-btn'); 
   localStorageCheck();
+  queueListRef.innerHTML = '';
+  enablePagination(parsedWatchedFilms.length);
 }
 
 function filmWatched(data) {
@@ -27,7 +35,9 @@ function filmWatched(data) {
           </a>
 
           <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(genre_ids)}, ${release_date.slice(
+          <div class="card__info">${getGenres(
+            genre_ids
+          )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
@@ -35,14 +45,19 @@ function filmWatched(data) {
    `
     )
     .join('');
-  colectionUl.innerHTML = parsedWatchedFilms;
+  colectionUl.innerHTML = parsedWatchedFilms; 
 }
 
 function localStorageCheck() {
   if (colectionUl.innerHTML === '') {
-    const emptyList = `<li class="card">Your library of watched movies is empty.</li>`;
+    const emptyList = `
+  <li class="card">
+    Your library of watched movies is empty.
+    <img src="../images/no-image.jpg" alt="No Poster Available">
+  </li>
+`;
     colectionUl.innerHTML = emptyList;
   }
 }
 
-export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
+// export { BASE_URL_POSTER, colectionUl, renderAddToWatched };

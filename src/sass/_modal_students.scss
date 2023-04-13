@@ -38,12 +38,13 @@ body.show-modal {
 }
 
 .team__modal {
-  position: relative;
+  // position: relative;
   margin: auto;
   padding: 24px;
-  border-radius: 4px;
-  max-width: 320px;
-  max-height: 550px;
+  border-radius: 5px;
+  max-width: 300px;
+  min-width: 320px;
+  max-height: 90vh;
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -68,31 +69,36 @@ body.show-modal {
 
   @media screen and (min-width: 768px) {
     max-width: 700px;
-    max-height: 600px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 1000px;
-    max-height: 650px;
+  }
+}
+
+.team__text {
+  font-weight: 700;
+  font-size: 42px;
+  color: #fff;
+  text-align: center;
+  animation: animate 5s linear infinite;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 35px;
   }
 }
 
 .team__title {
-  font-weight: 700;
-  margin-bottom: 30px;
-  font-size: 42px;
-  color: #fff;
-  text-align: center;
-  @media screen and (max-width: 767px) {
-    margin-top: 35px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  /* margin: 0 5px; */
 }
-.team__text {
-  animation: animate 5s linear infinite;
-  margin: 0 5px;
-}
-.team__text:nth-child(even) {
+
+.team__title:nth-child(even) {
   animation-delay: 400ms;
 }
+
 @keyframes animate {
   0%,
   18%,
@@ -103,7 +109,7 @@ body.show-modal {
   80%,
   90.1%,
   92% {
-    color: #fff;
+    color: $white-color;
     text-shadow: none;
   }
   18.1%,
@@ -116,7 +122,7 @@ body.show-modal {
   90%,
   92.1%,
   100% {
-    color: #fff;
+    color: $white-color;
     text-shadow: 0 0 10px $red-color, 0 0 20px $red-color, 0 0 40px $red-color,
       0 0 80px $red-color, 0 0 160px $red-color, 0 0 400px $red-color;
   }
@@ -137,9 +143,10 @@ body.show-modal {
 .dev__item {
   width: 230px;
   height: 350px;
-  // position: relative;
+  position: relative;
 
-  &:hover .dev__info {
+  &:hover .dev__info,
+  &:focus .dev__info {
     opacity: 1;
     animation: bounceIn 1.2s linear;
   }
@@ -185,7 +192,7 @@ body.show-modal {
 }
 
 .dev__img {
-  height: 280px;
+  // height: 280px;
   width: 100%;
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
 }
@@ -202,6 +209,10 @@ body.show-modal {
   position: absolute;
   top: 20px;
   // box-shadow: 0 5px 20px 3px #0009;
+
+  // @media screen and (min-width: $desk) {
+  //   opacity: 0;
+  // }
 }
 
 .dev__content {
@@ -230,9 +241,10 @@ body.show-modal {
 
 .glowing__btn {
   position: absolute;
-  top: 8px;
+  top: 0;
   right: 8px;
-  width: 100px;
+  width: 80px;
+  height: 25px;
   color: $red-color;
   cursor: pointer;
   padding: 0.35em 1em;
@@ -245,6 +257,13 @@ body.show-modal {
   letter-spacing: 5px;
   box-shadow: inset 0px 0px 0.5em 0px $red-color, 0px 0px 0.5em 0px $red-color;
   animation: border-flicker 2s linear infinite;
+
+  @media screen and (min-width: $tab) {
+    top: 5px;
+    right: 20px;
+    width: 100px;
+    height: 30px;
+  }
 }
 .glowing__txt {
   float: left;
