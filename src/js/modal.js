@@ -21,7 +21,7 @@ const refs = {
 
   backdropOpCl: document.querySelector('.backdrop-about'),
 
-  openModalLib: document.querySelector('.library__pagination'),
+  openModalLib: document.querySelector('.collection__library'),
   btnQueued: document.querySelector('#btnQueued'),
   btnWatched: document.querySelector('#btnWatched'),
 };
@@ -85,9 +85,9 @@ function openModalHome(e) {
 
   if (movie === undefined) {
     massiveMovies = localStore.load('searchMovies');
-    console.log(massiveMovies);
+   
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-    console.log(movie);
+ 
   }
 
   modalFilmCart(movie);
