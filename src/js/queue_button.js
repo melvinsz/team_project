@@ -1,10 +1,12 @@
 // import зробив в library.js
-
+import { v, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const QueueList = document.querySelector('.library__container');
 const watchedList = document.querySelector('.collection');
+const btnWatched = document.querySelector('.add-films-watched#btnWatched');
+const btnQueued = document.querySelector('.add-films-queue#btnQueued');
 
 const STORAGE_KEY = 'queue-movies';
 
@@ -16,10 +18,13 @@ export default function renderAddToQueue(event) {
   // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  filmAddedToQueue(parsQueue);
+  filmAddedToQueue(parsQueue.slice(0, v));
+  btnWatched.classList.remove('active-btn');
+  btnQueued.classList.add('active-btn');
   localStorageCheck();
 
   watchedList.innerHTML = '';
+  enablePagination(parsQueue.length);
 }
 
 function filmAddedToQueue(data) {
