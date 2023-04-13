@@ -11,7 +11,7 @@ const queueRef = document.querySelector('.add-films-queue');
 queueRef.addEventListener('click', renderAddToQueue);
 
 function renderAddToQueue(event) {
-  event.preventDefault();
+  // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmAddedToQueue(parsQueue);
   localStorageCheck();

@@ -11,7 +11,7 @@ const linkWatched = document.querySelector('.add-films-watched');
 linkWatched.addEventListener('click', renderAddToWatched);
 
 function renderAddToWatched(event) {
-  event.preventDefault();
+  // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms);
   localStorageCheck();
