@@ -13,8 +13,6 @@ export const refs = {
 
 const colectionUl = document.querySelector('.collection');
 
-
-
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 
@@ -35,7 +33,6 @@ function clickOnBtnQueuedHandler() {
   Notiflix.Notify.success(`Hooray! There are something interesting for you :)`);
 
   renderMarkur(watchedMovies);
-
 }
 
 function clickOnBtnWatchedHandler() {
@@ -54,5 +51,4 @@ function clickOnBtnWatchedHandler() {
   Notiflix.Notify.success(`You already watched it :)`);
 
   renderMarkur(queueMovies);
-
 }
