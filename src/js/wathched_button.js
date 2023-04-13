@@ -1,4 +1,5 @@
 // !!!!
+import {v, enablePagination} from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
@@ -14,9 +15,10 @@ const linkWatched = document.querySelector('.add-films-watched');
 export default  function renderAddToWatched(event) {
   // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms);
+  filmWatched(parsedWatchedFilms.slice(0,v));
   localStorageCheck();
   queueListRef.innerHTML = '';
+  enablePagination(parsedWatchedFilms.length);
 }
 
 function filmWatched(data) {

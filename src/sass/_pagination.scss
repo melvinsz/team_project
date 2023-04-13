@@ -1,4 +1,5 @@
-.pagination {
+.pagination,
+.pagination-l {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +13,9 @@
 }
 
 .btn-left,
-.btn-right {
+.btn-right,
+.btn-left-l,
+.btn-right-l {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +39,8 @@
   height: 40px;
 }
 
-.current {
+.current,
+.current-l {
   color: $white-color;
   background-color: $red-color;
   border-radius: 5px;
@@ -45,7 +49,11 @@
 .first-left,
 .first-right,
 .second-left,
-.second-right {
+.second-right,
+.first-left-l,
+.first-right-l,
+.second-left-l,
+.second-right-l {
   color: $black-color;
   background-color: $white-color;
   cursor: pointer;
