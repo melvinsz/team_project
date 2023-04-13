@@ -12,6 +12,7 @@ export const refs = {
 
 const colectionUl = document.querySelector('.collection');
 
+
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 
@@ -20,6 +21,8 @@ renderMarkur(queueMovies);
 function clickOnBtnQueuedHandler() {
   refs.btnWatched.classList.remove('active-btn');
   refs.btnQueued.classList.add('active-btn');
+
+  colectionUl.innerHTML = '';
 
   const queueMovies = localStore.load('queueMovies');
 
@@ -35,6 +38,8 @@ function clickOnBtnQueuedHandler() {
 function clickOnBtnWatchedHandler() {
   refs.btnQueued.classList.remove('active-btn');
   refs.btnWatched.classList.add('active-btn');
+
+  colectionUl.innerHTML = '';
 
   const watchedMovies = localStore.load('watched-films');
 
