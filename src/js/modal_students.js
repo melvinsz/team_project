@@ -1,27 +1,15 @@
 import { galleryTeam } from './gallery-team';
-// // import { refs } from './refs';
-// // import SimpleLightbox from 'simplelightbox';
-// // import 'simplelightbox/dist/simple-lightbox.min.css';
-
-// // let lightbox = new SimpleLightbox('.gallery_item a', {
-// //   captionSelector: 'img',
-// //   captionsData: 'alt',
-// //   captionPosition: 'bottom',
-// //   captionDelay: 250,
-// // });
-
 
 const refs = {
   openModalBtn: document.querySelector('[data-action="open-modal"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-team-backdrop'),
-  galleryTeam: document.querySelector('.gallery__team')
-}
+  galleryTeam: document.querySelector('.gallery__team'),
+};
 
 refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
-
 
 function onOpenModal(e) {
   e.preventDefault();
@@ -52,11 +40,11 @@ function onEscKeyPress(event) {
 }
 
 function makeGalleryStudents(students) {
-    const markup = students.reduce(
-      (acc, { name, photoPreview, position, photo }) => {
-        return (
-          acc +
-          ` <li class="dev__item">
+  const markup = students.reduce(
+    (acc, { name, photoPreview, position, photo }) => {
+      return (
+        acc +
+        ` <li class="dev__item">
                <a class="dev__link" href="${photo}">
                 <img src="${photoPreview}" alt="${name}" class="dev__img"/>
                   <div class="dev__info">
@@ -68,41 +56,9 @@ function makeGalleryStudents(students) {
               </a>
             </li>
           `
-        );
-      },
-      ''
-    );
-    refs.galleryTeam.innerHTML = markup;
-    // lightbox.refresh();
+      );
+    },
+    ''
+  );
+  refs.galleryTeam.innerHTML = markup;
 }
-
-
-
-
-// const cardsMarkup = createImgCardsMarkup(galleryItems);
-// // galleryStudents.insertAdjacentHTML('beforeend', cardsMarkup);
-
-// function createImgCardsMarkup(galleryItems) {
-//   const markup = galleryItems
-//     .map(({ preview, original, position, name }) => {
-//       return `
-//       <li class='gallery__item'>
-//         <a class='gallery__link' href='${original}'>
-//           <img
-//             class='gallery__image'
-//             src='${preview}'
-//             alt='${name}'
-//             loading='lazy'
-//           />
-//         </a>
-//         <div class='img__info'>
-//           <h2 class='gallery__name'>${name}</h2>
-//           <p class='gallery__position'>${position}</p>
-//         </div>
-//       </li>
-//       `;
-//     }).join('');
-  
-//     galleryStudents.innerHTML = markup;
-//     // lightbox.refresh();
-// }
