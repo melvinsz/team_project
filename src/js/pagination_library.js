@@ -46,7 +46,6 @@ function enablePagination(d) {
   } else if (total === 1) {
     ref.current.style.display = 'flex';
   } else {};
-
   return total;
 };
 
