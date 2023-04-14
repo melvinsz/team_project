@@ -27,7 +27,6 @@ export default refs = {
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
@@ -45,11 +44,10 @@ function closeModal() {
   document.body.classList.remove('active');
 
   refs.backdropOpCl.classList.add('is-hidden');
-  // refs.backdropOpCl.removeEventListener('click', closeModal);
 
   if (
-    refs.btnWatched.classList.contains('active-btn') ||
-    refs.btnQueued.classList.contains('active-btn')
+    refs.btnWatched?.classList.contains('active-btn') ||
+    refs.btnQueued?.classList.contains('active-btn')
   ) {
     renderAddToQueue();
     renderAddToWatched();
@@ -108,9 +106,9 @@ function modalFilmCart({
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
-  // console.log(poster);
   if (poster_path === null) {
-    poster = `./images/kin1o.jpg`;
+    poster =
+      'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
   }
   imageMarkup = `
   <div class="movie__card">

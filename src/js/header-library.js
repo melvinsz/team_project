@@ -29,8 +29,6 @@ function clickOnBtnQueuedHandler() {
   btnQueued.classList.add('active-btn'); 
 
   colectionUl.innerHTML = '';
-  
-  // const queueMovies = localStore.load('queueMovies');
 
   if (queueMovies.length === 0) {
     Notiflix.Notify.failure('Sorry, there are no films.');
@@ -47,8 +45,6 @@ function clickOnBtnWatchedHandler() {
   btnWatched.classList.add('active-btn');
 
   colectionUl.innerHTML = '';
-
-  // const watchedMovies = localStore.load('watched-films');
 
   if (watchedMovies.length === 0) {
     Notiflix.Notify.failure('Sorry, there are no films.');
