@@ -3,6 +3,7 @@ import { v, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
+const DEFAULT_POSTER = '../images/kin1o.jpg';
 const colectionUl = document.querySelector('.collection__library');
 const queueListRef = document.querySelector('.library__container');
 const btnWatched = document.querySelector('#btnWatched');
@@ -17,7 +18,6 @@ export default function renderAddToWatched(event) {
   localStorageCheck();
   queueListRef.innerHTML = '';
   colectionUl.innerHTML = '';
-  removeFromLocalStorage(parsedWatchedFilms);
 }
 
 function filmWatched(data) {
@@ -27,7 +27,7 @@ function filmWatched(data) {
         `  <li class="card">
             <a data-source=${id}>
               <img src="${
-                poster_path ? BASE_URL_POSTER + poster_path : DEFAULT_POSTER_URL
+                poster_path ? BASE_URL_POSTER + poster_path : DEFAULT_POSTER
               }" class="card__img" data-source='${id}'/>
             </a>
             <div class="card__title">${title}</div>
@@ -56,13 +56,4 @@ function localStorageCheck() {
     queueListRef.innerHTML = emptyList;
     colectionUl.innerHTML = '';
   }
-}
-
-// Функція для видалення фільму з localStorage
-function removeFromLocalStorage(selectedMovie) {
-  const arrMovies = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  const newArrMovies = arrMovies.filter(
-    movieInLocalStoregeItem => selectedMovie.id !== movieInLocalStoregeItem.id
-  );
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(newArrMovies));
 }
