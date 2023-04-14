@@ -1,10 +1,6 @@
 import renderMarkur from './render_cards_two';
 import Notiflix from 'notiflix';
 
-import localStore from './services/local_storage.js';
-import getGenres from './services/connect_genres.js';
-import loader from './loader';
-
 import Api_Services from './services/Api_services';
 const apiservices = new Api_Services();
 

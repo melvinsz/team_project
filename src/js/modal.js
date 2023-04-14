@@ -27,7 +27,8 @@ const refs = {
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-refs.openModalLib.addEventListener('click', openModalWQ);
+// refs.openModalLib.addEventListener('click', openModalWQ);
+
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeModalOnEsc);
@@ -43,7 +44,6 @@ function closeModal() {
   document.body.classList.remove('active');
 
   refs.backdropOpCl.classList.add('is-hidden');
-  // refs.backdropOpCl.removeEventListener('click', closeModal);
 
   if (
     refs.btnWatched?.classList.contains('active-btn') ||
@@ -101,13 +101,14 @@ function modalFilmCart({
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
-    if (poster_path === null) {
+  // console.log(poster);
+  if (poster_path === null) {
     poster = `./images/kin1o.jpg`;
   }
-  imageMarkup = `
+  imageMarkup  =  `
   <div class="movie__card">
-   <a class="movie__item" href="${poster}">
-       <img src="${poster}" alt="${title}" data-source='${id}' loading="lazy"/>
+<a class="movie__item" href=" ${ poster } ">   
+       <img src=" ${ poster } " alt=" ${ title } " data-source=' ${ id } ' loading="lazy"/>
      </a>
      <div class ="movie__info">
      <h3 class ="movie__modal--title"><b><span>${original_title}</span></b>
