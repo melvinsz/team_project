@@ -48,8 +48,8 @@ function closeModal() {
   // refs.backdropOpCl.removeEventListener('click', closeModal);
 
   if (
-    refs.btnWatched.classList.contains('active-btn') ||
-    refs.btnQueued.classList.contains('active-btn')
+    refs.btnWatched?.classList.contains('active-btn') ||
+    refs.btnQueued?.classList.contains('active-btn')
   ) {
     renderAddToQueue();
     renderAddToWatched();
