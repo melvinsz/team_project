@@ -8,7 +8,7 @@ export const refs = {
   btnQueued: document.querySelector('#btnQueued'),
 };
 
-const colectionUl = document.querySelector('.collection');
+const colectionUl = document.querySelector('.collection__library');
 
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
