@@ -22,6 +22,7 @@ export default function renderAddToQueue(event) {
 
   watchedList.innerHTML = '';
   QueueList.innerHTML = '';
+  removeFromLocalStorage(parsQueue);
 }
 
 function filmAddedToQueue(data) {
@@ -59,4 +60,12 @@ function localStorageCheck() {
     watchedList.innerHTML = emptyList;
     QueueList.innerHTML = '';
   }
+}
+// Функція для видалення фільму з localStorage
+function removeFromLocalStorage(selectedMovie) {
+  const arrMovies = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const newArrMovies = arrMovies.filter(
+    movieInLocalStoregeItem => selectedMovie.id !== movieInLocalStoregeItem.id
+  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(newArrMovies));
 }

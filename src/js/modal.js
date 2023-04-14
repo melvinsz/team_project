@@ -107,7 +107,8 @@ function modalFilmCart({
   let roundVote_average = vote_average.toFixed(1);
   let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
   if (poster_path === null) {
-    poster = `./images/kin1o.jpg`;
+    poster =
+      'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
   }
   imageMarkup = `
   <div class="movie__card">

@@ -17,6 +17,7 @@ export default function renderAddToWatched(event) {
   localStorageCheck();
   queueListRef.innerHTML = '';
   colectionUl.innerHTML = '';
+  removeFromLocalStorage(parsedWatchedFilms);
 }
 
 function filmWatched(data) {
@@ -24,19 +25,20 @@ function filmWatched(data) {
     .map(
       ({ id, title, poster_path, genre_ids, release_date }) =>
         `  <li class="card">
-          <a data-source=${id}>
-            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}' />
-          </a>
-
-          <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(
-            genre_ids
-          )} <span class="card__genres"> </span> ${release_date.slice(
+            <a data-source=${id}>
+              <img src="${
+                poster_path ? BASE_URL_POSTER + poster_path : DEFAULT_POSTER_URL
+              }" class="card__img" data-source='${id}'/>
+            </a>
+            <div class="card__title">${title}</div>
+            <div class="card__info">${getGenres(
+              genre_ids
+            )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
-        </li>
-   `
+          </li>
+     `
     )
     .join('');
   queueListRef.innerHTML = parsedWatchedFilms;
@@ -54,4 +56,13 @@ function localStorageCheck() {
     queueListRef.innerHTML = emptyList;
     colectionUl.innerHTML = '';
   }
+}
+
+// Функція для видалення фільму з localStorage
+function removeFromLocalStorage(selectedMovie) {
+  const arrMovies = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const newArrMovies = arrMovies.filter(
+    movieInLocalStoregeItem => selectedMovie.id !== movieInLocalStoregeItem.id
+  );
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(newArrMovies));
 }
