@@ -23,35 +23,38 @@ const ref = {
 function enablePagination(d) {
   const total = Math.ceil(d/count);
 
-  ref.current.style.display = 'none';
-  ref.firstRight.style.display = 'none';
-  ref.secondRight.style.display = 'none';
-  ref.firstLeft.style.display = 'none';
-  ref.secondLeft.style.display = 'none';
-  ref.btnRight.style.display = 'none';
-  ref.btnLeft.style.display = 'none';
-
   if (total > 2) {
-    // ref.secondRight.textContent = '3';
-    // ref.firstRight.textContent = '2';
-    ref.current.style.display = 'flex';
-    // ref.firstRight.style.display = 'flex';
-    // ref.secondRight.style.display = 'flex';
-    ref.btnRight.style.display = 'flex';
-  } else if (total > 1) {
-    // ref.firstRight.textContent = '2';
-    ref.current.style.display = 'flex';
-    // ref.firstRight.style.display = 'flex';
-    ref.btnRight.style.display = 'flex';
+    ref.firstLeft.style.display = 'none';
+    ref.secondLeft.style.display = 'none';
+    ref.btnLeft.style.display = 'none';
+  } else if (total === 2) {
+    ref.firstLeft.style.display = 'none';
+    ref.secondLeft.style.display = 'none';
+    ref.btnLeft.style.display = 'none';
+    ref.secondRight.style.display = 'none';
   } else if (total === 1) {
-    ref.current.style.display = 'flex';
-  } else {};
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
+    ref.firstLeft.style.display = 'none';
+    ref.secondLeft.style.display = 'none';
+    ref.btnRight.style.display = 'none';
+    ref.btnLeft.style.display = 'none';
+  } else {
+    ref.current.style.display = 'none';
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
+    ref.firstLeft.style.display = 'none';
+    ref.secondLeft.style.display = 'none';
+    ref.btnRight.style.display = 'none';
+    ref.btnLeft.style.display = 'none';
+  };
+
   return total;
 };
 
 export {count, enablePagination};
-// console.log(btnQueued);
-// console.log(btnQueued.classList.contains('active-btn'));
+// console.log(refs.btnQueued);
+// console.log(refs.btnQueued.classList.contains('active-btn'));
   // ref.btnLeft.addEventListener('click', onSearchLeft);
   // ref.btnRight.addEventListener('click', onSearchRight);
   // ref.firstLeft.addEventListener('click', onSearchNumber);
@@ -78,44 +81,30 @@ async function onSearchLeft(event) {
     }
   
   ref.current.textContent = n; 
-  ref.firstLeft.textContent = Number(ref.current.textContent) - 1;
-  ref.firstRight.textContent = Number(ref.current.textContent) + 1;
-  ref.secondLeft.textContent = Number(ref.current.textContent) - 2;
-  ref.secondRight.textContent = Number(ref.current.textContent) + 2;
+  ref.firstLeft.textContent = n - 1;
+  ref.firstRight.textContent = n + 1;
+  ref.secondLeft.textContent = n - 2;
+  ref.secondRight.textContent = n + 2;
 
   ref.pagination.style.display = 'flex';
-  ref.firstRight.style.display = 'flex';
-  ref.secondRight.style.display = 'flex';
-  ref.btnRight.style.display = 'flex';
-  ref.firstLeft.style.display = 'flex';
-  ref.secondLeft.style.display = 'flex';
-  ref.btnLeft.style.display = 'flex';
 
-  // if (n === 1) {
-  //   ref.btnLeft.style.display = 'none';
-  //   ref.secondLeft.style.display = 'none';
-  //   ref.firstLeft.style.display = 'none';
-  // }
-  // else if (n === 2) {
-  //   ref.secondLeft.style.display = 'none';
-  // }
-  // else if (n === total_pages - 1) {
-  //   ref.secondRight.style.display = 'none';
-  // }
-
-  ref.firstRight.style.display = 'none';
-  ref.secondRight.style.display = 'none';
-  ref.firstLeft.style.display = 'none';
-  ref.secondLeft.style.display = 'none';
-
-  if (n === total_pages && n === 1) {
+  if (n === 2 && total_pages === 2) {
+    ref.secondLeft.style.display = 'none';
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-    ref.btnLeft.style.display = 'none';
+  } else if (n === 2 && total_pages === 3) {
+    ref.secondLeft.style.display = 'none';
+    ref.secondRight.style.display = 'none';
+  } else if (n === 2 && total_pages > 3) {
+    ref.secondLeft.style.display = 'none';
   } else if (n === total_pages) {
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-  } else if (n === 1) {
-    ref.btnLeft.style.display = 'none';
-  }
+  } else if (n === total_pages - 1) {
+    ref.secondRight.style.display = 'none';
+  } 
 }
 
 async function onSearchRight(event) {
@@ -134,50 +123,31 @@ async function onSearchRight(event) {
     renderMarkur(watchedMovies.slice(count*(n-1),n*count));
   }
 
-  ref.current.textContent = n;
-  ref.firstLeft.textContent = Number(ref.current.textContent) - 1;
-  ref.firstRight.textContent = Number(ref.current.textContent) + 1;
-  ref.secondLeft.textContent = Number(ref.current.textContent) - 2;
-  ref.secondRight.textContent = Number(ref.current.textContent) + 2;
+  ref.current.textContent = n; 
+  ref.firstLeft.textContent = n - 1;
+  ref.firstRight.textContent = n + 1;
+  ref.secondLeft.textContent = n - 2;
+  ref.secondRight.textContent = n + 2;
 
   ref.pagination.style.display = 'flex';
-  ref.firstRight.style.display = 'flex';
-  ref.secondRight.style.display = 'flex';
-  ref.btnRight.style.display = 'flex';
-  ref.firstLeft.style.display = 'flex';
-  ref.secondLeft.style.display = 'flex';
-  ref.btnLeft.style.display = 'flex';
 
-  // if (n === total_pages && n === 2) {
-  //   ref.btnRight.style.display = 'none';
-  //   ref.secondRight.style.display = 'none';
-  //   ref.firstRight.style.display = 'none';
-  //   ref.secondRight.style.display = 'none';
-  // } else if (n === total_pages) {
-  //   ref.btnRight.style.display = 'none';
-  //   ref.secondRight.style.display = 'none';
-  //   ref.firstRight.style.display = 'none';
-  // }
-  // else if (n === total_pages - 1) {
-  //   ref.secondRight.style.display = 'none';
-  // }
-  // else if (n === 2) {
-  //   ref.secondLeft.style.display = 'none';
-  // }
-
-  ref.firstRight.style.display = 'none';
-  ref.secondRight.style.display = 'none';
-  ref.firstLeft.style.display = 'none';
-  ref.secondLeft.style.display = 'none';
-
-  if (n === total_pages && n === 1) {
+  if (n === 1 && total_pages === 2) {
+    ref.secondLeft.style.display = 'none';
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-    ref.btnLeft.style.display = 'none';
-  } else if (n === total_pages) {
+  } else if (n === 1 && total_pages === 3) {
+    ref.secondLeft.style.display = 'none';
+    ref.secondRight.style.display = 'none';
+  } else if (n === 1 && total_pages > 3) {
+    ref.secondLeft.style.display = 'none';
+  } else if (n === 2 && total_pages === 4) {
+    ref.secondRight.style.display = 'none';
+  } else if (n === total_pages - 1) {
+    ref.firstRight.style.display = 'none';
+    ref.secondRight.style.display = 'none';
     ref.btnRight.style.display = 'none';
-  } else if (n === 1) {
-    ref.btnLeft.style.display = 'none';
-  }
+  } 
 }
 
 // // // async function onSearchNumber(event) {
