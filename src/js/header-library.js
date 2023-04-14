@@ -1,3 +1,4 @@
+import {count, enablePagination} from './pagination_library';
 import renderMarkur from './render_cards_two';
 import Notiflix from 'notiflix';
 
@@ -6,7 +7,7 @@ import localStore from './services/local_storage.js';
 import getGenres from './services/connect_genres.js';
 import loader from './loader';
 
-export const refs = {
+export default refs = {
   btnWatched: document.querySelector('#btnWatched'),
   btnQueued: document.querySelector('#btnQueued'),
 };
@@ -19,11 +20,12 @@ refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 const queueMovies = localStore.load('queue-movies');
 const watchedMovies = localStore.load('watched-films');
 
-renderMarkur(queueMovies);
+renderMarkur(queueMovies.slice(0,count));
+enablePagination(queueMovies.length);
 
 function clickOnBtnQueuedHandler() {
   refs.btnWatched.classList.remove('active-btn');
-  refs.btnQueued.classList.add('active-btn');
+  refs.btnQueued.classList.add('active-btn'); 
 
   colectionUl.innerHTML = '';
   
@@ -35,7 +37,8 @@ function clickOnBtnQueuedHandler() {
   }
   Notiflix.Notify.success(`Hooray! There are something interesting for you :)`);
 
-  renderMarkur(queueMovies);
+  renderMarkur(queueMovies.slice(0,count));
+  enablePagination(queueMovies.length);
 }
 
 function clickOnBtnWatchedHandler() {
@@ -53,5 +56,6 @@ function clickOnBtnWatchedHandler() {
 
   Notiflix.Notify.success(`You already watched it :)`);
 
-  renderMarkur(watchedMovies);
+  renderMarkur(watchedMovies.slice(0,count));
+  enablePagination(watchedMovies.length);
 }
