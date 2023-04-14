@@ -22,7 +22,7 @@ export default function renderAddToWatched(event) {
   btnQueued.classList.remove('active-btn');
   localStorageCheck();
   queueListRef.innerHTML = '';
-  watchedList.innerHTML = '';
+  colectionUl.innerHTML = '';
 }
 
 function filmWatched(data) {
@@ -46,7 +46,7 @@ function filmWatched(data) {
     )
     .join('');
   queueListRef.innerHTML = parsedWatchedFilms;
-  watchedList.innerHTML = '';
+  colectionUl.innerHTML = '';
 }
 
 function localStorageCheck() {
@@ -58,6 +58,6 @@ function localStorageCheck() {
   </li>
 `;
     queueListRef.innerHTML = emptyList;
-    watchedList.innerHTML = '';
+    colectionUl.innerHTML = '';
   }
 }
