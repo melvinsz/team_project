@@ -1,17 +1,15 @@
-.collection {
+.collection,
+.collection__library {
   @media screen and (min-width: 768px) {
-    // width: 768px;
     display: flex;
     flex-wrap: wrap;
-   
-   
+
     gap: 32px;
   }
 
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-wrap: wrap;
-    // width: 1216px;
     gap: 16px;
   }
 }
@@ -19,7 +17,6 @@
   list-style-type: none;
 
   @media screen and (min-width: 768px) {
-    // width: 768px;
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
@@ -28,7 +25,6 @@
   @media screen and (min-width: 1280px) {
     display: flex;
     flex-wrap: wrap;
-    // width: 1216px;
     gap: 16px;
   }
 }
@@ -43,12 +39,10 @@
   }
 
   @media screen and (min-width: 768px) {
-    // flex-basis: calc((100% - 32px) / 2);
     width: calc((100% - 32px) / 2);
   }
 
   @media screen and (min-width: 1280px) {
-    // flex-basis: calc((100% - 32px) / 3);
     width: calc((100% - 32px * 3) / 3);
   }
 }
@@ -62,8 +56,10 @@
   margin-bottom: 0px;
 
   @media screen and (min-width: 768px) {
-    // width: 336px;
     height: 455px;
+    &:hover {
+      transform: scale(102%);
+    }
   }
 
   @media screen and (min-width: 1280px) {

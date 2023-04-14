@@ -1,30 +1,28 @@
 // import зробив в library.js
-import {v, b, enablePagination} from './pagination_library';
+import { v, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
+const DEFAULT_POSTER =
+  'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
+const watchedList = document.querySelector('.collection__library');
 const QueueList = document.querySelector('.library__container');
-const watchedList = document.querySelector('.collection');
-const btnWatched = document.querySelector('.add-films-watched#btnWatched');
-const btnQueued = document.querySelector('.add-films-queue#btnQueued');
+const btnWatched = document.querySelector('#btnWatched');
+const btnQueued = document.querySelector('#btnQueued');
 
 const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
 
-// queueRef.addEventListener('click', renderAddToQueue);
-
 export default function renderAddToQueue(event) {
-  // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  filmAddedToQueue(parsQueue.slice(0,v));
+  filmAddedToQueue(parsQueue.slice(0, v));
   btnWatched.classList.remove('active-btn');
-  btnQueued.classList.add('active-btn'); 
+  btnQueued.classList.add('active-btn');
   localStorageCheck();
-
   watchedList.innerHTML = '';
-  enablePagination(parsQueue.length);
+  QueueList.innerHTML = '';
 }
 
 function filmAddedToQueue(data) {
@@ -32,34 +30,35 @@ function filmAddedToQueue(data) {
     .map(
       ({ id, title, poster_path, genre_ids, release_date }) =>
         `  <li class="card">
-          <a data-source=${id}>
-            <img src="${BASE_URL_POSTER}${poster_path}" class="card__img" data-source='${id}' />
-          </a>
-
-          <div class="card__title">${title}</div>
-          <div class="card__info">${getGenres(
-            genre_ids
-          )} <span class="card__genres"> </span> ${release_date.slice(
+            <a data-source=${id}>
+              <img src="${
+                poster_path ? BASE_URL_POSTER + poster_path : DEFAULT_POSTER
+              }" class="card__img" data-source='${id}'/>
+            </a>
+            <div class="card__title">${title}</div>
+            <div class="card__info">${getGenres(
+              genre_ids
+            )} <span class="card__genres"> </span> ${release_date.slice(
           0,
           4
         )}</div>
-        </li>
-   `
+          </li>
+     `
     )
     .join('');
-  QueueList.innerHTML = parsQueue; 
+  watchedList.innerHTML = parsQueue;
+  QueueList.innerHTML = '';
 }
 
 function localStorageCheck() {
-  if (QueueList.innerHTML === '') {
+  if (watchedList.innerHTML === '') {
     const emptyList = `
   <li class="card">
     Your library of watched movies is empty.
     <img src="../images/no-image.jpg" alt="No Poster Available">
   </li>
 `;
-    QueueList.innerHTML = emptyList;
+    watchedList.innerHTML = emptyList;
+    QueueList.innerHTML = '';
   }
 }
-
-// export { BASE_URL_POSTER, QueueList, renderAddToQueue };

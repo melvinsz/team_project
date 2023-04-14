@@ -3,9 +3,6 @@ import Notiflix from 'notiflix';
 
 import localStore from './services/local_storage.js';
 
-import getGenres from './services/connect_genres.js';
-import loader from './loader';
-
 export const refs = {
   btnWatched: document.querySelector('#btnWatched'),
   btnQueued: document.querySelector('#btnQueued'),
@@ -26,8 +23,6 @@ function clickOnBtnQueuedHandler() {
   refs.btnQueued.classList.add('active-btn');
 
   colectionUl.innerHTML = '';
-  
-  // const queueMovies = localStore.load('queueMovies');
 
   if (queueMovies.length === 0) {
     Notiflix.Notify.failure('Sorry, there are no films.');
@@ -43,8 +38,6 @@ function clickOnBtnWatchedHandler() {
   refs.btnWatched.classList.add('active-btn');
 
   colectionUl.innerHTML = '';
-
-  // const watchedMovies = localStore.load('watched-films');
 
   if (watchedMovies.length === 0) {
     Notiflix.Notify.failure('Sorry, there are no films.');

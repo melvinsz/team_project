@@ -21,13 +21,12 @@ const refs = {
 
   backdropOpCl: document.querySelector('.backdrop-about'),
 
-  openModalLib: document.querySelector('.library__pagination'),
+  openModalLib: document.querySelector('.collection__library'),
   btnQueued: document.querySelector('#btnQueued'),
   btnWatched: document.querySelector('#btnWatched'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
@@ -45,11 +44,10 @@ function closeModal() {
   document.body.classList.remove('active');
 
   refs.backdropOpCl.classList.add('is-hidden');
-  // refs.backdropOpCl.removeEventListener('click', closeModal);
 
   if (
-    refs.btnWatched.classList.contains('active-btn') ||
-    refs.btnQueued.classList.contains('active-btn')
+    refs.btnWatched?.classList.contains('active-btn') ||
+    refs.btnQueued?.classList.contains('active-btn')
   ) {
     renderAddToQueue();
     renderAddToWatched();
@@ -85,9 +83,8 @@ function openModalHome(e) {
 
   if (movie === undefined) {
     massiveMovies = localStore.load('searchMovies');
-    console.log(massiveMovies);
+
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-    console.log(movie);
   }
 
   modalFilmCart(movie);
@@ -108,13 +105,15 @@ function modalFilmCart({
 }) {
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
+  let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
   if (poster_path === null) {
-    poster_path = 'https://dummyimage.com/395x574/000/fff.jpg&text=no+poster';
+    poster =
+      'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
   }
   imageMarkup = `
   <div class="movie__card">
-   <a class="movie__item" href="http://image.tmdb.org/t/p/w342/${poster_path}">
-       <img src="http://image.tmdb.org/t/p/w342/${poster_path}" alt="${title}" data-source='${id}' loading="lazy"/>
+   <a class="movie__item" href="${poster}">
+       <img src="${poster}" alt="${title}" data-source='${id}' loading="lazy"/>
      </a>
      <div class ="movie__info">
      <h3 class ="movie__modal--title"><b><span>${original_title}</span></b>
