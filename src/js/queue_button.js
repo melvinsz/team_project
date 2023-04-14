@@ -3,7 +3,8 @@ import { v, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
-const DEFAULT_POSTER = '../images/kin1o.jpg';
+const DEFAULT_POSTER =
+  'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
 const watchedList = document.querySelector('.collection__library');
 const QueueList = document.querySelector('.library__container');
 const btnWatched = document.querySelector('#btnWatched');
