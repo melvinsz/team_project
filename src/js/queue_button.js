@@ -7,13 +7,8 @@ const DEFAULT_POSTER =
   'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
 const watchedList = document.querySelector('.collection__library');
 const QueueList = document.querySelector('.library__container');
-
-// const btnWatched = document.querySelector('.add-films-watched#btnWatched');
-// const btnQueued = document.querySelector('.add-films-queue#btnQueued');
-
 const btnWatched = document.querySelector('#btnWatched');
 const btnQueued = document.querySelector('#btnQueued');
-
 
 const STORAGE_KEY = 'queue-movies';
 

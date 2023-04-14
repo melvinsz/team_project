@@ -27,9 +27,10 @@ const refs = {
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-refs.openModalLib.addEventListener('click', openModalWQ);
+
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
+
 document.addEventListener('keydown', closeModalOnEsc);
 
 function closeModalOnEsc(event) {
@@ -70,17 +71,22 @@ function openModalHome(e) {
   if (!e.target.classList.contains('card__img')) {
     return;
   }
+
   openModalElem();
   e.preventDefault();
   document.body.classList.add('active');
+
   let currentID = Number(e.target.dataset.source);
+
   massiveMovies = localStore.load('trendMovies');
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
 
   if (movie === undefined) {
     massiveMovies = localStore.load('searchMovies');
+
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
   }
+
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
@@ -148,11 +154,13 @@ function openModalWQ(e) {
   }
   openModalElem();
   e.preventDefault();
+
   if (refs.btnWatched.classList.contains('active-btn')) {
     LOCAL_StORAGE_KEY = 'watched-films';
   } else if (refs.btnQueued.classList.contains('active-btn')) {
     LOCAL_StORAGE_KEY = 'queue-movies';
   }
+
   let currentID = Number(e.target.dataset.source);
   massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
