@@ -21,7 +21,7 @@ const refs = {
 
   backdropOpCl: document.querySelector('.backdrop-about'),
 
-  openModalLib: document.querySelector('.collection__library'),
+  openModalLib: document.querySelector('.libraryWQ.collection'),
   btnQueued: document.querySelector('#btnQueued'),
   btnWatched: document.querySelector('#btnWatched'),
 };
@@ -46,8 +46,8 @@ function closeModal() {
   // refs.backdropOpCl.removeEventListener('click', closeModal);
 
   if (
-    refs.btnWatched.classList.contains('active-btn') ||
-    refs.btnQueued.classList.contains('active-btn')
+    refs.btnWatched?.classList.contains('active-btn') ||
+    refs.btnQueued?.classList.contains('active-btn')
   ) {
     renderAddToQueue();
     renderAddToWatched();
