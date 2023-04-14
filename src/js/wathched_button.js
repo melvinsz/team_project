@@ -6,7 +6,7 @@ const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection__library');
 const queueListRef = document.querySelector('.library__container');
 const btnWatched = document.querySelector('#btnWatched');
-const btnQueued = document.querySelector('.#btnQueued');
+const btnQueued = document.querySelector('#btnQueued');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
