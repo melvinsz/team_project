@@ -12,7 +12,7 @@ let LOCAL_StORAGE_KEY = [];
 let massiveMovies;
 let movie = {};
 
-export default refs = {
+const refs = {
   bodyScroll: document.querySelector('body.active'),
   openModal: document.querySelector('.collection'),
   closeModalBtn: document.querySelector('[data-modal-about-close]'),
