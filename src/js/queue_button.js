@@ -12,10 +12,7 @@ const STORAGE_KEY = 'queue-movies';
 
 const queueRef = document.querySelector('.add-films-queue');
 
-// queueRef.addEventListener('click', renderAddToQueue);
-
 export default function renderAddToQueue(event) {
-  // event.preventDefault();
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   filmAddedToQueue(parsQueue.slice(0, v));
@@ -63,5 +60,3 @@ function localStorageCheck() {
     QueueList.innerHTML = '';
   }
 }
-
-// export { BASE_URL_POSTER, QueueList, renderAddToQueue };

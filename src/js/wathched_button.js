@@ -7,15 +7,9 @@ const colectionUl = document.querySelector('.collection__library');
 const queueListRef = document.querySelector('.library__container');
 const btnWatched = document.querySelector('#btnWatched');
 const btnQueued = document.querySelector('#btnQueued');
-// !!!!
 const STORAGE_KEY = 'watched-films';
 
-const linkWatched = document.querySelector('.add-films-watched');
-
-// linkWatched.addEventListener('click', renderAddToWatched);
-
 export default function renderAddToWatched(event) {
-  // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms.slice(0, v));
   btnWatched.classList.add('active-btn');

@@ -2,7 +2,6 @@ import ApiServices from './services/Api_services';
 import getGenres from './services/connect_genres.js';
 import '../sass/index.scss';
 
-// import getGenres from './services/connect_genres';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection');
 const apiServices = new ApiServices();
