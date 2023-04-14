@@ -28,7 +28,7 @@ export default function addToQueue(data) {
     if (!parsedQueueMovies.some(element => element.id === movieToAdd.id)) {
       parsedQueueMovies.push(movieToAdd);
       localStorage.setItem(QUEUE_KEY, JSON.stringify(parsedQueueMovies));
-      console.log(`queue item`, localStorage.getItem(QUEUE_KEY));
+      // console.log(`queue item`, localStorage.getItem(QUEUE_KEY));
       addToQueueRef.textContent = 'Remove from queue';
       return parsedQueueMovies;
     } else {

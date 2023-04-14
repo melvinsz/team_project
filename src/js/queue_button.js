@@ -3,10 +3,15 @@ import { v, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
-const QueueList = document.querySelector('.library__container');
 const watchedList = document.querySelector('.collection__library');
-const btnWatched = document.querySelector('.add-films-watched#btnWatched');
-const btnQueued = document.querySelector('.add-films-queue#btnQueued');
+const QueueList = document.querySelector('.library__container');
+
+// const btnWatched = document.querySelector('.add-films-watched#btnWatched');
+// const btnQueued = document.querySelector('.add-films-queue#btnQueued');
+
+const btnWatched = document.querySelector('#btnWatched');
+const btnQueued = document.querySelector('#btnQueued');
+
 
 const STORAGE_KEY = 'queue-movies';
 
@@ -24,7 +29,7 @@ export default function renderAddToQueue(event) {
   localStorageCheck();
 
   watchedList.innerHTML = '';
-  enablePagination(parsQueue.length);
+  QueueList.innerHTML = '';
 }
 
 function filmAddedToQueue(data) {
@@ -47,18 +52,20 @@ function filmAddedToQueue(data) {
    `
     )
     .join('');
-  QueueList.innerHTML = parsQueue;
+  watchedList.innerHTML = parsQueue;
+  QueueList.innerHTML = '';
 }
 
 function localStorageCheck() {
-  if (QueueList.innerHTML === '') {
+  if (watchedList.innerHTML === '') {
     const emptyList = `
   <li class="card">
     Your library of watched movies is empty.
     <img src="../images/no-image.jpg" alt="No Poster Available">
   </li>
 `;
-    QueueList.innerHTML = emptyList;
+    watchedList.innerHTML = emptyList;
+    QueueList.innerHTML = '';
   }
 }
 

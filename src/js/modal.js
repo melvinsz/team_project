@@ -27,7 +27,7 @@ const refs = {
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-refs.openModalLib.addEventListener('click', openModalWQ);
+// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
@@ -85,9 +85,8 @@ function openModalHome(e) {
 
   if (movie === undefined) {
     massiveMovies = localStore.load('searchMovies');
-   
+
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
- 
   }
 
   modalFilmCart(movie);
@@ -107,12 +106,12 @@ function modalFilmCart({
   id,
 }) {
   let roundPopularity = Math.round(popularity);
-  let roundVote_average = vote_average.toFixed(1); 
+  let roundVote_average = vote_average.toFixed(1);
   let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
-  console.log(poster)
-  if (poster_path === null) { 
+  // console.log(poster);
+  if (poster_path === null) {
     poster = `./images/kin1o.jpg`;
-     }
+  }
   imageMarkup = `
   <div class="movie__card">
    <a class="movie__item" href="${poster}">

@@ -1,12 +1,12 @@
 // !!!!
-import {v, enablePagination} from './pagination_library';
+import { v, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const colectionUl = document.querySelector('.collection__library');
 const queueListRef = document.querySelector('.library__container');
-const btnWatched = document.querySelector('.add-films-watched#btnWatched');
-const btnQueued = document.querySelector('.add-films-queue#btnQueued');
+const btnWatched = document.querySelector('#btnWatched');
+const btnQueued = document.querySelector('#btnQueued');
 // !!!!
 const STORAGE_KEY = 'watched-films';
 
@@ -14,15 +14,15 @@ const linkWatched = document.querySelector('.add-films-watched');
 
 // linkWatched.addEventListener('click', renderAddToWatched);
 
-export default  function renderAddToWatched(event) {
+export default function renderAddToWatched(event) {
   // event.preventDefault();
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms.slice(0,v));
+  filmWatched(parsedWatchedFilms.slice(0, v));
   btnWatched.classList.add('active-btn');
-  btnQueued.classList.remove('active-btn'); 
+  btnQueued.classList.remove('active-btn');
   localStorageCheck();
   queueListRef.innerHTML = '';
-  enablePagination(parsedWatchedFilms.length);
+  colectionUl.innerHTML = '';
 }
 
 function filmWatched(data) {
@@ -45,19 +45,19 @@ function filmWatched(data) {
    `
     )
     .join('');
-  colectionUl.innerHTML = parsedWatchedFilms; 
+  queueListRef.innerHTML = parsedWatchedFilms;
+  colectionUl.innerHTML = '';
 }
 
 function localStorageCheck() {
-  if (colectionUl.innerHTML === '') {
+  if (queueListRef.innerHTML === '') {
     const emptyList = `
   <li class="card">
     Your library of watched movies is empty.
     <img src="../images/no-image.jpg" alt="No Poster Available">
   </li>
 `;
-    colectionUl.innerHTML = emptyList;
+    queueListRef.innerHTML = emptyList;
+    colectionUl.innerHTML = '';
   }
 }
-
-// export { BASE_URL_POSTER, colectionUl, renderAddToWatched };
