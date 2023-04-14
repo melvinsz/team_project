@@ -22,6 +22,7 @@ export default function renderAddToWatched(event) {
   btnQueued.classList.remove('active-btn');
   localStorageCheck();
   queueListRef.innerHTML = '';
+  watchedList.innerHTML = '';
 }
 
 function filmWatched(data) {
@@ -44,17 +45,19 @@ function filmWatched(data) {
    `
     )
     .join('');
-  colectionUl.innerHTML = parsedWatchedFilms;
+  queueListRef.innerHTML = parsedWatchedFilms;
+  watchedList.innerHTML = '';
 }
 
 function localStorageCheck() {
-  if (colectionUl.innerHTML === '') {
+  if (queueListRef.innerHTML === '') {
     const emptyList = `
   <li class="card">
     Your library of watched movies is empty.
     <img src="../images/no-image.jpg" alt="No Poster Available">
   </li>
 `;
-    colectionUl.innerHTML = emptyList;
+    queueListRef.innerHTML = emptyList;
+    watchedList.innerHTML = '';
   }
 }

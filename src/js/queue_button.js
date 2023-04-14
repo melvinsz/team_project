@@ -24,6 +24,7 @@ export default function renderAddToQueue(event) {
   localStorageCheck();
 
   watchedList.innerHTML = '';
+  QueueList.innerHTML = '';
 }
 
 function filmAddedToQueue(data) {
@@ -47,6 +48,7 @@ function filmAddedToQueue(data) {
     )
     .join('');
   watchedList.innerHTML = parsQueue;
+  QueueList.innerHTML = '';
 }
 
 function localStorageCheck() {
@@ -58,6 +60,7 @@ function localStorageCheck() {
   </li>
 `;
     watchedList.innerHTML = emptyList;
+    QueueList.innerHTML = '';
   }
 }
 
