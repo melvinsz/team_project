@@ -319,7 +319,7 @@
   font-size: 12px;
   line-height: 1.17;
 
-  background: $red-color;
+  background-color: $red-color;
   box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
   border-radius: 100px;
   color: $white-color;
@@ -327,7 +327,7 @@
   &:hover,
   &:active {
     background-color: $white-color;
-    color: $red-color;
+    color: $red-color; 
   }
 
   @media screen and (min-width: 768px) {
