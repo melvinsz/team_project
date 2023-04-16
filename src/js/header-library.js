@@ -8,7 +8,11 @@ import localStore from './services/local_storage.js';
 const refs = {
   btnWatched: document.querySelector('#btnWatched'),
   btnQueued: document.querySelector('#btnQueued'),
+  pgntPanel: document.querySelector('.pagination-l'),
 };
+
+// console.log(refs.pgntPanel);
+
 
 const colectionUl = document.querySelector('.collection');
 
@@ -22,7 +26,11 @@ refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 const queueMovies = localStore.load('queue-movies');
 const watchedMovies = localStore.load('watched-films');
 
-renderMarkur(watchedMovies);
+if (!watchedMovies) {
+  refs.pgntPanel.classList.add('hidden');
+  Notiflix.Notify.failure('Sorry, there are no films.');
+  return;
+} else {renderMarkur(queueMovies);}
 
 function clickOnBtnQueuedHandler() {
   refs.btnQueued.classList.add('active-btn');
@@ -31,10 +39,12 @@ function clickOnBtnQueuedHandler() {
 
   colectionUl.innerHTML = '';
 
-  if (queueMovies.length === 0) {
+  if (!queueMovies) {
+    refs.pgntPanel.classList.add('hidden');
     Notiflix.Notify.failure('Sorry, there are no films.');
     return;
   }
+  refs.pgntPanel.classList.remove('hidden');
   Notiflix.Notify.success(`Hooray! There are something interesting for you :)`);
 
   renderMarkur(queueMovies);
@@ -46,11 +56,12 @@ function clickOnBtnWatchedHandler() {
 
   colectionUl.innerHTML = '';
 
-  if (watchedMovies.length === 0) {
+  if (!watchedMovies) {
+    refs.pgntPanel.classList.add('hidden');
     Notiflix.Notify.failure('Sorry, there are no films.');
     return;
   }
-
+  refs.pgntPanel.classList.remove('hidden');
   Notiflix.Notify.success(`You already watched it :)`);
 
   renderMarkur(watchedMovies);
