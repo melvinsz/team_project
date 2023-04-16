@@ -1,9 +1,11 @@
+"use strict";
+
 import renderMarkur from './render_cards_two';
 import Notiflix from 'notiflix';
 
 import localStore from './services/local_storage.js';
 
-export const refs = {
+const refs = {
   btnWatched: document.querySelector('#btnWatched'),
   btnQueued: document.querySelector('#btnQueued'),
   pgntPanel: document.querySelector('.pagination-l'),
@@ -14,13 +16,15 @@ export const refs = {
 
 const colectionUl = document.querySelector('.collection');
 
+console.log(refs.btnWatched);
+console.log(refs.btnQueued);
+
+
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 
 const queueMovies = localStore.load('queue-movies');
 const watchedMovies = localStore.load('watched-films');
-
-
 
 if (!watchedMovies) {
   refs.pgntPanel.classList.add('hidden');
@@ -28,11 +32,10 @@ if (!watchedMovies) {
   return;
 } else {renderMarkur(queueMovies);}
 
-
-
 function clickOnBtnQueuedHandler() {
-  refs.btnWatched.classList.remove('active-btn');
   refs.btnQueued.classList.add('active-btn');
+  refs.btnWatched.classList.remove('active-btn');
+
 
   colectionUl.innerHTML = '';
 
