@@ -1,5 +1,5 @@
 // import зробив в library.js
-import { v, b, enablePagination } from './pagination_library';
+import { count, b, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
@@ -17,7 +17,7 @@ const queueRef = document.querySelector('.add-films-queue');
 export default function renderAddToQueue(event) {
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  filmAddedToQueue(parsQueue.slice(0, v));
+  filmAddedToQueue(parsQueue.slice(0, count));
   btnWatched.classList.remove('active-btn');
   btnQueued.classList.add('active-btn');
   localStorageCheck();
