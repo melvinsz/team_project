@@ -305,7 +305,7 @@
 
 .add-films-watched {
   padding: 10px 23px;
-  width: 102px;
+  // width: 102px;
   height: 34px;
 
   display: flex;
@@ -319,7 +319,7 @@
   font-size: 12px;
   line-height: 1.17;
 
-  background-color: $red-color;
+  background: $red-color;
   box-shadow: 0px 0px 7px rgba(27, 27, 27, 0.15);
   border-radius: 100px;
   color: $white-color;
@@ -327,7 +327,7 @@
   &:hover,
   &:active {
     background-color: $white-color;
-    color: $red-color; 
+    color: $red-color;
   }
 
   @media screen and (min-width: 768px) {
@@ -344,7 +344,7 @@
 
 .add-films-queue {
   padding: 10px 24px;
-  width: 86px;
+  // width: 86px;
   height: 34px;
 
   display: flex;
@@ -469,4 +469,8 @@
   100% {
     transform: rotateY(360deg);
   }
+}
+
+.hidden{
+  visibility:hidden
 }
