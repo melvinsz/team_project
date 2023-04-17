@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 import renderMarkur from './render_cards_two';
 import Notiflix from 'notiflix';
@@ -11,14 +11,10 @@ const refs = {
   pgntPanel: document.querySelector('.pagination-l'),
 };
 
-// console.log(refs.pgntPanel);
-
-
 const colectionUl = document.querySelector('.collection');
 
 console.log(refs.btnWatched);
 console.log(refs.btnQueued);
-
 
 refs.btnQueued.addEventListener('click', clickOnBtnQueuedHandler);
 refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
@@ -26,20 +22,21 @@ refs.btnWatched.addEventListener('click', clickOnBtnWatchedHandler);
 const queueMovies = localStore.load('queue-movies');
 const watchedMovies = localStore.load('watched-films');
 
-if (!watchedMovies) {
+if (!watchedMovies || watchedMovies.length === 0) {
   refs.pgntPanel.classList.add('hidden');
   Notiflix.Notify.failure('Sorry, there are no films.');
   return;
-} else {renderMarkur(queueMovies);}
+} else {
+  renderMarkur(watchedMovies);
+}
 
 function clickOnBtnQueuedHandler() {
   refs.btnQueued.classList.add('active-btn');
   refs.btnWatched.classList.remove('active-btn');
 
-
   colectionUl.innerHTML = '';
 
-  if (!queueMovies) {
+  if (!queueMovies || queueMovies.length === 0) {
     refs.pgntPanel.classList.add('hidden');
     Notiflix.Notify.failure('Sorry, there are no films.');
     return;
@@ -56,7 +53,7 @@ function clickOnBtnWatchedHandler() {
 
   colectionUl.innerHTML = '';
 
-  if (!watchedMovies) {
+  if (!watchedMovies || watchedMovies.length === 0) {
     refs.pgntPanel.classList.add('hidden');
     Notiflix.Notify.failure('Sorry, there are no films.');
     return;
