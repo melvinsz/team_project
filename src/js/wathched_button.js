@@ -1,5 +1,5 @@
 // !!!!
-import { v, enablePagination } from './pagination_library';
+import { count, enablePagination } from './pagination_library';
 import '../sass/index.scss';
 import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
@@ -13,7 +13,7 @@ const STORAGE_KEY = 'watched-films';
 
 export default function renderAddToWatched(event) {
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  filmWatched(parsedWatchedFilms.slice(0, v));
+  filmWatched(parsedWatchedFilms.slice(0, count));
   btnWatched.classList.add('active-btn');
   btnQueued.classList.remove('active-btn');
   localStorageCheck();

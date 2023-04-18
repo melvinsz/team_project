@@ -305,7 +305,7 @@
 
 .add-films-watched {
   padding: 10px 23px;
-  width: 102px;
+  // width: 102px;
   height: 34px;
 
   display: flex;
@@ -344,7 +344,7 @@
 
 .add-films-queue {
   padding: 10px 24px;
-  width: 86px;
+  // width: 86px;
   height: 34px;
 
   display: flex;
@@ -469,4 +469,8 @@
   100% {
     transform: rotateY(360deg);
   }
+}
+
+.hidden{
+  visibility:hidden
 }

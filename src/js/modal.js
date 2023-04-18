@@ -21,17 +21,17 @@ const refs = {
 
   backdropOpCl: document.querySelector('.backdrop-about'),
 
-  openModalLib: document.querySelector('.libraryWQ.collection'),
+  btnHome: document.querySelector('.nav-item'),
   btnQueued: document.querySelector('#btnQueued'),
   btnWatched: document.querySelector('#btnWatched'),
 };
 
 refs.openModal.addEventListener('click', openModalHome);
-// refs.openModalLib.addEventListener('click', openModalWQ);
 
 refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeModalOnEsc);
+
 
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
@@ -42,29 +42,20 @@ function closeModalOnEsc(event) {
 function closeModal() {
   refs.modal.classList.add('is-hidden');
   document.body.classList.remove('active');
-
   refs.backdropOpCl.classList.add('is-hidden');
 
-  if (
-    refs.btnWatched?.classList.contains('active-btn') ||
-    refs.btnQueued?.classList.contains('active-btn')
-  ) {
-    renderAddToQueue();
+  if (refs.btnWatched?.classList.contains('active-btn')) {
     renderAddToWatched();
-    refs.closeModalBtn.addEventListener('click', renderAddToWatched);
-    refs.backdropOpCl.addEventListener('click', renderAddToWatched);
-    document.addEventListener('keydown', renderAddToWatched);
-
-    refs.closeModalBtn.addEventListener('click', renderAddToQueue);
-    refs.backdropOpCl.addEventListener('click', renderAddToQueue);
-    document.addEventListener('keydown', renderAddToQueue);
+  } else if (refs.btnQueued?.classList.contains('active-btn')) {
+    renderAddToQueue();
   }
-}
+  }
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
   refs.backdropOpCl.classList.remove('is-hidden');
+  document.body.classList.add('active');
 }
 
 function openModalHome(e) {
@@ -73,15 +64,28 @@ function openModalHome(e) {
   }
   openModalElem();
   e.preventDefault();
-  document.body.classList.add('active');
-  let currentID = Number(e.target.dataset.source);
-  massiveMovies = localStore.load('trendMovies');
-  movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
 
-  if (movie === undefined) {
-    massiveMovies = localStore.load('searchMovies');
+  let currentID = Number(e.target.dataset.source);
+  
+  if (refs.btnHome?.classList.contains('nav-current')) {
+       massiveMovies = localStore.load('trendMovies');
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+      LOCAL_StORAGE_KEY = 'trendMovies' ;
+      console.log(LOCAL_StORAGE_KEY, movie);
+    if (movie === undefined) {
+      LOCAL_StORAGE_KEY = 'searchMovies' 
+      console.log(LOCAL_StORAGE_KEY, movie);
+     }
+  } else  if ( refs.btnWatched?.classList.contains('active-btn')) {
+  LOCAL_StORAGE_KEY = 'watched-films' 
+
+  } else  if ( refs.btnQueued?.classList.contains('active-btn')) {
+    LOCAL_StORAGE_KEY = 'queue-movies'
+    console.log(LOCAL_StORAGE_KEY, movie);
   }
+   massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
+  movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+  console.log(LOCAL_StORAGE_KEY, movie);
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
@@ -101,14 +105,14 @@ function modalFilmCart({
   let roundPopularity = Math.round(popularity);
   let roundVote_average = vote_average.toFixed(1);
   let poster = `http://image.tmdb.org/t/p/w342/${poster_path}`;
-  // console.log(poster);
   if (poster_path === null) {
-    poster = `./images/kin1o.jpg`;
+    poster =
+      'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
   }
-  imageMarkup  =  `
+  imageMarkup = `
   <div class="movie__card">
-<a class="movie__item" href=" ${ poster } ">   
-       <img src=" ${ poster } " alt=" ${ title } " data-source=' ${ id } ' loading="lazy"/>
+   <a class="movie__item" href="${poster}">
+       <img src="${poster}" alt="${title}" data-source='${id}' loading="lazy"/>
      </a>
      <div class ="movie__info">
      <h3 class ="movie__modal--title"><b><span>${original_title}</span></b>
@@ -141,23 +145,4 @@ function modalFilmCart({
   refs.modalRender.innerHTML = imageMarkup;
 }
 
-//  ДЛЯ Бібліотеки W та Q
 
-function openModalWQ(e) {
-  if (!e.target.classList.contains('card__img')) {
-    return;
-  }
-  openModalElem();
-  e.preventDefault();
-  if (refs.btnWatched.classList.contains('active-btn')) {
-    LOCAL_StORAGE_KEY = 'watched-films';
-  } else if (refs.btnQueued.classList.contains('active-btn')) {
-    LOCAL_StORAGE_KEY = 'queue-movies';
-  }
-  let currentID = Number(e.target.dataset.source);
-  massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
-  movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-  modalFilmCart(movie);
-  onAddToWatched(movie);
-  addToQueue(movie);
-}

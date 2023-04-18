@@ -12,13 +12,7 @@
     </nav>
 
     <form class="form">
-      <input
-        class="header_search-input"
-        placeholder="Movie search"
-        name="search"
-        autocomplete="off"
-        type="text"
-      />
+      <input class="header_search-input" placeholder="Movie search" name="search" autocomplete="off" type="text" />
       <button class="header_search-btn" type="submit">
         <svg class="header_search-btn_icon">
           <use href="/src/images/sprite.svg#icon-search"></use>
@@ -37,18 +31,19 @@
 
     <ul class="add-films">
       <li>
+            <div id="btnWatched" class="add-films-queue active-btn btn">
+          <a href="#"
+            >Watched</a
+          >
 
+  </div>
+  </li>
 
-        <div id="btnWatched active-btn">
-        <a href="#" class="active-btn add-films-watched btn" id="btnWatched">Watched</a>
-      </div></li>
-
-
-      <li>
-        <div id="btnQueued">
-          <a href="#" class="add-films-queue btn">queue</a>
+  <li>
+    <div id="btnQueued" class="add-films-queue btn" >
+          <a href="#">queue</a>
         </div>
-      </li>
-    </ul>
+  </li>
+  </ul>
   </div>
 </header>
