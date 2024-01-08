@@ -12,8 +12,6 @@ const btnQueued = document.querySelector('#btnQueued');
 
 const STORAGE_KEY = 'queue-movies';
 
-const queueRef = document.querySelector('.add-films-queue');
-
 export default function renderAddToQueue(event) {
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 

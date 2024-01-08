@@ -1,17 +1,3 @@
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  @media screen and (min-width: 768px) and (max-width: (1280px - 0.02)) {
-    gap: 32px;
-  }
-  @media screen and (min-width: 1280px) {
-    gap: 16px;
-  }
-  @media screen and (min-width: 320px) and (max-width: (768px - 0.02)) {
-    display: block;
-  }
-}
-
 .info {
   display: block;
   font-family: 'Roboto';

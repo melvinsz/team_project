@@ -6,7 +6,6 @@ import renderAddToQueue from './queue_button';
 
 import addToQueue from './addqueue';
 
-let id = 0;
 let imageMarkup = '';
 let LOCAL_StORAGE_KEY = [];
 let massiveMovies;
@@ -32,7 +31,6 @@ refs.closeModalBtn.addEventListener('click', closeModal);
 refs.backdropOpCl.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeModalOnEsc);
 
-
 function closeModalOnEsc(event) {
   if (event.key === 'Escape') {
     closeModal();
@@ -49,7 +47,7 @@ function closeModal() {
   } else if (refs.btnQueued?.classList.contains('active-btn')) {
     renderAddToQueue();
   }
-  }
+}
 
 function openModalElem() {
   refs.modal.classList.remove('is-hidden');
@@ -66,24 +64,23 @@ function openModalHome(e) {
   e.preventDefault();
 
   let currentID = Number(e.target.dataset.source);
-  
-  if (refs.btnHome?.classList.contains('nav-current')) {
-       massiveMovies = localStore.load('trendMovies');
-    movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-      LOCAL_StORAGE_KEY = 'trendMovies' ;
-      console.log(LOCAL_StORAGE_KEY, movie);
-    if (movie === undefined) {
-      LOCAL_StORAGE_KEY = 'searchMovies' 
-      console.log(LOCAL_StORAGE_KEY, movie);
-     }
-  } else  if ( refs.btnWatched?.classList.contains('active-btn')) {
-  LOCAL_StORAGE_KEY = 'watched-films' 
 
-  } else  if ( refs.btnQueued?.classList.contains('active-btn')) {
-    LOCAL_StORAGE_KEY = 'queue-movies'
+  if (refs.btnHome?.classList.contains('nav-current')) {
+    massiveMovies = localStore.load('trendMovies');
+    movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
+    LOCAL_StORAGE_KEY = 'trendMovies';
+    console.log(LOCAL_StORAGE_KEY, movie);
+    if (movie === undefined) {
+      LOCAL_StORAGE_KEY = 'searchMovies';
+      console.log(LOCAL_StORAGE_KEY, movie);
+    }
+  } else if (refs.btnWatched?.classList.contains('active-btn')) {
+    LOCAL_StORAGE_KEY = 'watched-films';
+  } else if (refs.btnQueued?.classList.contains('active-btn')) {
+    LOCAL_StORAGE_KEY = 'queue-movies';
     console.log(LOCAL_StORAGE_KEY, movie);
   }
-   massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
+  massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
   console.log(LOCAL_StORAGE_KEY, movie);
   modalFilmCart(movie);
@@ -144,5 +141,3 @@ function modalFilmCart({
       `;
   refs.modalRender.innerHTML = imageMarkup;
 }
-
-

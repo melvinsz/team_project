@@ -1,4 +1,3 @@
-import ApiServices from './services/Api_services';
 import getGenres from './services/connect_genres.js';
 import '../sass/index.scss';
 
@@ -6,7 +5,6 @@ const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const DEFAULT_POSTER =
   'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
 const colectionUl = document.querySelector('.collection');
-const apiServices = new ApiServices();
 
 function renderMarkur(data) {
   const markup = data
