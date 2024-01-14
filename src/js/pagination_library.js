@@ -17,7 +17,6 @@ const ref = {
 };
 
 localStore.load('watched-films');
-console.log(localStore.load('watched-films'));
 
 function enablePagination(d) {
   const total = Math.ceil(d / count);
