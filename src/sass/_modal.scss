@@ -28,28 +28,22 @@ body.active {
 /* Модалка оформлення */
 
 .movie__modal {
-  overflow-y: scroll;
-  min-width: 280px;
-  height: 95%;
-  padding: 40px 15px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: #ffffff;
   z-index: 30;
 
-  display: block;
-  text-align: center;
-  color: #131313;
-  background-color: #ffffff;
+  min-width: 280px;
+  padding: 48px 20px 40px 20px;
   border-radius: 10px;
 
+  max-height: 80vh;
+  overflow: auto;
   @media screen and (min-width: 768px) {
-    overflow: visible;
-    height: auto;
-    position: fixed;
-    width: 704px;
-    padding: 40px 32px;
+    min-width: 704px;
+    padding: 40px 72px 64px 36px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -64,9 +58,8 @@ body.active {
 
 //   Кнопки
 .btn {
-  @media screen and (min-width: 280px) {
-    text-align: center;
-  }
+  display: flex;
+  justify-content: center;
 }
 
 button {
@@ -76,13 +69,9 @@ button {
   border-radius: 100px;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14.06px;
+  line-height: 14px;
 
-  text-align: center;
-
-  padding: 0px;
-  width: 111px;
-  height: 34px;
+  padding: 12px 10px;
   margin-top: 20px;
   @media screen and (min-width: 768px) {
     height: 38px;
@@ -114,8 +103,8 @@ button {
 
 .movie__close {
   position: absolute;
-  top: 7px;
-  right: 7px;
+  top: 8px;
+  right: 8px;
   margin: 0;
   width: 30px;
   height: 30px;
@@ -203,12 +192,14 @@ button {
   }
 }
 
+.movie__item > img {
+  border-radius: 5px;
+}
+
 .movie__detals {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 10px;
-  list-style: none;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     justify-content: start;
@@ -218,11 +209,7 @@ button {
     gap: 83px;
   }
 }
+
 .movie__info {
-  @media screen and (min-width: 768px) {
-    max-width: 300px;
-  }
-  @media screen and (min-width: 1280px) {
-    max-width: 375px;
-  }
+  margin-top: 20px;
 }
