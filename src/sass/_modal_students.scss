@@ -41,8 +41,7 @@ body.show-modal {
   margin: auto;
   padding: 24px;
   border-radius: 5px;
-  max-width: 300px;
-  min-width: 320px;
+  max-width: 320px;
   max-height: 90vh;
   width: 100%;
   overflow-y: scroll;
@@ -90,7 +89,7 @@ body.show-modal {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .team__title:nth-child(even) {
@@ -139,7 +138,7 @@ body.show-modal {
 
 .dev__item {
   width: 230px;
-  height: 350px;
+  height: 300px;
   position: relative;
 
   &:hover .dev__info,
@@ -194,7 +193,7 @@ body.show-modal {
 
 .dev__info {
   width: 230px;
-  height: 350px;
+  height: 290px;
   opacity: 0;
   background: transparent;
   border-radius: 10px;
