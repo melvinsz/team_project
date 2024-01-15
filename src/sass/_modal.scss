@@ -47,8 +47,8 @@ body.active {
   }
 
   @media screen and (min-width: 1280px) {
-    min-width: 808px;
-    padding: 40px 10px;
+    min-width: 806px;
+    padding: 40px 12px;
   }
   &.is-hidden {
     opacity: 0;
@@ -73,30 +73,14 @@ button {
 
   padding: 12px 10px;
   margin-top: 20px;
-  @media screen and (min-width: 768px) {
-    height: 38px;
-    width: 119px;
-  }
-  @media screen and (min-width: 1280px) {
-    height: 42px;
-    width: 134px;
-  }
 }
 
 .movie__add {
   color: #ffffff;
   background-color: $red-color;
-  padding: 0;
   border-color: #ffffff;
-  text-align: center;
-  width: 125px;
   margin-right: 2px;
-  margin-top: 20px;
-  @media screen and (min-width: 768px) {
-    width: 158px;
-  }
   @media screen and (min-width: 1280px) {
-    width: 167px;
     margin-right: 10px;
   }
 }
@@ -155,14 +139,45 @@ button {
 .slash {
   color: #8c8c8c;
 }
+
+.movie__about--modal {
+  margin-bottom: 20px;
+}
+
+.movie__card {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+}
+
+.movie__item > img {
+  border-radius: 5px;
+  @media screen and (min-width: 768px) {
+    width: 264px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+  }
+}
+
+.movie__detals {
+  display: flex;
+  gap: 39px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 1280px) {
+    gap: 83px;
+  }
+}
+
 .movie__detals--key {
   color: #8c8c8c;
-  max-width: 120px;
-}
-.movie__detals--value {
-  @media screen and (min-width: 280px) {
-    max-width: 130px;
-  }
 }
 
 .info-item,
@@ -171,45 +186,9 @@ button {
   margin-bottom: 8px;
 }
 
-.movie__about--modal {
-  margin-bottom: 20px;
-}
-
-.movie__card {
-  text-align: start;
-  display: block;
-  list-style: none;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-  @media screen and (min-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 60px;
-  }
-  @media screen and (min-width: 1280px) {
-    gap: 20px;
-  }
-}
-
-.movie__item > img {
-  border-radius: 5px;
-}
-
-.movie__detals {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
-    justify-content: start;
-    gap: 68px;
-  }
-  @media screen and (min-width: 1280px) {
-    gap: 83px;
-  }
-}
-
 .movie__info {
   margin-top: 20px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
 }
