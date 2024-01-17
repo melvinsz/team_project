@@ -1,4 +1,4 @@
-import renderMarkur from './render_cards_two';
+import renderMarkur from './render_cards';
 import Notiflix from 'notiflix';
 
 import Api_Services from './services/Api_services';

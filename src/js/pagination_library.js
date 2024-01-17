@@ -1,5 +1,5 @@
 import localStore from './services/local_storage';
-import renderMarkur from './render_cards_two';
+import renderMarkur from './render_cards';
 
 const count = 6;
 let n;

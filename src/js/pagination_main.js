@@ -1,4 +1,4 @@
-import renderMarkur from './render_cards_two';
+import renderMarkur from './render_cards';
 import { query } from './search_by_name';
 import ApiServices from './services/Api_services';
 

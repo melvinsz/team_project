@@ -1,6 +1,6 @@
 'use strict';
 
-import renderMarkur from './render_cards_two';
+import renderMarkur from './render_cards';
 import Notiflix from 'notiflix';
 
 import localStore from './services/local_storage.js';
