@@ -5,8 +5,6 @@ import getGenres from './services/connect_genres.js';
 const BASE_URL_POSTER = 'https://image.tmdb.org/t/p/w500/';
 const DEFAULT_POSTER =
   'https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg';
-const watchedList = document.querySelector('.libraryWQ.collection');
-const QueueList = document.querySelector('.library__container');
 const btnWatched = document.querySelector('#btnWatched');
 const btnQueued = document.querySelector('#btnQueued');
 
@@ -18,9 +16,6 @@ export default function renderAddToQueue(event) {
   filmAddedToQueue(parsQueue.slice(0, count));
   btnWatched.classList.remove('active-btn');
   btnQueued.classList.add('active-btn');
-  localStorageCheck();
-  watchedList.innerHTML = '';
-  QueueList.innerHTML = '';
 }
 
 function filmAddedToQueue(data) {
@@ -44,19 +39,4 @@ function filmAddedToQueue(data) {
      `
     )
     .join('');
-  watchedList.innerHTML = parsQueue;
-  QueueList.innerHTML = '';
-}
-
-function localStorageCheck() {
-  if (watchedList.innerHTML === '') {
-    const emptyList = `
-  <li class="card">
-    Your library of watched movies is empty.
-    <img src="../images/no-image.jpg" alt="No Poster Available">
-  </li>
-`;
-    watchedList.innerHTML = emptyList;
-    QueueList.innerHTML = '';
-  }
 }
