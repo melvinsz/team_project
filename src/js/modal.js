@@ -69,20 +69,16 @@ function openModalHome(e) {
     massiveMovies = localStore.load('trendMovies');
     movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
     LOCAL_StORAGE_KEY = 'trendMovies';
-    console.log(LOCAL_StORAGE_KEY, movie);
     if (movie === undefined) {
       LOCAL_StORAGE_KEY = 'searchMovies';
-      console.log(LOCAL_StORAGE_KEY, movie);
     }
   } else if (refs.btnWatched?.classList.contains('active-btn')) {
     LOCAL_StORAGE_KEY = 'watched-films';
   } else if (refs.btnQueued?.classList.contains('active-btn')) {
     LOCAL_StORAGE_KEY = 'queue-movies';
-    console.log(LOCAL_StORAGE_KEY, movie);
   }
   massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
-  console.log(LOCAL_StORAGE_KEY, movie);
   modalFilmCart(movie);
   onAddToWatched(movie);
   addToQueue(movie);
