@@ -9,6 +9,7 @@ const btnQueued = document.querySelector('#btnQueued');
 const STORAGE_KEY = 'watched-films';
 
 export default function renderAddToWatched(event) {
+  console.log('типу клік по кнопці watched зверху, файл watched_button');
   const parsedWatchedFilms = JSON.parse(localStorage.getItem(STORAGE_KEY));
   filmWatched(parsedWatchedFilms.slice(0, count));
   btnWatched.classList.add('active-btn');
@@ -16,6 +17,7 @@ export default function renderAddToWatched(event) {
 }
 
 function filmWatched(data) {
+  console.log('object');
   const parsedWatchedFilms = data
     .map(
       ({ id, title, poster_path, genre_ids, release_date }) =>

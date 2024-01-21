@@ -11,6 +11,7 @@ const btnQueued = document.querySelector('#btnQueued');
 const STORAGE_KEY = 'queue-movies';
 
 export default function renderAddToQueue(event) {
+  console.log('типу клік по кнопці queue зверху, файл queue_button');
   const parsQueue = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   filmAddedToQueue(parsQueue.slice(0, count));

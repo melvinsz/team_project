@@ -7,6 +7,7 @@ const colectionUl = document.querySelector('.collection');
 const inputRef = document.querySelector('.header_search-input');
 
 export default function renderMarkur(massiveMovies) {
+  console.log('має бути рендер карток, файл render_cards');
   colectionUl.innerHTML = '';
   inputRef.value = '';
   const markup = massiveMovies

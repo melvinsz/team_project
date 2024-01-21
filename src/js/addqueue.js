@@ -4,6 +4,7 @@ const QUEUE_KEY = 'queue-movies';
 //     але закоментувала, розкоментуйте, щоб працювало
 
 export default function addToQueue(data) {
+  console.log('типу клік по кнопці addToQueue в модал, файл addqueue');
   const movieToAdd = data;
 
   const addToQueueRef = document.querySelector('[data-modal-queue]');
