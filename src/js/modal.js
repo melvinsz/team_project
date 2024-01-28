@@ -1,10 +1,9 @@
 import localStore from './services/local_storage';
 import getGenres from './services/connect_genres';
 import onAddToWatched from './add_to_watched';
-import renderAddToWatched from './wathched_button';
-import renderAddToQueue from './queue_button';
-
 import addToQueue from './addqueue';
+
+import renderMarkur from './render_cards';
 
 let imageMarkup = '';
 let LOCAL_StORAGE_KEY = [];
@@ -39,10 +38,16 @@ function closeModal() {
 
   if (refs.btnWatched?.classList.contains('active-btn')) {
     console.log('викликається renderaddToWatched, файл modal');
-    renderAddToWatched();
+
+    console.log('massiveMovies', massiveMovies);
+    const watchedMovies = localStore.load('watched-films');
+    renderMarkur(watchedMovies);
+    console.log('watchedMovies ', watchedMovies);
   } else if (refs.btnQueued?.classList.contains('active-btn')) {
     console.log('викликається renderaddToQueue, файл modal');
-    renderAddToQueue();
+    const queueMovies = localStore.load('queue-movies');
+    renderMarkur(queueMovies);
+    console.log('queueMovies', queueMovies);
   }
 }
 
@@ -85,7 +90,6 @@ function openModalHome(e) {
   massiveMovies = localStore.load(LOCAL_StORAGE_KEY);
   movie = massiveMovies.find(massiveMovie => massiveMovie.id === currentID);
   modalFilmCart(movie);
-  // чого запускається вона при відкриттій модалки?
   onAddToWatched(movie);
   addToQueue(movie);
 }
