@@ -31,23 +31,16 @@ refs.backdropOpCl.addEventListener('click', closeModal);
 document.addEventListener('keydown', closeModalOnEsc);
 
 function closeModal() {
-  console.log('має бути закриття модалки, файл modal');
   refs.modal.classList.add('is-hidden');
   document.body.classList.remove('active');
   refs.backdropOpCl.classList.add('is-hidden');
 
   if (refs.btnWatched?.classList.contains('active-btn')) {
-    console.log('викликається renderaddToWatched, файл modal');
-
-    console.log('massiveMovies', massiveMovies);
     const watchedMovies = localStore.load('watched-films');
     renderMarkur(watchedMovies);
-    console.log('watchedMovies ', watchedMovies);
   } else if (refs.btnQueued?.classList.contains('active-btn')) {
-    console.log('викликається renderaddToQueue, файл modal');
     const queueMovies = localStore.load('queue-movies');
     renderMarkur(queueMovies);
-    console.log('queueMovies', queueMovies);
   }
 }
 
@@ -58,7 +51,6 @@ function closeModalOnEsc(event) {
 }
 
 function openModalElem() {
-  console.log('якась функція openModalElem, файл modal');
   refs.modal.classList.remove('is-hidden');
   refs.modal.classList.add('is-active');
   refs.backdropOpCl.classList.remove('is-hidden');
@@ -66,7 +58,6 @@ function openModalElem() {
 }
 
 function openModalHome(e) {
-  console.log('якась функція openModalHome, файл modal');
   if (!e.target.classList.contains('card__img')) {
     return;
   }

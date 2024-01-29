@@ -1,7 +1,6 @@
 const STORAGE_KEY = 'watched-films';
 
 export default function addToWatched(movie) {
-  console.log('типу клік по кнопці addToWatched в модал, файл add_to_watched');
   const addToWatchedRef = document.querySelector('[data-modal-add]');
   let parsedWatchedFilms;
   const parsedList = JSON.parse(localStorage.getItem(STORAGE_KEY));
